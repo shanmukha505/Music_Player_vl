@@ -23,18 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/home', 'HomeController@store');
 
-
 Route::post('/upload', 'SongController@store');
-
 
 Route::post('/isLoggedIn','SongController@isLoggedIn');
 
 Route::post('/song','SongController@get');
 
-
 Route::get('/songFile/{place}/{file}','SongController@getFile');
-
-
 
 Route::post('/songsrc','SongController@src');
 

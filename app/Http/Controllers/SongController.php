@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Storage;
 
 class SongController extends Controller
 {
-    //
-
-
 
 	public function isLoggedIn()
 	{
@@ -31,38 +28,48 @@ class SongController extends Controller
 
     	
         $this->validate($request, [
+            
             'name' => 'required|unique:songs',
+            
             'file' => 'required',
+            
             'visible' => 'required'
+        
         ]);
        
         $model = new Song();
+        
         $file = $request->file('file');
+        
         $place = "". $this->getUserDir();
+        
         if (Storage::putFileAs('/public/' . $this->getUserDir() . '/', $file, $request['name'] )) {
         	
         	
             return $model::create([
+        
                     'name' => $request['name'],
+        
                     'src'  =>  '/'.$place,
+        
                     'user_id' => Auth::id(),
+        
                     'visible' => $request['visible']
+        
                 ]);
         }
 
-
-
         return response()->json(['success'=>'You have successfully upload file.']);
-
        
     }
 
-     private function getUserDir()
+    private function getUserDir()
     {
         return Auth::user()->name . '_' . Auth::id();
     }
 
-    public function get(Request $request) {
+    public function get(Request $request) 
+    {
 
     	$model = new Song();
         
@@ -70,7 +77,8 @@ class SongController extends Controller
 
     }
 
-    public function src(Request $request) {
+    public function src(Request $request) 
+    {
 
     	return storage_path();
     }
@@ -82,10 +90,7 @@ class SongController extends Controller
 
     	$file= Storage::get($path);
 
-    	
-
     	return (new Response($file,200))->header('Content-Type','audio/mpeg'); 
-
 
     }
 

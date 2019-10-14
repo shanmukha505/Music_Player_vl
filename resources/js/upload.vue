@@ -1,39 +1,71 @@
 
 <template>
+  
   <div class="container">
+  
     <div class="container" v-if="user!=''">
+  
         <div class="large-12 medium-12 small-12 filezone">
+  
             <input type="file" class="files" id="files" ref="files" multiple v-on:change="handleFiles()"/>
+  
             <p>
+  
                 Drop your files here <br>or click to search
+  
             </p>
+  
         </div>
 
+  
         <div v-for="(file, key) in files" class="file-listing">
+  
             <img class="preview" v-bind:ref="'preview'+parseInt(key)"/>
+  
             {{ file.name }}
 
+
             <select v-model="visiblitiy[key]">
+
                 <option>public</option>
+
                 <option>private</option>
+
             </select>
+
             <div class="success-container" v-if="file.id > 0">
+
                 Success
+
             </div>
+
             <div class="remove-container" v-else>
 
                 <a class="remove" v-on:click="removeFile(key)">Remove</a>
+
             </div>
+
         </div>
 
         <a class="submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Submit</a>
 
         <div>
+
           your uploaded songs
+
+          <div v-for="(song, key) in songs" class="">
+              
+
+          </div>
+
         </div>
+
     </div>
+
     <h1 class="title is-1" v-else>Please log in</h1>
+
   </div>
+
 </template>
 
 <script>
@@ -41,16 +73,23 @@
   export default {
 
     data() {
+
        return {
+
         files: [],
+
         user:'',
+
         visiblitiy: [],
+
       }
+
     },
 
 
     mounted()
     {
+
       axios.post('/isLoggedIn').then(response => {
 
         this.user=response.data;
@@ -72,6 +111,7 @@
         for(var i = 0; i < uploadedFiles.length; i++) {
         
           this.files.push(uploadedFiles[i]);
+
           this.visiblitiy[i]="public";
         
         }

@@ -1907,9 +1907,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["song", "src"],
   data: function data() {
@@ -2080,7 +2077,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.mins = Math.round(Math.round(this.sliderValue) / 60);
-      this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
+      var secs = Math.round(this.sliderValue) % 60;
+      if (secs.toString().length == 1) this.currenttime = this.mins + ':0' + Math.round(this.sliderValue) % 60;else this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
     },
     volumechange: function volumechange() {
       this.audio.volume(this.$refs.volume.value / 1000);
@@ -2132,7 +2130,7 @@ __webpack_require__.r(__webpack_exports__);
       l.max = this.audio.duration();
       var mins = Math.floor(this.audio._duration / 60);
       var secs = this.audio._duration - mins * 60;
-      this.duration = mins + ':' + Math.floor(secs);
+      if (secs.toString().length == 1) this.duration = mins + ':0' + Math.floor(secs);else this.duration = mins + ':' + Math.floor(secs);
 
       if (l.value != l.max) {
         this.sliderValue = this.audio.seek();
@@ -2142,7 +2140,8 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         this.mins = Math.round(Math.round(this.sliderValue) / 60);
-        this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
+        var secs = Math.round(this.sliderValue) % 60;
+        if (secs.toString().length == 1) this.currenttime = this.mins + ':0' + Math.round(this.sliderValue) % 60;else this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
       }
 
       if (Math.round(this.audio.seek()) == Math.round(this.audio.duration()) - 1) {
@@ -2150,7 +2149,6 @@ __webpack_require__.r(__webpack_exports__);
         clearInterval(this.interval);
 
         if (this.ssingle == true) {
-          //console.log(this.index);
           this.index = this.index - 1;
         } else if (this.disabled == true) {
           this.suffles();
@@ -2205,7 +2203,7 @@ __webpack_require__.r(__webpack_exports__);
       this.ssingle = false;
     },
     suffles: function suffles() {
-      var count = 1; //console.log(this.songs.length);
+      var count = 1;
 
       while (count > 0) {
         var rand = Math.round(Math.random() * (this.songs.length - 1));
@@ -2215,11 +2213,10 @@ __webpack_require__.r(__webpack_exports__);
           this.index = rand;
           count = -1;
         } else if (this.songs.length == this.rand_song.length) {
-          console.log(rand);
           this.rand_song = [];
           this.rand_song_count = 0;
           this.rand_song[this.rand_song_count++] = rand;
-          this.index = rand; //console.log('songsrand length'+this.rand_song.length);
+          this.index = rand;
         }
       }
     },
@@ -2279,6 +2276,38 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6895,7 +6924,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.play{\n\n    background-repeat: no-repeat;\n    background-position: 50% 50%;  \n    height: 25px;\n    width: 45px;\n    border: none;\n    display: inline-block;\n\n    margin-top: 2%;\n}\n.play.active{\n\n  background-image: url(https://image.flaticon.com/icons/svg/149/149657.svg);\n}\n.play.pause{\n\n  background-image: url(https://image.flaticon.com/icons/svg/151/151859.svg);\n}\n.play.previous{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12067.svg');\n}\n.play.next{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12314.svg');\n}\n.play.suffle.suffles{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149674.svg')\n}\n.play.suffle{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149131.svg');\n}\n.play.repeat{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149133.svg');\n}\n.play.repeat.repeats{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149676.svg');\n}\n.single{\n\n  background-repeat: no-repeat;\n    background-position: 50% 50%;  \n    height: 40px;\n    width: 45px;\n    border: none;\n    display: inline-block;\n    padding-top: 2%;\n\n    padding-bottom: 1%;\n\n\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat.svg */ "./resources/js/noun_Repeat.svg")) + ");\n}\n.singles{\n\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat One_2195448.svg */ "./resources/js/noun_Repeat One_2195448.svg")) + ");\n}\n.audio{\n\n  background: linear-gradient(90deg, rgb(290,224,66),rgb(0,143,144));\n  padding: 50px;\n  border : hidden;\n  border-radius: 25px;\n}\nh2{\n  font-size: 0.2rem;\n  margin-top: 5%;\n}\n.image{\n\n  width: 250px;\n  height: 225px;\n}\n.slidecontainer {\n \n  width: 100%;\n}\n.slider {\n \n  -webkit-appearance: none;\n \n  width: 75%;\n \n  height: 15px;\n \n  border-radius: 5px;\n\n  margin-top: 2%;\n \n  background-color: #2d3436;\n\n  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);\n \n  outline: none;\n \n  opacity: 0.7;\n \n  transition: opacity .2s;\n}\n.slider:hover {\n\n  opacity: 1;\n}\n.slider::-webkit-slider-thumb {\n\n  -webkit-appearance: none;\n\n  appearance: none;\n\n  width: 25px;\n\n  height: 25px;\n\n  border-radius: 50%;\n\n  background: #00C9FF;\n \n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n\n  width: 25px;\n\n  height: 25px;\n\n  border-radius: 25%;\n\n  background: #00C9FF;\n\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n\n\n  cursor: pointer;\n}\n.volume {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  position: absolute;\n  left: auto;\n  border-radius:45px;\n  margin-top:2.7%;\n  width: 7%;\n  height: 1.5%;\n  transform: translate(-40%, -40%);\n}\nvolume[type=range] {\n  -webkit-appearance: none;\n  background: transparent;\n}\n.volume[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n}\n.volume[type=range]:focus {\n  outline: none;\n}\n.volume[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n\n  height: 200%;\n  width: 23%;\n  border-radius: 50%;\n  border: 2px solid #fff;\n  background: #000000;\n  cursor: pointer;\n  margin-top: -6px;\n  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);}\n.volume[type=range]::-webkit-slider-runnable-track {\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  background: #000000;\n  border-radius: 6px;\n  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);\n}\n.volume[type=range]::-moz-range-thumb {\n  -moz-appearance: none;\n  border: 2px solid;\n  border-radius: 50%;\n  height: 25px;\n  width: 25px;\n  max-width: 80px;\n  position: relative;\n  bottom: 11px;\n  background-color: #1d1c25;\n  cursor: -moz-grab;\n  transition: border 1000ms ease;\n}\n.range.blue::-moz-range-thumb {\n   border-color: rgb(59,173,227);\n}\n.range.ltpurple::-moz-range-thumb {\n   border-color: rgb(87,111,230);\n}\n.range.purple::-moz-range-thumb {\n   border-color: rgb(152,68,183);\n}\n.range.pink::-moz-range-thumb {\n   border-color: rgb(255,53,127);\n}\n.volume[type=range]::-moz-range-thumb:active {\n  cursor: -moz-grabbing;\n}\n.volume[type=range]::-moz-range-track {\n  -moz-appearance: none;\n  background: rgba(59,173,227,1);\n  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));\n  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );\n  height: 2px;\n}\n\n \n\n\n\n", ""]);
+exports.push([module.i, "\n.play{\n\n    background-repeat: no-repeat;\n    background-position: 50% 50%;  \n    height: 25px;\n    width: 45px;\n    border: none;\n    display: inline-block;\n\n    margin-top: 2%;\n}\n.play.active{\n\n  background-image: url(https://image.flaticon.com/icons/svg/149/149657.svg);\n}\n.play.pause{\n\n  background-image: url(https://image.flaticon.com/icons/svg/151/151859.svg);\n}\n.play.previous{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12067.svg');\n}\n.play.next{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12314.svg');\n}\n.play.suffle.suffles{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149674.svg')\n}\n.play.suffle{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149131.svg');\n}\n.play.repeat{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149133.svg');\n}\n.play.repeat.repeats{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149676.svg');\n}\n.single{\n\n  background-repeat: no-repeat;\n  background-position: 50% 50%;  \n  height: 40px;\n  width: 45px;\n  border: none;\n  display: inline-block;\n  padding-top: 2%;\n  padding-bottom: 1%;\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat.svg */ "./resources/js/noun_Repeat.svg")) + ");\n}\n.singles{\n\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat One_2195448.svg */ "./resources/js/noun_Repeat One_2195448.svg")) + ");\n}\n.audio{\n\n  background: linear-gradient(90deg, rgb(290,224,66),rgb(0,143,144));\n  padding: 50px;\n  border : hidden;\n  border-radius: 25px;\n}\nh2{\n  font-size: 0.2rem;\n  margin-top: 5%;\n}\n.image{\n\n  width: 250px;\n  height: 225px;\n}\n.slidecontainer {\n \n  width: 100%;\n}\n.slider {\n \n  -webkit-appearance: none; \n  width: 75%;\n  height: 15px;\n  border-radius: 5px;\n  margin-top: 2%;\n  background-color: #2d3436;\n  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);\n  outline: none;\n  opacity: 0.7;\n  transition: opacity .2s;\n}\n.slider:hover {\n\n  opacity: 1;\n}\n.slider::-webkit-slider-thumb {\n\n  -webkit-appearance: none;\n  appearance: none;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n\n  width: 25px;\n  height: 25px;\n  border-radius: 25%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.volume {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  position: absolute;\n  left: auto;\n  border-radius:45px;\n  margin-top:2.7%;\n  width: 7%;\n  height: 1.5%;\n  transform: translate(-40%, -40%);\n}\nvolume[type=range] {\n  \n  -webkit-appearance: none;\n  background: transparent;\n}\n.volume[type=range]::-webkit-slider-thumb {\n  \n  -webkit-appearance: none;\n}\n.volume[type=range]:focus {\n\n  outline: none;\n}\n.volume[type=range]::-webkit-slider-thumb {\n  \n  -webkit-appearance: none;\n  height: 200%;\n  width: 23%;\n  border-radius: 50%;\n  border: 2px solid #fff;\n  background: #000000;\n  cursor: pointer;\n  margin-top: -6px;\n  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);}\n.volume[type=range]::-webkit-slider-runnable-track {\n\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  background: #000000;\n  border-radius: 6px;\n  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);\n}\n.volume[type=range]::-moz-range-thumb {\n\n  -moz-appearance: none;\n  border: 2px solid;\n  border-radius: 50%;\n  height: 25px;\n  width: 25px;\n  max-width: 80px;\n  position: relative;\n  bottom: 11px;\n  background-color: #1d1c25;\n  cursor: -moz-grab;\n  transition: border 1000ms ease;\n}\n.range.blue::-moz-range-thumb {\n   border-color: rgb(59,173,227);\n}\n.range.ltpurple::-moz-range-thumb {\n   border-color: rgb(87,111,230);\n}\n.range.purple::-moz-range-thumb {\n   border-color: rgb(152,68,183);\n}\n.range.pink::-moz-range-thumb {\n   border-color: rgb(255,53,127);\n}\n.volume[type=range]::-moz-range-thumb:active {\n  cursor: -moz-grabbing;\n}\n.volume[type=range]::-moz-range-track {\n\n  -moz-appearance: none;\n  background: rgba(59,173,227,1);\n  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));\n  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );\n  height: 2px;\n}\n\n", ""]);
 
 // exports
 
@@ -41989,7 +42018,9 @@ var render = function() {
                   refInFor: true,
                   staticClass: "preview"
                 }),
-                _vm._v("\n          " + _vm._s(file.name) + "\n\n          "),
+                _vm._v(
+                  "\n\n          " + _vm._s(file.name) + "\n\n\n          "
+                ),
                 _c(
                   "select",
                   {
@@ -42030,7 +42061,7 @@ var render = function() {
                 _vm._v(" "),
                 file.id > 0
                   ? _c("div", { staticClass: "success-container" }, [
-                      _vm._v("\n              Success\n          ")
+                      _vm._v("\n\n              Success\n\n          ")
                     ])
                   : _c("div", { staticClass: "remove-container" }, [
                       _c(
@@ -42070,7 +42101,16 @@ var render = function() {
               [_vm._v("Submit")]
             ),
             _vm._v(" "),
-            _c("div", [_vm._v("\n        your uploaded songs\n      ")])
+            _c(
+              "div",
+              [
+                _vm._v("\n\n        your uploaded songs\n\n        "),
+                _vm._l(_vm.songs, function(song, key) {
+                  return _c("div", {})
+                })
+              ],
+              2
+            )
           ],
           2
         )
@@ -42083,9 +42123,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\n              Drop your files here "),
+      _vm._v("\n\n              Drop your files here "),
       _c("br"),
-      _vm._v("or click to search\n          ")
+      _vm._v("or click to search\n\n          ")
     ])
   }
 ]

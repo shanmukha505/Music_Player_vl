@@ -126,9 +126,6 @@ export default {
 
       });
       
-
-
-      
     },
 
   data() {
@@ -198,17 +195,24 @@ export default {
       this.sliderValue=parseInt(this.$refs.slider.value);
 
       if(Math.round(this.sliderValue)%60 ==0)
-          {
+      {
 
-            this.mins=Math.round(this.sliderValue)/60;
+        this.mins=Math.round(this.sliderValue)/60;
 
-          }
+      }
 
-          this.mins=Math.round(Math.round(this.sliderValue)/60);
+      this.mins=Math.round(Math.round(this.sliderValue)/60);
+
+      var secs=Math.round(this.sliderValue)%60;
+
+      if(secs.toString().length==1)
           
-          this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
+        this.currenttime=this.mins+':0'+Math.round(this.sliderValue)%60;
+        
+      else
+        
+        this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
 
-   
     },
 
 
@@ -218,6 +222,7 @@ export default {
       this.audio.volume(this.$refs.volume.value/1000);
 
       this.volume=this.$refs.volume.value;
+    
     },
 
     play(){
@@ -238,64 +243,64 @@ export default {
       
       else{
 
-      if(this.previoussong != this.name){
+        if(this.previoussong != this.name){
 
-        this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
+          this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
-        audio= new Howl({ src: this.songname });
+          audio= new Howl({ src: this.songname });
 
-        this.previoussong=this.name;
+          this.previoussong=this.name;
        
-        this.audio.stop();
-       
-        this.audio=audio;
-
-        this.sliderValue='0';
-     
-      }
-      else
-      {
-        if(this.ssingle==true)
-         
           this.audio.stop();
        
+          this.audio=audio;
+
+          this.sliderValue='0';
+     
+        }
+    
         else
+        {
+        
+          if(this.ssingle==true)
+         
+            this.audio.stop();
        
+          else
+       
+            this.audio.pause();
+      
+        }
+
+        if (!this.active) {
+
+          this.audio.play();
+
+          this.audio.volume(this.$refs.volume.value/1000);
+
+          this.mins=0;
+       
+          clearInterval(this.interval);
+       
+          this.slider();
+          
+        }
+
+        else{
+
           this.audio.pause();
-      }
 
+          this.mins=0;
 
+          clearInterval(this.interval);
 
-      if (!this.active) {
+          this.sliderValue=parseInt(this.$refs.slider.value);
 
-        this.audio.play();
-
-        this.audio.volume(this.$refs.volume.value/1000);
-
-        this.mins=0;
-       
-        clearInterval(this.interval);
-       
-        this.slider();
-     
-     
-      }
-
-      else{
-
-        this.audio.pause();
-
-        this.mins=0;
-
-        clearInterval(this.interval);
-
-        this.sliderValue=parseInt(this.$refs.slider.value);
-
-      }
+        }
 
       this.active=!this.active;
 
-    }
+      }
    
     },
 
@@ -318,52 +323,64 @@ export default {
 
       var secs = this.audio._duration - mins * 60;
 
-      this.duration = mins + ':' + Math.floor(secs);
+      if(secs.toString().length==1)
 
-      if(l.value!=l.max){
+        this.duration = mins + ':0' + Math.floor(secs);
 
-          this.sliderValue=this.audio.seek();
+      else
 
-          if(Math.round(this.sliderValue)%60 ==0)
-          {
+        this.duration = mins + ':' + Math.floor(secs);
 
-            this.mins=Math.round(this.sliderValue)/60;
+      if(l.value!=l.max)
+      {
 
-          }
+        this.sliderValue=this.audio.seek();
 
-          this.mins=Math.round(Math.round(this.sliderValue)/60);
+        if(Math.round(this.sliderValue)%60 ==0)
+        {
+
+          this.mins=Math.round(this.sliderValue)/60;
+
+        }
+
+        this.mins=Math.round(Math.round(this.sliderValue)/60);
           
+        var secs=Math.round(this.sliderValue)%60;
+
+        if(secs.toString().length==1)
+          
+          this.currenttime=this.mins+':0'+Math.round(this.sliderValue)%60;
+        
+        else
+        
           this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
 
+      }
+
+      if(Math.round(this.audio.seek()) == Math.round(this.audio.duration())-1){
+
+        this.mins=0;
+
+        clearInterval(this.interval);
+
+        if(this.ssingle==true)
+        {
+
+         this.index=this.index-1;
+
         }
+        else if(this.disabled==true)
+        {
 
-        if(Math.round(this.audio.seek()) == Math.round(this.audio.duration())-1){
-
-          this.mins=0;
-
-          clearInterval(this.interval);
-
-          if(this.ssingle==true)
-          {
-
-            //console.log(this.index);
-
-            this.index=this.index-1;
-
-          }
-          else if(this.disabled==true)
-          {
-
-            this.suffles();
-
-          }
-
-          this.playprevious();
+          this.suffles();
 
         }
 
-    }
-    ,
+        this.playprevious();
+
+      }
+
+    },
 
     view(name) {
 
@@ -375,8 +392,11 @@ export default {
 
       for(var i=0;i<this.songs.length;i++)
       {
+     
         if(this.songs[i]['name']==name)
+     
           this.index=i;
+     
       }
      
       this.image=this.images[this.index];
@@ -393,7 +413,7 @@ export default {
       if(this.disabled==true)
       {
 
-          this.suffles();
+        this.suffles();
 
       }
       else{
@@ -410,6 +430,7 @@ export default {
           {
             this.index = 0;
           }
+        
           else
             
           return;
@@ -433,26 +454,25 @@ export default {
       else
       {
 
-      if(this.index-1 != -1)
-      {
+        if(this.index-1 != -1)
+        {
 
-        this.index = this.index-1;
+          this.index = this.index-1;
 
-      }
-
-      else
-      {
-
-        if(this.sdisabled==true)
-          
-          this.index=this.songs.length-1;
+        }
 
         else
-        
-          return;
-      }
-    }
+        {
 
+          if(this.sdisabled==true)
+          
+            this.index=this.songs.length-1;
+
+          else
+        
+            return;
+        }
+      }
 
       this.$children[this.index].isActive();
  
@@ -468,42 +488,36 @@ export default {
 
     suffles() {
 
-     
       var count=1;
 
-      //console.log(this.songs.length);
-
-        while(count>0){
+      while(count>0){
            
-          var rand=Math.round(Math.random() * (this.songs.length-1));
+        var rand=Math.round(Math.random() * (this.songs.length-1));
 
-          if(this.rand_song.indexOf(rand) == -1)
-          {
+        if(this.rand_song.indexOf(rand) == -1)
+        {
 
-            this.rand_song[this.rand_song_count++]=rand;
+          this.rand_song[this.rand_song_count++]=rand;
 
-            this.index=rand;
+          this.index=rand;
 
-            count=-1;
+          count=-1;
 
-          }
-          else if(this.songs.length==this.rand_song.length)
-          {
+        }
+        else if(this.songs.length==this.rand_song.length)
+        {
 
-              console.log(rand);
+          this.rand_song=[];
 
-              this.rand_song=[];
+          this.rand_song_count=0;
 
-              this.rand_song_count=0;
+          this.rand_song[this.rand_song_count++]=rand;
 
-              this.rand_song[this.rand_song_count++]=rand;
+          this.index=rand;
 
-              this.index=rand;
+        }
 
-              //console.log('songsrand length'+this.rand_song.length);
-
-            }
-          }
+      }
 
     },
 
@@ -512,7 +526,6 @@ export default {
       this.sdisabled=!this.sdisabled;
 
       this.ssingle=false;
-
 
     },
 
@@ -596,16 +609,13 @@ export default {
 .single{
 
   background-repeat: no-repeat;
-    background-position: 50% 50%;  
-    height: 40px;
-    width: 45px;
-    border: none;
-    display: inline-block;
-    padding-top: 2%;
-
-    padding-bottom: 1%;
-
-
+  background-position: 50% 50%;  
+  height: 40px;
+  width: 45px;
+  border: none;
+  display: inline-block;
+  padding-top: 2%;
+  padding-bottom: 1%;
   background-image: url('noun_Repeat.svg');
 
 }
@@ -645,28 +655,17 @@ h2{
 
 .slider {
  
-  -webkit-appearance: none;
- 
+  -webkit-appearance: none; 
   width: 75%;
- 
   height: 15px;
- 
   border-radius: 5px;
-
   margin-top: 2%;
- 
   background-color: #2d3436;
-
   background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
- 
   outline: none;
- 
   opacity: 0.7;
- 
   -webkit-transition: .2s;
- 
   transition: opacity .2s;
-
 }
 
 .slider:hover {
@@ -678,21 +677,13 @@ h2{
 .slider::-webkit-slider-thumb {
 
   -webkit-appearance: none;
-
   appearance: none;
-
   width: 25px;
-
   height: 25px;
-
   border-radius: 50%;
-
   background: #00C9FF;  
- 
   background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);
- 
   background: linear-gradient(to right, #92FE9D, #00C9FF);
-
   cursor: pointer;
 
 }
@@ -701,18 +692,11 @@ h2{
 .slider::-moz-range-thumb {
 
   width: 25px;
-
   height: 25px;
-
   border-radius: 25%;
-
   background: #00C9FF;
-
   background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);
-
   background: linear-gradient(to right, #92FE9D, #00C9FF);
-
-
   cursor: pointer;
 
 }
@@ -731,21 +715,27 @@ h2{
 
 
 volume[type=range] {
+  
   -webkit-appearance: none;
   background: transparent;
+
 }
 
 .volume[type=range]::-webkit-slider-thumb {
+  
   -webkit-appearance: none;
+
 }
 
 .volume[type=range]:focus {
-  outline: none; }
 
+  outline: none; 
+
+}
 
 .volume[type=range]::-webkit-slider-thumb {
+  
   -webkit-appearance: none;
-
   height: 200%;
   width: 23%;
   border-radius: 50%;
@@ -756,16 +746,19 @@ volume[type=range] {
   box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);}
 
 .volume[type=range]::-webkit-slider-runnable-track {
+
   width: 100%;
   height: 100%;
   cursor: pointer;
   background: #000000;
   border-radius: 6px;
   box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);
+
 }
 
 
 .volume[type=range]::-moz-range-thumb {
+
   -moz-appearance: none;
   border: 2px solid;
   border-radius: 50%;
@@ -803,6 +796,7 @@ volume[type=range] {
 
 
 .volume[type=range]::-moz-range-track {
+
   -moz-appearance: none;
   background: rgba(59,173,227,1);
   background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
@@ -813,10 +807,7 @@ volume[type=range] {
   background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
   height: 2px;
+
 }
-
- 
-
-
 
 </style>

@@ -1,13 +1,10 @@
 <template>
 		
+	<section class="songnames" id="name" :class="{'active':active}" v-on:click="isActive">
 
+	    <a class="button" style="background-color: lightyellow;width:100%;" >{{ name }}</a>
 
-			<section class="songnames" id="name" :class="{'active':active}" v-on:click="isActive">
-
-
-	        			<a class="button" style="background-color: lightyellow;width:100%;" >{{ name }}</a>
-
-			</section>
+	</section>
 
 </template>
 
