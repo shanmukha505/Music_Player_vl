@@ -38,5 +38,3 @@ Route::get('/songFile/{place}/{file}','SongController@getFile');
 
 Route::post('/songsrc','SongController@src');
 
-
-Route::post('/uploadsongs', 'SongController@usersongs');

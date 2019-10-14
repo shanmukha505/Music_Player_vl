@@ -25,7 +25,9 @@
       </div>
      
       <div class="slidecontainer">
-     
+
+
+        {{ this.currenttime }}
         <input type="range" min="0" :max="songduration" class="slider" :value="sliderValue" id="myRange" @change="changed" ref="slider">
         {{ this.duration }}
      
@@ -102,7 +104,7 @@ export default {
 
       index: 0,
 
-      duration: '0.00',
+      duration: '0:00',
 
       volume: 1000,
 
@@ -128,7 +130,11 @@ export default {
 
       count: 0,
 
-      player: false
+      player: false,
+
+      currenttime: '0:00',
+
+      mins: 0,
 
     }
    
@@ -138,11 +144,22 @@ export default {
 
     changed(){
 
-     console.log(this.$refs.slider.value);
+     //console.log(this.$refs.slider.value);
 
       this.audio.seek(this.$refs.slider.value);
 
       this.sliderValue=parseInt(this.$refs.slider.value);
+
+      if(Math.round(this.sliderValue)%60 ==0)
+          {
+
+            this.mins=Math.round(this.sliderValue)/60;
+
+          }
+
+          this.mins=Math.round(Math.round(this.sliderValue)/60);
+          
+          this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
 
    
     },
@@ -200,6 +217,8 @@ export default {
         this.audio.play();
 
         this.audio.volume(this.$refs.volume.value/1000);
+
+        this.mins=0;
        
         clearInterval(this.interval);
        
@@ -211,6 +230,8 @@ export default {
       else{
 
         this.audio.pause();
+
+        this.mins=0;
 
         clearInterval(this.interval);
 
@@ -249,16 +270,29 @@ export default {
 
           this.sliderValue=this.audio.seek();
 
+          if(Math.round(this.sliderValue)%60 ==0)
+          {
+
+            this.mins=Math.round(this.sliderValue)/60;
+
+          }
+
+          this.mins=Math.round(Math.round(this.sliderValue)/60);
+          
+          this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
+
         }
 
         if(Math.round(this.audio.seek()) == Math.round(this.audio.duration())-1){
+
+          this.mins=0;
 
           clearInterval(this.interval);
 
           if(this.ssingle==true)
           {
 
-            console.log(this.index);
+            //console.log(this.index);
 
             this.index=this.index-1;
 
@@ -266,7 +300,7 @@ export default {
           else if(this.disabled==true)
           {
 
-            this.suffles;
+            this.suffles();
 
           }
 
@@ -330,6 +364,8 @@ export default {
 
       }
 
+      alert(this.index);
+
       this.$children[this.index].isActive();
 
     },
@@ -383,9 +419,11 @@ export default {
      
       var count=1;
 
+      //console.log(this.songs.length);
+
         while(count>0){
            
-          var rand=Math.round(Math.random() * this.songs.length);
+          var rand=Math.round(Math.random() * (this.songs.length-1));
 
           if(this.rand_song.indexOf(rand) == -1)
           {
@@ -400,6 +438,8 @@ export default {
           else if(this.songs.length==this.rand_song.length)
           {
 
+              console.log(rand);
+
               this.rand_song=[];
 
               this.rand_song_count=0;
@@ -408,8 +448,7 @@ export default {
 
               this.index=rand;
 
-              console.log('songsrand length'+this.rand_song.length);
-
+              //console.log('songsrand length'+this.rand_song.length);
 
             }
           }

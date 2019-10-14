@@ -30,7 +30,7 @@ export default {
 
         this.song=response.data;
 
-        console.log(this.song[1]['name']);
+        //console.log(this.song[1]['name']);
 
       });
 
@@ -38,7 +38,7 @@ export default {
 
         this.songname=response.data;
 
-        console.log(this.songname);
+        //console.log(this.songname);
 
       });
 
@@ -56,30 +56,6 @@ export default {
 
       songname: '',
       
-
-		  songs: [
-
-
-      'Shawn Mendes_Camila Cabello_Senorita.mp3', 
-
-      'Keep.mp3',
-      
-      'TunePocket-Short-Subtle-Hi-Tech-Logo-Preview.mp3',
-
-      'isthere.mp3',
-
-      '/shanmukha_1/01 - Ismart Title Song.mp3',
-
-      '02 - Dimaak Kharaab.mp3' ,
-
-      '03 - Zindabad Zindabad.mp3', 
-
-      '05 - Undipo.mp3',
-
-      'isthere.mp3',
-
-
-      ],
 
       songimages: [
 

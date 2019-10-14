@@ -1861,19 +1861,16 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.post('/song').then(function (response) {
-      _this.song = response.data;
-      console.log(_this.song[1]['name']);
+      _this.song = response.data; //console.log(this.song[1]['name']);
     });
     axios.post('/songsrc').then(function (response) {
-      _this.songname = response.data;
-      console.log(_this.songname);
+      _this.songname = response.data; //console.log(this.songname);
     });
   },
   data: function data() {
     return {
       song: [],
       songname: '',
-      songs: ['Shawn Mendes_Camila Cabello_Senorita.mp3', 'Keep.mp3', 'TunePocket-Short-Subtle-Hi-Tech-Logo-Preview.mp3', 'isthere.mp3', '/shanmukha_1/01 - Ismart Title Song.mp3', '02 - Dimaak Kharaab.mp3', '03 - Zindabad Zindabad.mp3', '05 - Undipo.mp3', 'isthere.mp3'],
       songimages: ['https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1421217336522-861978fdf33a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1433622070098-754fdf81c929?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1421757350652-9f65a35effc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 'https://images.unsplash.com/photo-1488036106564-87ecb155bb15?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60']
     };
   }
@@ -2011,6 +2008,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2035,7 +2034,7 @@ __webpack_require__.r(__webpack_exports__);
       active: false,
       image: 'data:image/png;base64,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',
       index: 0,
-      duration: '0.00',
+      duration: '0:00',
       volume: 1000,
       songduration: '0',
       sliderValue: '0',
@@ -2052,14 +2051,23 @@ __webpack_require__.r(__webpack_exports__);
       rand_song: [],
       rand_song_count: 0,
       count: 0,
-      player: false
+      player: false,
+      currenttime: '0:00',
+      mins: 0
     };
   },
   methods: {
     changed: function changed() {
-      console.log(this.$refs.slider.value);
+      //console.log(this.$refs.slider.value);
       this.audio.seek(this.$refs.slider.value);
       this.sliderValue = parseInt(this.$refs.slider.value);
+
+      if (Math.round(this.sliderValue) % 60 == 0) {
+        this.mins = Math.round(this.sliderValue) / 60;
+      }
+
+      this.mins = Math.round(Math.round(this.sliderValue) / 60);
+      this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
     },
     volumechange: function volumechange() {
       this.audio.volume(this.$refs.volume.value / 1000);
@@ -2088,10 +2096,12 @@ __webpack_require__.r(__webpack_exports__);
         if (!this.active) {
           this.audio.play();
           this.audio.volume(this.$refs.volume.value / 1000);
+          this.mins = 0;
           clearInterval(this.interval);
           this.slider();
         } else {
           this.audio.pause();
+          this.mins = 0;
           clearInterval(this.interval);
           this.sliderValue = parseInt(this.$refs.slider.value);
         }
@@ -2112,16 +2122,24 @@ __webpack_require__.r(__webpack_exports__);
 
       if (l.value != l.max) {
         this.sliderValue = this.audio.seek();
+
+        if (Math.round(this.sliderValue) % 60 == 0) {
+          this.mins = Math.round(this.sliderValue) / 60;
+        }
+
+        this.mins = Math.round(Math.round(this.sliderValue) / 60);
+        this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
       }
 
       if (Math.round(this.audio.seek()) == Math.round(this.audio.duration()) - 1) {
+        this.mins = 0;
         clearInterval(this.interval);
 
         if (this.ssingle == true) {
-          console.log(this.index);
+          //console.log(this.index);
           this.index = this.index - 1;
         } else if (this.disabled == true) {
-          this.suffles;
+          this.suffles();
         }
 
         this.playprevious();
@@ -2153,6 +2171,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
+      alert(this.index);
       this.$children[this.index].isActive();
     },
     playnext: function playnext() {
@@ -2173,21 +2192,21 @@ __webpack_require__.r(__webpack_exports__);
       this.ssingle = false;
     },
     suffles: function suffles() {
-      var count = 1;
+      var count = 1; //console.log(this.songs.length);
 
       while (count > 0) {
-        var rand = Math.round(Math.random() * this.songs.length);
+        var rand = Math.round(Math.random() * (this.songs.length - 1));
 
         if (this.rand_song.indexOf(rand) == -1) {
           this.rand_song[this.rand_song_count++] = rand;
           this.index = rand;
           count = -1;
         } else if (this.songs.length == this.rand_song.length) {
+          console.log(rand);
           this.rand_song = [];
           this.rand_song_count = 0;
           this.rand_song[this.rand_song_count++] = rand;
-          this.index = rand;
-          console.log('songsrand length' + this.rand_song.length);
+          this.index = rand; //console.log('songsrand length'+this.rand_song.length);
         }
       }
     },
@@ -2291,9 +2310,6 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.post('/isLoggedIn').then(function (response) {
       _this.user = response.data;
-    });
-    axios.post('/uploadsongs').then(function (response) {
-      _this.song = response.data;
     });
   },
   methods: {
@@ -41798,6 +41814,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "slidecontainer" }, [
+          _vm._v("\n\n\n        " + _vm._s(this.currenttime) + "\n        "),
           _c("input", {
             ref: "slider",
             staticClass: "slider",
@@ -57669,8 +57686,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_player/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_player/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_Player_vl/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_Player_vl/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

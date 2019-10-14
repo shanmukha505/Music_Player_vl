@@ -86,9 +86,4 @@ class SongController extends Controller
 
     }
 
-    public function usersongs()
-    {
-    	$user = DB::table('users')->where('name', 'John')->first();
-    }
-
 }

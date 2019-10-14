@@ -50,11 +50,7 @@
 
       });
 
-      axios.post('/uploadsongs').then(response=>{
-
-        this.song=response.data;
-
-      });
+     
 
 
 
