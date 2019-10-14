@@ -12,10 +12,16 @@
         <div v-for="(file, key) in files" class="file-listing">
             <img class="preview" v-bind:ref="'preview'+parseInt(key)"/>
             {{ file.name }}
+
+            <select v-model="visiblitiy[key]">
+                <option>public</option>
+                <option>private</option>
+            </select>
             <div class="success-container" v-if="file.id > 0">
                 Success
             </div>
             <div class="remove-container" v-else>
+
                 <a class="remove" v-on:click="removeFile(key)">Remove</a>
             </div>
         </div>
@@ -37,7 +43,8 @@
     data() {
        return {
         files: [],
-        user:''
+        user:'',
+        visiblitiy: [],
       }
     },
 
@@ -49,10 +56,6 @@
         this.user=response.data;
 
       });
-
-     
-
-
 
 
     },
@@ -69,6 +72,7 @@
         for(var i = 0; i < uploadedFiles.length; i++) {
         
           this.files.push(uploadedFiles[i]);
+          this.visiblitiy[i]="public";
         
         }
         
@@ -96,6 +100,8 @@
         formData.append('file', this.files[i]);
         
         formData.append('name',this.files[i].name);
+
+        formData.append('visible',this.visiblitiy[i]);
 
         axios.post('/upload',
         

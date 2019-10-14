@@ -17,6 +17,7 @@ class CreateSongsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('src');
+            $table->string('visible');
             $table->Integer('user_id');
             $table->timestamps();
         });

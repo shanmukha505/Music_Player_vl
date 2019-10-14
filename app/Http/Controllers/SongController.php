@@ -32,7 +32,8 @@ class SongController extends Controller
     	
         $this->validate($request, [
             'name' => 'required|unique:songs',
-            'file' => 'required'
+            'file' => 'required',
+            'visible' => 'required'
         ]);
        
         $model = new Song();
@@ -44,7 +45,8 @@ class SongController extends Controller
             return $model::create([
                     'name' => $request['name'],
                     'src'  =>  '/'.$place,
-                    'user_id' => Auth::id()
+                    'user_id' => Auth::id(),
+                    'visible' => $request['visible']
                 ]);
         }
 
@@ -63,7 +65,8 @@ class SongController extends Controller
     public function get(Request $request) {
 
     	$model = new Song();
-    	return $model::All();
+        
+    	return $model::all();
 
     }
 

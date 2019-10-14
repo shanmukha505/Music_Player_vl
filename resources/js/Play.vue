@@ -74,11 +74,58 @@ export default {
 
   mounted()
     {
-      axios.post('/song').then(response => {
+      
 
-        this.songs=response.data;
+      axios.post('/isLoggedIn').then(response => {
+
+        this.user=response.data;
+        
 
       });
+
+      axios.post('/song').then(response => {
+
+
+        this.songs=response.data;
+        
+        if(this.user=="")
+
+        {
+          
+          for(var i=0;i<this.songs.length;i++)
+          {
+
+            if(this.songs[i]['visible']=='private')
+            {
+              this.songs.splice(i,1);
+              
+              i=-1;
+            
+            }
+
+          }
+
+        }
+        else
+        {
+          
+          for(var i=0;i<this.songs.length;i++)
+          {
+
+            if(this.songs[i]['visible']=='private' && this.songs[i]['user_id']!=this.user)
+            {
+              this.songs.splice(i,1);
+              
+              i=-1;
+            }
+
+          }
+
+        }
+
+
+      });
+      
 
 
       
@@ -87,6 +134,8 @@ export default {
   data() {
    
     return{
+
+      user: '',
 
       songs:  [],
 

@@ -2020,12 +2020,34 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    axios.post('/isLoggedIn').then(function (response) {
+      _this.user = response.data;
+    });
     axios.post('/song').then(function (response) {
       _this.songs = response.data;
+
+      if (_this.user == "") {
+        for (var i = 0; i < _this.songs.length; i++) {
+          if (_this.songs[i]['visible'] == 'private') {
+            _this.songs.splice(i, 1);
+
+            i = -1;
+          }
+        }
+      } else {
+        for (var i = 0; i < _this.songs.length; i++) {
+          if (_this.songs[i]['visible'] == 'private' && _this.songs[i]['user_id'] != _this.user) {
+            _this.songs.splice(i, 1);
+
+            i = -1;
+          }
+        }
+      }
     });
   },
   data: function data() {
     return {
+      user: '',
       songs: [],
       images: this.$parent.$data.songimages,
       songname: '',
@@ -2298,11 +2320,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       files: [],
-      user: ''
+      user: '',
+      visiblitiy: []
     };
   },
   mounted: function mounted() {
@@ -2318,6 +2347,7 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i = 0; i < uploadedFiles.length; i++) {
         this.files.push(uploadedFiles[i]);
+        this.visiblitiy[i] = "public";
       }
     },
     removeFile: function removeFile(key) {
@@ -2334,6 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
         var formData = new FormData();
         formData.append('file', _this2.files[i]);
         formData.append('name', _this2.files[i].name);
+        formData.append('visible', _this2.visiblitiy[i]);
         axios.post('/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -41967,7 +41998,45 @@ var render = function() {
                   refInFor: true,
                   staticClass: "preview"
                 }),
-                _vm._v("\n          " + _vm._s(file.name) + "\n          "),
+                _vm._v("\n          " + _vm._s(file.name) + "\n\n          "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.visiblitiy[key],
+                        expression: "visiblitiy[key]"
+                      }
+                    ],
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.visiblitiy,
+                          key,
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("public")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("private")])
+                  ]
+                ),
+                _vm._v(" "),
                 file.id > 0
                   ? _c("div", { staticClass: "success-container" }, [
                       _vm._v("\n              Success\n          ")
