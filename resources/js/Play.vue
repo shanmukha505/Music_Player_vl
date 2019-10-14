@@ -63,6 +63,8 @@ import {Howl, Howler} from 'howler';
 
 import './bootstrap';
 
+import * as musicMetadata from 'music-metadata-browser';
+
 
 export default {
 
@@ -182,6 +184,8 @@ export default {
 
       mins: 0,
 
+      meta: []
+
     }
    
   },
@@ -215,6 +219,22 @@ export default {
 
     },
 
+    async readFromBlob(blob) {
+  
+   musicMetadata.fetchFromUrl(blob).then(musicMetadata => {
+      
+      this.meta=musicMetadata;
+
+      var decoder = new TextDecoder('utf8');
+      //var b64encoded = btoa(decoder.decode(u8));
+
+      this.image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
+      return true;
+
+    });
+ 
+  },
+
 
 
     volumechange() {
@@ -246,6 +266,8 @@ export default {
         if(this.previoussong != this.name){
 
           this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
+
+          this.readFromBlob(this.songname);
 
           audio= new Howl({ src: this.songname });
 

@@ -1,12 +1,10 @@
 <template>
 
-
 	<div class="container">
 
     <play></play>
 
   </div>	
-
      
 </template>
 
@@ -19,43 +17,13 @@ export default {
 
   components: {
 
-
     Play
 
   },
 
-  mounted()
-    {
-      axios.post('/song').then(response => {
-
-        this.song=response.data;
-
-        //console.log(this.song[1]['name']);
-
-      });
-
-      axios.post('/songsrc').then(response =>{
-
-        this.songname=response.data;
-
-        //console.log(this.songname);
-
-      });
-
-      
-    },
-
-
   data() {
 
-    
-
     return {
-
-      song: [],
-
-      songname: '',
-      
 
       songimages: [
 

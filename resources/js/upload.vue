@@ -51,10 +51,13 @@
 
         <div>
 
-          your uploaded songs
+          <span>your uploaded songs</span>
 
           <div v-for="(song, key) in songs" class="">
               
+            <span style="color: brown;">{{ song.name }}</span>
+           
+            <span>{{ song.visible }}</span>
 
           </div>
 
@@ -82,6 +85,8 @@
 
         visiblitiy: [],
 
+        songs: [],
+
       }
 
     },
@@ -93,6 +98,12 @@
       axios.post('/isLoggedIn').then(response => {
 
         this.user=response.data;
+
+      });
+
+      axios.post('/song').then(response => {
+
+        this.songs=response.data;
 
       });
 
