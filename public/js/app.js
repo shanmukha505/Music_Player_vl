@@ -1912,13 +1912,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["song", "src"],
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/songFile' + this.src + '/' + this.song).then(function (response) {
-      _this.songname = response.data;
-    });
-  },
   data: function data() {
     return {
       name: this.song,
@@ -1931,7 +1924,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$parent.$data.old.active = false;
       this.$emit('selected', this.name);
       this.$parent.$data.old = this;
-      this.$parent.$data.songname = this.songname;
       this.$parent.$data.name = this.name;
       this.active = true;
     }
@@ -2080,7 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changed: function changed() {
-      //console.log(this.$refs.slider.value);
       this.audio.seek(this.$refs.slider.value);
       this.sliderValue = parseInt(this.$refs.slider.value);
 
@@ -2104,6 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$children[this.index].isActive();
       } else {
         if (this.previoussong != this.name) {
+          this.songname = '/songFile' + this.songs[this.index]['src'] + '/' + this.songname;
           audio = new howler__WEBPACK_IMPORTED_MODULE_1__["Howl"]({
             src: this.songname
           });

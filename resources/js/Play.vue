@@ -193,8 +193,6 @@ export default {
 
     changed(){
 
-     //console.log(this.$refs.slider.value);
-
       this.audio.seek(this.$refs.slider.value);
 
       this.sliderValue=parseInt(this.$refs.slider.value);
@@ -229,13 +227,20 @@ export default {
       if(this.player==false)
       {
 
+        
         this.songname=this.songs[0]['name'];
+        
         this.player=true;
+
         this.$children[this.index].isActive();
+      
       }
+      
       else{
 
       if(this.previoussong != this.name){
+
+        this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
         audio= new Howl({ src: this.songname });
 

@@ -28,16 +28,6 @@ export default {
 
 	props:["song", "src"],
 
-	mounted() {
-
-		axios.get('/songFile'+this.src+'/'+this.song).then(response =>{
-
-        this.songname=response.data;
-
-
-      });
-	},
-
 	data(){
 
 		return{
@@ -60,8 +50,6 @@ export default {
 			this.$emit('selected',this.name);
 			
 			this.$parent.$data.old=this;
-
-			this.$parent.$data.songname=this.songname;
 
 			this.$parent.$data.name=this.name;
 
