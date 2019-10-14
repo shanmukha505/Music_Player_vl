@@ -2193,7 +2193,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      alert(this.index);
       this.$children[this.index].isActive();
     },
     playnext: function playnext() {

@@ -413,8 +413,6 @@ export default {
 
       }
 
-      alert(this.index);
-
       this.$children[this.index].isActive();
 
     },
