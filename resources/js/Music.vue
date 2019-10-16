@@ -1,10 +1,10 @@
 <template>
 		
-	<section class="songnames" id="name" :class="{'active':active}" v-on:click="isActive">
+	<div class="songnames" id="name" :class="{'active':active}" v-on:click="isActive">
 
-	    <a class="button" style="background-color: lightyellow;width:100%;" >{{ name }}</a>
+	    <a class="btn btn-outline-success" style="background-color: lightyellow;width:100%;" >{{ name }}</a>
 
-	</section>
+	</div>
 
 </template>
 
@@ -63,7 +63,7 @@ export default {
 
 <style>
 
-.button{
+.btn{
 
 	font-size: 1rem;
 
@@ -75,8 +75,7 @@ export default {
 
 .songnames{
 
-	text-align: justify;
-	text-justify: inter-word;
+
 }
 
 .active{

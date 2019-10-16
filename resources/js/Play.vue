@@ -2,7 +2,7 @@
 
 <div class="name" id="play" >
 
-    <div class="audio" align="center" >
+    <div class="audio" align="center" style="">
 
       <img class="image is-4by2" :src="image" align="center" style="margin-bottom: 2%;"/>
 
@@ -16,11 +16,7 @@
          
         <button class="play next" type="button" title="next" v-on:click="playprevious"></button>
 
-        <div style="display:inline;padding-left:4%;">
-     
-          <input class="volume" step="1" min="0" max="1000" :value="volume" type="range" @change="volumechange" ref="volume" orient="vertical" style="">
-
-        </div>
+        <input type="range" class="custom-range"  step="1" min="0" max="1000" :value="volume" @change="volumechange" ref="volume" />
        
       </div>
      
@@ -43,13 +39,26 @@
 
       </div>
 
+      <button type="button" class="btn is-primary" v-on:click="some_toggle=!some_toggle">clickme</button>      
+
     </div>
 
-    <div v-for="song in songs">
-         
-      <music  v-bind:song="song.name" v-bind:src="song.src" @selected="view"></music>
-       
+    <div v-for="song in songs" v-if="!some_toggle">
+      
+        <music :src="song.src" :song="song.name"  @selected="view"></music>
     </div>
+    <album :album="reset_songs" @resetIt="resetAll" v-if="some_toggle" ></album>
+
+    <div v-for="albums in album" v-if="some_toggle">
+    
+    <album :album="albums"></album>
+
+
+</div>
+
+    
+
+
 
   </div>
 
@@ -63,6 +72,8 @@ import {Howl, Howler} from 'howler';
 
 import './bootstrap';
 
+import Album from './Album.vue';
+
 import * as musicMetadata from 'music-metadata-browser';
 
 
@@ -70,7 +81,9 @@ export default {
 
   components:{
    
-    Music,        
+    Music,   
+
+    Album,     
              
   },
 
@@ -89,6 +102,8 @@ export default {
 
 
         this.songs=response.data;
+        this.reset_songs=response.data;
+        this.reset_songs['album']="ALL";
         
         if(this.user=="")
 
@@ -125,8 +140,24 @@ export default {
 
         }
 
+         for(var i=0;i<this.songs.length;i++)
+        {
+
+          var src='/songFile'+this.songs[i]['src'] +'/'+ this.songs[i]['name'];
+
+          this.readFromBlob(this.songs[i]['src'], this.songs[i]['name']);
+
+
+        }
+
 
       });
+
+     
+
+       
+
+
       
     },
 
@@ -138,17 +169,19 @@ export default {
 
       songs:  [],
 
-      images: this.$parent.$data.songimages,
-
       songname: '',
 
       name: '',
+
+      reset_songs:'',
+
+      some_toggle:false,
 
       previoussong: 'Shawn Mendes_Camila Cabello_Senorita.mp3',
 
       active:   false,
 
-      image: 'data:image/png;base64,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',
+      image: '',
 
       index: 0,
 
@@ -184,13 +217,23 @@ export default {
 
       mins: 0,
 
-      meta: []
+      meta: [],
+
+      album:[],
+
 
     }
    
   },
 
   methods: {
+
+
+    resetAll()
+    {
+      this.some_toggle=!this.some_toggle;
+      this.songs=this.reset_songs;
+    },
 
     changed(){
 
@@ -219,19 +262,61 @@ export default {
 
     },
 
-    async readFromBlob(blob) {
+    async readFromBlob(blob,name) {
+
+      var src='/songFile'+blob +'/'+ name;
   
-   musicMetadata.fetchFromUrl(blob).then(musicMetadata => {
+      musicMetadata.fetchFromUrl(src).then(musicMetadata => {
       
       this.meta=musicMetadata;
 
-      var decoder = new TextDecoder('utf8');
-      //var b64encoded = btoa(decoder.decode(u8));
-
       this.image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
-      return true;
+      var image=this.image;
+      var count=0;
+      if(this.album.length==0)
+      {
+      
+        var a={
+          album: this.meta.common.album,
+          name: [],
+          image: image,
+          location: []
+          };
+          this.album.push(a);
+          this.album[0].name[0]=name;
+          this.album[0].location.push(blob);
+        }
+        else{
+
+          for(var i=0;i<this.album.length;i++)
+          {
+            if(this.album[i].album==this.meta.common.album)
+            {
+              this.album[i].name.push(name);
+              this.album[i].location.push(blob);
+              count=1;
+              break;
+            }
+          
+          }
+          if(count==0)
+          {
+            var a={
+            album: this.meta.common.album,
+            name: [],
+            image: image,
+            location: []
+            };
+            this.album.push(a);
+            this.album[this.album.length-1].name.push(name);
+            this.album[this.album.length-1].location.push(blob);
+          }
+
+        }
+ 
 
     });
+      
  
   },
 
@@ -267,7 +352,7 @@ export default {
 
           this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
-          this.readFromBlob(this.songname);
+          //this.readFromBlob(this.songs[this.index]['src'],this.songname);
 
           audio= new Howl({ src: this.songname });
 
@@ -345,6 +430,8 @@ export default {
 
       var secs = this.audio._duration - mins * 60;
 
+      mins+=1;
+
       if(secs.toString().length==1)
 
         this.duration = mins + ':0' + Math.floor(secs);
@@ -420,8 +507,7 @@ export default {
           this.index=i;
      
       }
-     
-      this.image=this.images[this.index];
+
 
       this.active=!this.active;
 
@@ -568,15 +654,34 @@ export default {
 
 <style>
 
-.play{
+.name{
+  height:100%;
+  width: 100%;
+}
 
+.audio{
+  
+  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  padding: 50px;
+  border : hidden;
+  border-radius: 25px;
+  
+}
+
+.music{
+  
+  position : fixed;
+  overflow-y: scroll;
+}
+.play{
+    
     background-repeat: no-repeat;
     background-position: 50% 50%;  
     height: 25px;
     width: 45px;
     border: none;
     display: inline-block;
-
+    border: hidden;
     margin-top: 2%;
 }
 
@@ -647,14 +752,7 @@ export default {
   background-image: url('noun_Repeat One_2195448.svg');
 }
 
-.audio{
 
-  background: linear-gradient(90deg, rgb(290,224,66),rgb(0,143,144));
-  padding: 50px;
-  border : hidden;
-  border-radius: 25px;
-
-}
 
 h2{
   font-size: 0.2rem;
@@ -667,6 +765,7 @@ h2{
   height: 225px;
 
 }
+
 
 
 .slidecontainer {
@@ -723,113 +822,17 @@ h2{
 
 }
 
-.volume {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: absolute;
-  left: auto;
-  border-radius:45px;
-  margin-top:2.7%;
-  width: 7%;
-  height: 1.5%;
-  transform: translate(-40%, -40%);
+.custom-range{
+  color: ligthblack;
 }
 
+.custom-range[type=range]{
 
-volume[type=range] {
-  
-  -webkit-appearance: none;
-  background: transparent;
-
+  width: 9%;
 }
+.custom-range[type=range]::-webkit-slider-thumb{
 
-.volume[type=range]::-webkit-slider-thumb {
-  
-  -webkit-appearance: none;
-
-}
-
-.volume[type=range]:focus {
-
-  outline: none; 
-
-}
-
-.volume[type=range]::-webkit-slider-thumb {
-  
-  -webkit-appearance: none;
-  height: 200%;
-  width: 23%;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  background: #000000;
-  cursor: pointer;
-  margin-top: -6px;
-  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);}
-
-.volume[type=range]::-webkit-slider-runnable-track {
-
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  background: #000000;
-  border-radius: 6px;
-  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.9);
-
-}
-
-
-.volume[type=range]::-moz-range-thumb {
-
-  -moz-appearance: none;
-  border: 2px solid;
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  max-width: 80px;
-  position: relative;
-  bottom: 11px;
-  background-color: #1d1c25;
-  cursor: -moz-grab;
-  -moz-transition: border 1000ms ease;
-  transition: border 1000ms ease;
-
-}
-
-.range.blue::-moz-range-thumb {
-   border-color: rgb(59,173,227);
-}
-
-.range.ltpurple::-moz-range-thumb {
-   border-color: rgb(87,111,230);
-}
-
-.range.purple::-moz-range-thumb {
-   border-color: rgb(152,68,183);
-}
-
-.range.pink::-moz-range-thumb {
-   border-color: rgb(255,53,127);
-}
-
-.volume[type=range]::-moz-range-thumb:active {
-  cursor: -moz-grabbing;
-}
-
-
-.volume[type=range]::-moz-range-track {
-
-  -moz-appearance: none;
-  background: rgba(59,173,227,1);
-  background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
-  background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
-  height: 2px;
-
+  background: black;
 }
 
 </style>

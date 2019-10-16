@@ -23,7 +23,7 @@
 
           body{
 
-            background: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66));
+            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
             
           }
 
@@ -90,7 +90,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" >
             @yield('content')
         </main>
 
