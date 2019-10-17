@@ -58,6 +58,7 @@ export default{
 			this.songs[i]={
 					'name':this.album.name[i],
 					'src':this.album.location[i],
+					'image': this.album.image,
 				};
 			}
 

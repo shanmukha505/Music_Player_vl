@@ -39,14 +39,16 @@
 
       </div>
 
-      <button type="button" class="btn is-primary" v-on:click="some_toggle=!some_toggle">clickme</button>      
+      <button type="button" class="btn is-primary" v-on:click="some_toggle=!some_toggle">Albums</button>      
 
     </div>
 
     <div v-for="song in songs" v-if="!some_toggle">
       
         <music :src="song.src" :song="song.name"  @selected="view"></music>
+
     </div>
+
     <album :album="reset_songs" @resetIt="resetAll" v-if="some_toggle" ></album>
 
     <div v-for="albums in album" v-if="some_toggle">
@@ -54,11 +56,7 @@
     <album :album="albums"></album>
 
 
-</div>
-
-    
-
-
+    </div>
 
   </div>
 
@@ -140,23 +138,18 @@ export default {
 
         }
 
-         for(var i=0;i<this.songs.length;i++)
+        for(var i=0;i<this.songs.length;i++)
         {
 
           var src='/songFile'+this.songs[i]['src'] +'/'+ this.songs[i]['name'];
 
-          this.readFromBlob(this.songs[i]['src'], this.songs[i]['name']);
-
+          this.readFromBlob(this.songs[i]['src'], this.songs[i]['name'],i);
 
         }
-
+        this.reset_songs=this.songs;
+        this.reset_songs['album']="ALL";
 
       });
-
-     
-
-       
-
 
       
     },
@@ -175,13 +168,13 @@ export default {
 
       reset_songs:'',
 
-      some_toggle:false,
+      some_toggle:true,
 
-      previoussong: 'Shawn Mendes_Camila Cabello_Senorita.mp3',
+      previoussong: '',
 
       active:   false,
 
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
 
       index: 0,
 
@@ -262,7 +255,7 @@ export default {
 
     },
 
-    async readFromBlob(blob,name) {
+    async readFromBlob(blob,name,index) {
 
       var src='/songFile'+blob +'/'+ name;
   
@@ -270,9 +263,17 @@ export default {
       
       this.meta=musicMetadata;
 
-      this.image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
-      var image=this.image;
+      var image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
+
+      var b={
+            name: name,
+            src: blob,
+            image: image,
+          }
+      this.songs[index]=b;
+      
       var count=0;
+      
       if(this.album.length==0)
       {
       
@@ -299,6 +300,7 @@ export default {
             }
           
           }
+
           if(count==0)
           {
             var a={
@@ -350,9 +352,13 @@ export default {
 
         if(this.previoussong != this.name){
 
+          
+
           this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
-          //this.readFromBlob(this.songs[this.index]['src'],this.songname);
+          this.image=this.songs[this.index]['image'];
+
+          console.log(this.image);
 
           audio= new Howl({ src: this.songname });
 

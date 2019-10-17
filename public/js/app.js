@@ -2407,7 +2407,8 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 0; i < this.album.name.length; i++) {
         this.songs[i] = {
           'name': this.album.name[i],
-          'src': this.album.location[i]
+          'src': this.album.location[i],
+          'image': this.album.image
         };
       }
 
@@ -2588,8 +2589,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 
@@ -2632,8 +2631,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       for (var i = 0; i < _this.songs.length; i++) {
         var src = '/songFile' + _this.songs[i]['src'] + '/' + _this.songs[i]['name'];
 
-        _this.readFromBlob(_this.songs[i]['src'], _this.songs[i]['name']);
+        _this.readFromBlob(_this.songs[i]['src'], _this.songs[i]['name'], i);
       }
+
+      _this.reset_songs = _this.songs;
+      _this.reset_songs['album'] = "ALL";
     });
   },
   data: function data() {
@@ -2643,10 +2645,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       songname: '',
       name: '',
       reset_songs: '',
-      some_toggle: false,
-      previoussong: 'Shawn Mendes_Camila Cabello_Senorita.mp3',
+      some_toggle: true,
+      previoussong: '',
       active: false,
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
       index: 0,
       duration: '0:00',
       volume: 1000,
@@ -2692,7 +2694,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     readFromBlob: function () {
       var _readFromBlob = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(blob, name) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(blob, name, index) {
         var _this2 = this;
 
         var src;
@@ -2703,8 +2705,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 src = '/songFile' + blob + '/' + name;
                 music_metadata_browser__WEBPACK_IMPORTED_MODULE_5__["fetchFromUrl"](src).then(function (musicMetadata) {
                   _this2.meta = musicMetadata;
-                  _this2.image = 'data:image/png;base64,' + _this2.meta.common.picture[0].data.toString('base64');
-                  var image = _this2.image;
+
+                  var image = 'data:image/png;base64,' + _this2.meta.common.picture[0].data.toString('base64');
+
+                  var b = {
+                    name: name,
+                    src: blob,
+                    image: image
+                  };
+                  _this2.songs[index] = b;
                   var count = 0;
 
                   if (_this2.album.length == 0) {
@@ -2757,7 +2766,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }));
 
-      function readFromBlob(_x, _x2) {
+      function readFromBlob(_x, _x2, _x3) {
         return _readFromBlob.apply(this, arguments);
       }
 
@@ -2776,8 +2785,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.$children[this.index].isActive();
       } else {
         if (this.previoussong != this.name) {
-          this.songname = '/songFile' + this.songs[this.index]['src'] + '/' + this.songname; //this.readFromBlob(this.songs[this.index]['src'],this.songname);
-
+          this.songname = '/songFile' + this.songs[this.index]['src'] + '/' + this.songname;
+          this.image = this.songs[this.index]['image'];
+          console.log(this.image);
           audio = new howler__WEBPACK_IMPORTED_MODULE_2__["Howl"]({
             src: this.songname
           });
@@ -2960,18 +2970,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -62637,7 +62635,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("clickme")]
+          [_vm._v("Albums")]
         )
       ]),
       _vm._v(" "),
@@ -62850,24 +62848,6 @@ var render = function() {
                 }
               },
               [_vm._v("Submit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              [
-                _c("span", [_vm._v("your uploaded songs")]),
-                _vm._v(" "),
-                _vm._l(_vm.songs, function(song, key) {
-                  return _c("div", {}, [
-                    _c("span", { staticStyle: { color: "brown" } }, [
-                      _vm._v(_vm._s(song.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(song.visible))])
-                  ])
-                })
-              ],
-              2
             )
           ],
           2
@@ -77928,15 +77908,14 @@ module.exports = function(module) {
 /*!********************************!*\
   !*** ./resources/js/Album.vue ***!
   \********************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Album_vue_vue_type_template_id_537ff341___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Album.vue?vue&type=template&id=537ff341& */ "./resources/js/Album.vue?vue&type=template&id=537ff341&");
 /* harmony import */ var _Album_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Album.vue?vue&type=script&lang=js& */ "./resources/js/Album.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Album_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Album_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -77966,7 +77945,7 @@ component.options.__file = "resources/js/Album.vue"
 /*!*********************************************************!*\
   !*** ./resources/js/Album.vue?vue&type=script&lang=js& ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

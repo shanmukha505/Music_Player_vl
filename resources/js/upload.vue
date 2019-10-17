@@ -49,19 +49,7 @@
 
         <a class="submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Submit</a>
 
-        <div>
-
-          <span>your uploaded songs</span>
-
-          <div v-for="(song, key) in songs" class="">
-              
-            <span style="color: brown;">{{ song.name }}</span>
-           
-            <span>{{ song.visible }}</span>
-
-          </div>
-
-        </div>
+        
 
     </div>
 
