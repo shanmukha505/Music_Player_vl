@@ -2406,6 +2406,8 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i = 0; i < this.album.name.length; i++) {
         this.songs[i] = {
+          'song_id': this.album.song_id[i],
+          'user_id': this.album.user_id[i],
           'name': this.album.name[i],
           'src': this.album.location[i],
           'image': this.album.image
@@ -2479,13 +2481,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["song", "src"],
+  props: ["song", "src", "user_id", "song_id"],
   data: function data() {
     return {
       name: this.song,
       songname: '',
-      active: false
+      active: false,
+      view: true,
+      playlist_create: [],
+      title: ''
     };
   },
   methods: {
@@ -2495,6 +2530,19 @@ __webpack_require__.r(__webpack_exports__);
       this.$parent.$data.old = this;
       this.$parent.$data.name = this.name;
       this.active = true;
+    },
+    create: function create() {
+      var formData = new FormData();
+      formData.append('name', this.title);
+      formData.append('song_id', this.song_id);
+      formData.append('user_id', this.user_id);
+      formData.append('src', this.src);
+      formData.append('song', this.song);
+      axios.post('/playlist', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
     }
   }
 });
@@ -2645,7 +2693,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       songname: '',
       name: '',
       reset_songs: '',
-      some_toggle: true,
+      some_toggle: false,
       previoussong: '',
       active: false,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
@@ -2708,23 +2756,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   var image = 'data:image/png;base64,' + _this2.meta.common.picture[0].data.toString('base64');
 
+                  var id = _this2.songs[index]['id'];
                   var b = {
+                    song_id: id,
                     name: name,
+                    user_id: _this2.songs[index]['user_id'],
                     src: blob,
                     image: image
                   };
                   _this2.songs[index] = b;
                   var count = 0;
+                  var a = {
+                    album: _this2.meta.common.album,
+                    song_id: [],
+                    user_id: [],
+                    name: [],
+                    image: image,
+                    location: []
+                  };
 
                   if (_this2.album.length == 0) {
-                    var a = {
-                      album: _this2.meta.common.album,
-                      name: [],
-                      image: image,
-                      location: []
-                    };
-
                     _this2.album.push(a);
+
+                    _this2.album[0].song_id.push(id);
+
+                    _this2.album[0].user_id.push(_this2.songs[index]['user_id']);
 
                     _this2.album[0].name[0] = name;
 
@@ -2732,6 +2788,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   } else {
                     for (var i = 0; i < _this2.album.length; i++) {
                       if (_this2.album[i].album == _this2.meta.common.album) {
+                        _this2.album[i].song_id.push(id);
+
+                        _this2.album[i].user_id.push(_this2.songs[index]['user_id']);
+
                         _this2.album[i].name.push(name);
 
                         _this2.album[i].location.push(blob);
@@ -2742,14 +2802,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     }
 
                     if (count == 0) {
-                      var a = {
-                        album: _this2.meta.common.album,
-                        name: [],
-                        image: image,
-                        location: []
-                      };
-
                       _this2.album.push(a);
+
+                      _this2.album[i].song_id.push(_this2.songs[index]['id']);
+
+                      _this2.album[i].user_id.push(_this2.songs[index]['user_id']);
 
                       _this2.album[_this2.album.length - 1].name.push(name);
 
@@ -2787,7 +2844,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (this.previoussong != this.name) {
           this.songname = '/songFile' + this.songs[this.index]['src'] + '/' + this.songname;
           this.image = this.songs[this.index]['image'];
-          console.log(this.image);
           audio = new howler__WEBPACK_IMPORTED_MODULE_2__["Howl"]({
             src: this.songname
           });
@@ -9912,7 +9968,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.btn{\n\n\tfont-size: 1rem;\n\n\tmax-width: 100%;\n\n\tmax-height: 100%;\n}\n.songnames{\n}\n.active{\n\n\tborder: 3px solid;\n  \t-o-border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;\n  \t   border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;\n}\n", ""]);
+exports.push([module.i, "\n.btn{\n\n\tfont-size: 1rem;\n\n\tmax-width: 100%;\n\n\tmax-height: 100%;\n}\nimg{\n\tbackground-repeat: no-repeat;\n    background-position: 50% 50%;  \n    height: 30px;\n    width: 50px;\n    border: none;\n    border: hidden;\n    margin-top: 4%;\n}\n.songnames{\n\t\n\tdisplay: inline-block;\n\twidth: 95%;\n}\n.list{\n\tmargin-top: 1%;\n}\n.active{\n\n\tborder: 3px solid;\n  \t-o-border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;\n  \t   border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;\n}\n", ""]);
 
 // exports
 
@@ -62498,25 +62554,95 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "songnames",
-      class: { active: _vm.active },
-      attrs: { id: "name" },
-      on: { click: _vm.isActive }
-    },
-    [
+  return _c("div", [
+    _c("div", { staticStyle: { display: "flex" } }, [
       _c(
-        "a",
+        "div",
         {
-          staticClass: "btn btn-outline-success",
-          staticStyle: { "background-color": "lightyellow", width: "100%" }
+          staticClass: "songnames",
+          class: { active: _vm.active },
+          attrs: { id: "name" },
+          on: { click: _vm.isActive }
         },
-        [_vm._v(_vm._s(_vm.name))]
-      )
-    ]
-  )
+        [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-outline-success",
+              staticStyle: { "background-color": "lightyellow", width: "100%" }
+            },
+            [_vm._v(_vm._s(_vm.name))]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "list dropdown" }, [
+        _c("img", {
+          staticClass: "btn",
+          attrs: {
+            src: "https://image.flaticon.com/icons/svg/54/54878.svg",
+            "data-toggle": "dropdown"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu" }, [
+          _c(
+            "a",
+            { staticClass: "dropdown-toggle", on: { click: _vm.playlist } },
+            [_vm._v("add to playlist")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "dropdown-item",
+              on: {
+                click: function($event) {
+                  _vm.view = !_vm.view
+                }
+              }
+            },
+            [_vm._v("create playlsit")]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    !_vm.view
+      ? _c("div", [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.title,
+                expression: "title"
+              }
+            ],
+            attrs: { type: "text", placeholder: "enter playlist name" },
+            domProps: { value: _vm.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.title = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: { click: _vm.create }
+            },
+            [_vm._v("submit")]
+          )
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -62645,7 +62771,12 @@ var render = function() {
               "div",
               [
                 _c("music", {
-                  attrs: { src: song.src, song: song.name },
+                  attrs: {
+                    src: song.src,
+                    song: song.name,
+                    song_id: song.song_id,
+                    user_id: song.user_id
+                  },
                   on: { selected: _vm.view }
                 })
               ],

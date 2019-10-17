@@ -33,3 +33,5 @@ Route::get('/songFile/{place}/{file}','SongController@getFile');
 
 Route::post('/songsrc','SongController@src');
 
+Route::post('/playlist', 'PlaylistController@create');
+

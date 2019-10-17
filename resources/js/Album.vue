@@ -56,10 +56,15 @@ export default{
 			for(var i=0;i<(this.album.name).length;i++)
 			{
 			this.songs[i]={
+
+					'song_id' : this.album.song_id[i],
+					'user_id': this.album.user_id[i],
 					'name':this.album.name[i],
 					'src':this.album.location[i],
 					'image': this.album.image,
 				};
+
+	
 			}
 
 

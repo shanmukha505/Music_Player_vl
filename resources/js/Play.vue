@@ -45,7 +45,7 @@
 
     <div v-for="song in songs" v-if="!some_toggle">
       
-        <music :src="song.src" :song="song.name"  @selected="view"></music>
+        <music :src="song.src" :song="song.name" :song_id ="song.song_id" :user_id ="song.user_id"  @selected="view"></music>
 
     </div>
 
@@ -149,6 +149,7 @@ export default {
         this.reset_songs=this.songs;
         this.reset_songs['album']="ALL";
 
+
       });
 
       
@@ -168,7 +169,7 @@ export default {
 
       reset_songs:'',
 
-      some_toggle:true,
+      some_toggle: false,
 
       previoussong: '',
 
@@ -265,25 +266,34 @@ export default {
 
       var image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
 
+      var id=this.songs[index]['id'];
+
       var b={
+            song_id: id,
             name: name,
+            user_id: this.songs[index]['user_id'],
             src: blob,
             image: image,
           }
       this.songs[index]=b;
       
       var count=0;
+
+      var a={
+        album: this.meta.common.album,
+        song_id: [],
+        user_id: [],
+        name: [],
+        image: image,
+        location: []
+        };
       
       if(this.album.length==0)
       {
       
-        var a={
-          album: this.meta.common.album,
-          name: [],
-          image: image,
-          location: []
-          };
           this.album.push(a);
+          this.album[0].song_id.push(id);
+          this.album[0].user_id.push(this.songs[index]['user_id']);
           this.album[0].name[0]=name;
           this.album[0].location.push(blob);
         }
@@ -293,6 +303,8 @@ export default {
           {
             if(this.album[i].album==this.meta.common.album)
             {
+              this.album[i].song_id.push(id);
+              this.album[i].user_id.push(this.songs[index]['user_id']);
               this.album[i].name.push(name);
               this.album[i].location.push(blob);
               count=1;
@@ -303,13 +315,9 @@ export default {
 
           if(count==0)
           {
-            var a={
-            album: this.meta.common.album,
-            name: [],
-            image: image,
-            location: []
-            };
             this.album.push(a);
+            this.album[i].song_id.push(this.songs[index]['id']);
+            this.album[i].user_id.push(this.songs[index]['user_id']);
             this.album[this.album.length-1].name.push(name);
             this.album[this.album.length-1].location.push(blob);
           }
@@ -357,8 +365,6 @@ export default {
           this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
           this.image=this.songs[this.index]['image'];
-
-          console.log(this.image);
 
           audio= new Howl({ src: this.songname });
 
