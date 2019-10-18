@@ -2532,13 +2532,14 @@ __webpack_require__.r(__webpack_exports__);
       this.active = true;
     },
     create: function create() {
-      var formData = new FormData();
+      var formData = new FormData(); //console.log("hello");
+
       formData.append('name', this.title);
       formData.append('song_id', this.song_id);
       formData.append('user_id', this.user_id);
-      formData.append('src', this.src);
       formData.append('song', this.song);
-      axios.post('/playlist', formData, {
+      this.view = !this.view;
+      axios.post('/play', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -62586,11 +62587,9 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("div", { staticClass: "dropdown-menu" }, [
-          _c(
-            "a",
-            { staticClass: "dropdown-toggle", on: { click: _vm.playlist } },
-            [_vm._v("add to playlist")]
-          ),
+          _c("a", { staticClass: "dropdown-item" }, [
+            _vm._v("add to playlist")
+          ]),
           _vm._v(" "),
           _c(
             "a",
@@ -62636,7 +62635,11 @@ var render = function() {
             {
               staticClass: "btn btn-primary",
               attrs: { type: "submit" },
-              on: { click: _vm.create }
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
             },
             [_vm._v("submit")]
           )
@@ -78724,8 +78727,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_Player_vl/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/local/SLS/shanmukha.allu/first/Music_Player_vl/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /root/first/Music_Player_vl/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /root/first/Music_Player_vl/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

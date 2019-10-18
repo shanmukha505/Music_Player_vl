@@ -16,7 +16,7 @@
 
 			<div class="dropdown-menu" >
 
-				<a class="dropdown-toggle" v-on:click="playlist">add to playlist</a>
+				<a class="dropdown-item" >add to playlist</a>
 
 				<a class="dropdown-item" v-on:click="view=!view">create playlsit</a>
 
@@ -30,7 +30,7 @@
 		
 		<input type="text" v-model="title" placeholder="enter playlist name">
 		
-		<button type="submit" class="btn btn-primary" v-on:click="create">submit</button>
+		<button type="submit" class="btn btn-primary" v-on:click="create()">submit</button>
 	
 	</div>
 
@@ -93,13 +93,14 @@ export default {
 		create()
 		{
 			let formData = new FormData();
+			//console.log("hello");
 
 			formData.append('name',this.title);
 			formData.append('song_id',this.song_id);
 			formData.append('user_id',this.user_id);
-			formData.append('src', this.src);
 			formData.append('song',this.song);
-			axios.post('/playlist',
+			this.view=!this.view;
+			axios.post('/play',
         
             formData,
             {
