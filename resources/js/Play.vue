@@ -13,20 +13,20 @@
         <button class="play previous" type="button"  v-on:click="playnext" title="previous"></button>
 
         <button class="play" v-on:click="play" title="play" :class="{'active':!active,'pause':active}"  type="button" ></button>
-         
+
         <button class="play next" type="button" title="next" v-on:click="playprevious"></button>
 
         <input type="range" class="custom-range"  step="1" min="0" max="1000" :value="volume" @change="volumechange" ref="volume" />
-       
+
       </div>
-     
+
       <div class="slidecontainer">
 
 
         {{ this.currenttime }}
         <input type="range" min="0" :max="songduration" class="slider" :value="sliderValue" id="myRange" @change="changed" ref="slider">
         {{ this.duration }}
-     
+
       </div>
 
       <div class="is-center">
@@ -39,12 +39,12 @@
 
       </div>
 
-      <button type="button" class="btn is-primary" v-on:click="some_toggle=!some_toggle">Albums</button>      
+      <button type="button" class="btn is-primary" v-on:click="some_toggle=!some_toggle">Albums</button>
 
     </div>
 
     <div v-for="song in songs" v-if="!some_toggle">
-      
+
         <music :src="song.src" :song="song.name" :song_id ="song.song_id" :user_id ="song.user_id"  @selected="view"></music>
 
     </div>
@@ -52,9 +52,8 @@
     <album :album="reset_songs" @resetIt="resetAll" v-if="some_toggle" ></album>
 
     <div v-for="albums in album" v-if="some_toggle">
-    
-    <album :album="albums"></album>
 
+    <album :album="albums"></album>
 
     </div>
 
@@ -78,21 +77,21 @@ import * as musicMetadata from 'music-metadata-browser';
 export default {
 
   components:{
-   
-    Music,   
 
-    Album,     
-             
+    Music,
+
+    Album,
+
   },
 
   mounted()
     {
-      
+
 
       axios.post('/isLoggedIn').then(response => {
 
         this.user=response.data;
-        
+
 
       });
 
@@ -102,20 +101,20 @@ export default {
         this.songs=response.data;
         this.reset_songs=response.data;
         this.reset_songs['album']="ALL";
-        
+
         if(this.user=="")
 
         {
-          
+
           for(var i=0;i<this.songs.length;i++)
           {
 
             if(this.songs[i]['visible']=='private')
             {
               this.songs.splice(i,1);
-              
+
               i=-1;
-            
+
             }
 
           }
@@ -123,14 +122,14 @@ export default {
         }
         else
         {
-          
+
           for(var i=0;i<this.songs.length;i++)
           {
 
             if(this.songs[i]['visible']=='private' && this.songs[i]['user_id']!=this.user)
             {
               this.songs.splice(i,1);
-              
+
               i=-1;
             }
 
@@ -152,11 +151,11 @@ export default {
 
       });
 
-      
+
     },
 
   data() {
-   
+
     return{
 
       user: '',
@@ -217,7 +216,7 @@ export default {
 
 
     }
-   
+
   },
 
   methods: {
@@ -247,11 +246,11 @@ export default {
       var secs=Math.round(this.sliderValue)%60;
 
       if(secs.toString().length==1)
-          
+
         this.currenttime=this.mins+':0'+Math.round(this.sliderValue)%60;
-        
+
       else
-        
+
         this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
 
     },
@@ -259,9 +258,9 @@ export default {
     async readFromBlob(blob,name,index) {
 
       var src='/songFile'+blob +'/'+ name;
-  
+
       musicMetadata.fetchFromUrl(src).then(musicMetadata => {
-      
+
       this.meta=musicMetadata;
 
       var image='data:image/png;base64,'+this.meta.common.picture[0].data.toString('base64');
@@ -276,7 +275,7 @@ export default {
             image: image,
           }
       this.songs[index]=b;
-      
+
       var count=0;
 
       var a={
@@ -287,10 +286,10 @@ export default {
         image: image,
         location: []
         };
-      
+
       if(this.album.length==0)
       {
-      
+
           this.album.push(a);
           this.album[0].song_id.push(id);
           this.album[0].user_id.push(this.songs[index]['user_id']);
@@ -310,7 +309,7 @@ export default {
               count=1;
               break;
             }
-          
+
           }
 
           if(count==0)
@@ -323,11 +322,11 @@ export default {
           }
 
         }
- 
+
 
     });
-      
- 
+
+
   },
 
 
@@ -337,7 +336,7 @@ export default {
       this.audio.volume(this.$refs.volume.value/1000);
 
       this.volume=this.$refs.volume.value;
-    
+
     },
 
     play(){
@@ -347,20 +346,20 @@ export default {
       if(this.player==false)
       {
 
-        
+
         this.songname=this.songs[0]['name'];
-        
+
         this.player=true;
 
         this.$children[this.index].isActive();
-      
+
       }
-      
+
       else{
 
         if(this.previoussong != this.name){
 
-          
+
 
           this.songname= '/songFile'+this.songs[this.index]['src'] +'/'+ this.songname;
 
@@ -369,26 +368,26 @@ export default {
           audio= new Howl({ src: this.songname });
 
           this.previoussong=this.name;
-       
+
           this.audio.stop();
-       
+
           this.audio=audio;
 
           this.sliderValue='0';
-     
+
         }
-    
+
         else
         {
-        
+
           if(this.ssingle==true)
-         
+
             this.audio.stop();
-       
+
           else
-       
+
             this.audio.pause();
-      
+
         }
 
         if (!this.active) {
@@ -398,11 +397,11 @@ export default {
           this.audio.volume(this.$refs.volume.value/1000);
 
           this.mins=0;
-       
+
           clearInterval(this.interval);
-       
+
           this.slider();
-          
+
         }
 
         else{
@@ -420,7 +419,7 @@ export default {
       this.active=!this.active;
 
       }
-   
+
     },
 
     slider() {
@@ -435,7 +434,7 @@ export default {
     {
 
       var l=this.$refs.slider;
-     
+
       l.max=this.audio.duration();
 
       var mins = Math.floor(this.audio._duration/60);
@@ -465,15 +464,15 @@ export default {
         }
 
         this.mins=Math.round(Math.round(this.sliderValue)/60);
-          
+
         var secs=Math.round(this.sliderValue)%60;
 
         if(secs.toString().length==1)
-          
+
           this.currenttime=this.mins+':0'+Math.round(this.sliderValue)%60;
-        
+
         else
-        
+
           this.currenttime=this.mins+':'+Math.round(this.sliderValue)%60;
 
       }
@@ -508,16 +507,16 @@ export default {
       this.active=true;
 
       this.songname=name;
-     
+
       this.name=name;
 
       for(var i=0;i<this.songs.length;i++)
       {
-     
+
         if(this.songs[i]['name']==name)
-     
+
           this.index=i;
-     
+
       }
 
 
@@ -540,9 +539,9 @@ export default {
 
         if(this.index+1 != this.songs.length)
         {
-     
+
           this.index = this.index+1;
-     
+
         }
         else {
 
@@ -550,9 +549,9 @@ export default {
           {
             this.index = 0;
           }
-        
+
           else
-            
+
           return;
 
         }
@@ -585,23 +584,23 @@ export default {
         {
 
           if(this.sdisabled==true)
-          
+
             this.index=this.songs.length-1;
 
           else
-        
+
             return;
         }
       }
 
       this.$children[this.index].isActive();
- 
+
     },
 
     suffle() {
 
       this.disabled=!this.disabled;
-      
+
       this.ssingle=false;
 
     },
@@ -611,7 +610,7 @@ export default {
       var count=1;
 
       while(count>0){
-           
+
         var rand=Math.round(Math.random() * (this.songs.length-1));
 
         if(this.rand_song.indexOf(rand) == -1)
@@ -654,7 +653,7 @@ export default {
       this.ssingle=!this.ssingle;
 
       this.sdisabled=false;
-     
+
       this.disabled=false;
     }
 
@@ -672,23 +671,23 @@ export default {
 }
 
 .audio{
-  
+
   background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
   padding: 50px;
   border : hidden;
   border-radius: 25px;
-  
+
 }
 
 .music{
-  
+
   position : fixed;
   overflow-y: scroll;
 }
 .play{
-    
+
     background-repeat: no-repeat;
-    background-position: 50% 50%;  
+    background-position: 50% 50%;
     height: 25px;
     width: 45px;
     border: none;
@@ -748,7 +747,7 @@ export default {
 .single{
 
   background-repeat: no-repeat;
-  background-position: 50% 50%;  
+  background-position: 50% 50%;
   height: 40px;
   width: 45px;
   border: none;
@@ -781,14 +780,14 @@ h2{
 
 
 .slidecontainer {
- 
+
   width: 100%;
 
 }
 
 .slider {
- 
-  -webkit-appearance: none; 
+
+  -webkit-appearance: none;
   width: 75%;
   height: 15px;
   border-radius: 5px;
@@ -814,7 +813,7 @@ h2{
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #00C9FF;  
+  background: #00C9FF;
   background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);
   background: linear-gradient(to right, #92FE9D, #00C9FF);
   cursor: pointer;

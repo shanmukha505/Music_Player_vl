@@ -19,6 +19,7 @@ class CreatePlaylistsTable extends Migration
             $table->Integer('user_id');
             $table->string('song_id');
             $table->string('song_name');
+            $table->string('song_src');
             $table->timestamps();
         });
     }

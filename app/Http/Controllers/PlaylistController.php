@@ -27,6 +27,8 @@ class PlaylistController extends Controller
                     'song_id' => $request['song_id'],
 
                     'song_name' => $request['song'],
+
+                    'song_src' => $request['song_src'],
         
                 ]);
 

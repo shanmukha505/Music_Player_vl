@@ -2538,6 +2538,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('song_id', this.song_id);
       formData.append('user_id', this.user_id);
       formData.append('song', this.song);
+      formData.append('song_src', this.src);
       this.view = !this.view;
       axios.post('/play', formData, {
         headers: {
@@ -2574,7 +2575,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -9989,7 +9989,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.name{\n  height:100%;\n  width: 100%;\n}\n.audio{\n  \n  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);\n  padding: 50px;\n  border : hidden;\n  border-radius: 25px;\n}\n.music{\n  \n  position : fixed;\n  overflow-y: scroll;\n}\n.play{\n    \n    background-repeat: no-repeat;\n    background-position: 50% 50%;  \n    height: 25px;\n    width: 45px;\n    border: none;\n    display: inline-block;\n    border: hidden;\n    margin-top: 2%;\n}\n.play.active{\n\n  background-image: url(https://image.flaticon.com/icons/svg/149/149657.svg);\n}\n.play.pause{\n\n  background-image: url(https://image.flaticon.com/icons/svg/151/151859.svg);\n}\n.play.previous{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12067.svg');\n}\n.play.next{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12314.svg');\n}\n.play.suffle.suffles{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149674.svg')\n}\n.play.suffle{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149131.svg');\n}\n.play.repeat{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149133.svg');\n}\n.play.repeat.repeats{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149676.svg');\n}\n.single{\n\n  background-repeat: no-repeat;\n  background-position: 50% 50%;  \n  height: 40px;\n  width: 45px;\n  border: none;\n  display: inline-block;\n  padding-top: 2%;\n  padding-bottom: 1%;\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat.svg */ "./resources/js/noun_Repeat.svg")) + ");\n}\n.singles{\n\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat One_2195448.svg */ "./resources/js/noun_Repeat One_2195448.svg")) + ");\n}\nh2{\n  font-size: 0.2rem;\n  margin-top: 5%;\n}\n.image{\n\n  width: 250px;\n  height: 225px;\n}\n.slidecontainer {\n \n  width: 100%;\n}\n.slider {\n \n  -webkit-appearance: none; \n  width: 75%;\n  height: 15px;\n  border-radius: 5px;\n  margin-top: 2%;\n  background-color: #2d3436;\n  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);\n  outline: none;\n  opacity: 0.7;\n  transition: opacity .2s;\n}\n.slider:hover {\n\n  opacity: 1;\n}\n.slider::-webkit-slider-thumb {\n\n  -webkit-appearance: none;\n  appearance: none;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n\n  width: 25px;\n  height: 25px;\n  border-radius: 25%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.custom-range{\n  color: ligthblack;\n}\n.custom-range[type=range]{\n\n  width: 9%;\n}\n.custom-range[type=range]::-webkit-slider-thumb{\n\n  background: black;\n}\n\n", ""]);
+exports.push([module.i, "\n.name{\n  height:100%;\n  width: 100%;\n}\n.audio{\n\n  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);\n  padding: 50px;\n  border : hidden;\n  border-radius: 25px;\n}\n.music{\n\n  position : fixed;\n  overflow-y: scroll;\n}\n.play{\n\n    background-repeat: no-repeat;\n    background-position: 50% 50%;\n    height: 25px;\n    width: 45px;\n    border: none;\n    display: inline-block;\n    border: hidden;\n    margin-top: 2%;\n}\n.play.active{\n\n  background-image: url(https://image.flaticon.com/icons/svg/149/149657.svg);\n}\n.play.pause{\n\n  background-image: url(https://image.flaticon.com/icons/svg/151/151859.svg);\n}\n.play.previous{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12067.svg');\n}\n.play.next{\n\n  background-image: url('https://image.flaticon.com/icons/svg/12/12314.svg');\n}\n.play.suffle.suffles{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149674.svg')\n}\n.play.suffle{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149131.svg');\n}\n.play.repeat{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149133.svg');\n}\n.play.repeat.repeats{\n\n  background-image: url('https://image.flaticon.com/icons/svg/149/149676.svg');\n}\n.single{\n\n  background-repeat: no-repeat;\n  background-position: 50% 50%;\n  height: 40px;\n  width: 45px;\n  border: none;\n  display: inline-block;\n  padding-top: 2%;\n  padding-bottom: 1%;\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat.svg */ "./resources/js/noun_Repeat.svg")) + ");\n}\n.singles{\n\n  background-image: url(" + escape(__webpack_require__(/*! ./noun_Repeat One_2195448.svg */ "./resources/js/noun_Repeat One_2195448.svg")) + ");\n}\nh2{\n  font-size: 0.2rem;\n  margin-top: 5%;\n}\n.image{\n\n  width: 250px;\n  height: 225px;\n}\n.slidecontainer {\n\n  width: 100%;\n}\n.slider {\n\n  -webkit-appearance: none;\n  width: 75%;\n  height: 15px;\n  border-radius: 5px;\n  margin-top: 2%;\n  background-color: #2d3436;\n  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);\n  outline: none;\n  opacity: 0.7;\n  transition: opacity .2s;\n}\n.slider:hover {\n\n  opacity: 1;\n}\n.slider::-webkit-slider-thumb {\n\n  -webkit-appearance: none;\n  appearance: none;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n\n  width: 25px;\n  height: 25px;\n  border-radius: 25%;\n  background: #00C9FF;\n  background: linear-gradient(to right, #92FE9D, #00C9FF);\n  cursor: pointer;\n}\n.custom-range{\n  color: ligthblack;\n}\n.custom-range[type=range]{\n\n  width: 9%;\n}\n.custom-range[type=range]::-webkit-slider-thumb{\n\n  background: black;\n}\n\n", ""]);
 
 // exports
 
@@ -10125,6 +10125,559 @@ module.exports = function escape(url) {
 
     return url
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/debug/src/browser.js":
+/*!*******************************************!*\
+  !*** ./node_modules/debug/src/browser.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {/* eslint-env browser */
+
+/**
+ * This is the web browser implementation of `debug()`.
+ */
+
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = localstorage();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+// eslint-disable-next-line complexity
+function useColors() {
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
+
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
+
+	if (!this.useColors) {
+		return;
+	}
+
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
+
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
+
+	args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+function log(...args) {
+	// This hackery is required for IE8/9, where
+	// the `console.log` function doesn't have 'apply'
+	return typeof console === 'object' &&
+		console.log &&
+		console.log(...args);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+function load() {
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
+
+	return r;
+}
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+module.exports = __webpack_require__(/*! ./common */ "./node_modules/debug/src/common.js")(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/debug/src/common.js":
+/*!******************************************!*\
+  !*** ./node_modules/debug/src/common.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ */
+
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = __webpack_require__(/*! ms */ "./node_modules/ms/index.js");
+
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
+
+	/**
+	* Active `debug` instances.
+	*/
+	createDebug.instances = [];
+
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
+
+	createDebug.names = [];
+	createDebug.skips = [];
+
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
+
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
+
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
+
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
+
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
+
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return match;
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.enabled = createDebug.enabled(namespace);
+		debug.useColors = createDebug.useColors();
+		debug.color = selectColor(namespace);
+		debug.destroy = destroy;
+		debug.extend = extend;
+		// Debug.formatArgs = formatArgs;
+		// debug.rawLog = rawLog;
+
+		// env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		createDebug.instances.push(debug);
+
+		return debug;
+	}
+
+	function destroy() {
+		const index = createDebug.instances.indexOf(this);
+		if (index !== -1) {
+			createDebug.instances.splice(index, 1);
+			return true;
+		}
+		return false;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+
+		for (i = 0; i < createDebug.instances.length; i++) {
+			const instance = createDebug.instances[i];
+			instance.enabled = createDebug.enabled(instance.namespace);
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
+}
+
+module.exports = setup;
 
 
 /***/ }),
@@ -10586,6 +11139,1427 @@ function unwrapListeners(arr) {
   return ret;
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/file-type/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/file-type/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(Buffer) {
+const {
+	multiByteIndexOf,
+	stringToBytes,
+	readUInt64LE,
+	tarHeaderChecksumMatches,
+	uint8ArrayUtf8ByteString
+} = __webpack_require__(/*! ./util */ "./node_modules/file-type/util.js");
+const supported = __webpack_require__(/*! ./supported */ "./node_modules/file-type/supported.js");
+
+const xpiZipFilename = stringToBytes('META-INF/mozilla.rsa');
+const oxmlContentTypes = stringToBytes('[Content_Types].xml');
+const oxmlRels = stringToBytes('_rels/.rels');
+
+const fileType = input => {
+	if (!(input instanceof Uint8Array || input instanceof ArrayBuffer || Buffer.isBuffer(input))) {
+		throw new TypeError(`Expected the \`input\` argument to be of type \`Uint8Array\` or \`Buffer\` or \`ArrayBuffer\`, got \`${typeof input}\``);
+	}
+
+	const buffer = input instanceof Uint8Array ? input : new Uint8Array(input);
+
+	if (!(buffer && buffer.length > 1)) {
+		return;
+	}
+
+	const check = (header, options) => {
+		options = {
+			offset: 0,
+			...options
+		};
+
+		for (let i = 0; i < header.length; i++) {
+			// If a bitmask is set
+			if (options.mask) {
+				// If header doesn't equal `buf` with bits masked off
+				if (header[i] !== (options.mask[i] & buffer[i + options.offset])) {
+					return false;
+				}
+			} else if (header[i] !== buffer[i + options.offset]) {
+				return false;
+			}
+		}
+
+		return true;
+	};
+
+	const checkString = (header, options) => check(stringToBytes(header), options);
+
+	if (check([0xFF, 0xD8, 0xFF])) {
+		return {
+			ext: 'jpg',
+			mime: 'image/jpeg'
+		};
+	}
+
+	if (check([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])) {
+		// APNG format (https://wiki.mozilla.org/APNG_Specification)
+		// 1. Find the first IDAT (image data) chunk (49 44 41 54)
+		// 2. Check if there is an "acTL" chunk before the IDAT one (61 63 54 4C)
+
+		// Offset calculated as follows:
+		// - 8 bytes: PNG signature
+		// - 4 (length) + 4 (chunk type) + 13 (chunk data) + 4 (CRC): IHDR chunk
+		const startIndex = 33;
+		const firstImageDataChunkIndex = buffer.findIndex((el, i) => i >= startIndex && buffer[i] === 0x49 && buffer[i + 1] === 0x44 && buffer[i + 2] === 0x41 && buffer[i + 3] === 0x54);
+		const sliced = buffer.subarray(startIndex, firstImageDataChunkIndex);
+
+		if (sliced.findIndex((el, i) => sliced[i] === 0x61 && sliced[i + 1] === 0x63 && sliced[i + 2] === 0x54 && sliced[i + 3] === 0x4C) >= 0) {
+			return {
+				ext: 'apng',
+				mime: 'image/apng'
+			};
+		}
+
+		return {
+			ext: 'png',
+			mime: 'image/png'
+		};
+	}
+
+	if (check([0x47, 0x49, 0x46])) {
+		return {
+			ext: 'gif',
+			mime: 'image/gif'
+		};
+	}
+
+	if (check([0x57, 0x45, 0x42, 0x50], {offset: 8})) {
+		return {
+			ext: 'webp',
+			mime: 'image/webp'
+		};
+	}
+
+	if (check([0x46, 0x4C, 0x49, 0x46])) {
+		return {
+			ext: 'flif',
+			mime: 'image/flif'
+		};
+	}
+
+	// `cr2`, `orf`, and `arw` need to be before `tif` check
+	if (
+		(check([0x49, 0x49, 0x2A, 0x0]) || check([0x4D, 0x4D, 0x0, 0x2A])) &&
+		check([0x43, 0x52], {offset: 8})
+	) {
+		return {
+			ext: 'cr2',
+			mime: 'image/x-canon-cr2'
+		};
+	}
+
+	if (check([0x49, 0x49, 0x52, 0x4F, 0x08, 0x00, 0x00, 0x00, 0x18])) {
+		return {
+			ext: 'orf',
+			mime: 'image/x-olympus-orf'
+		};
+	}
+
+	if (
+		check([0x49, 0x49, 0x2A, 0x00]) &&
+		(check([0x10, 0xFB, 0x86, 0x01], {offset: 4}) ||
+		check([0x08, 0x00, 0x00, 0x00, 0x13, 0x00], {offset: 4}) ||
+		check([0x08, 0x00, 0x00, 0x00, 0x12, 0x00], {offset: 4}))
+	) {
+		return {
+			ext: 'arw',
+			mime: 'image/x-sony-arw'
+		};
+	}
+
+	if (
+		check([0x49, 0x49, 0x2A, 0x00, 0x08, 0x00, 0x00, 0x00]) &&
+		(check([0x2D, 0x00, 0xFE, 0x00], {offset: 8}) ||
+		check([0x27, 0x00, 0xFE, 0x00], {offset: 8}))
+	) {
+		return {
+			ext: 'dng',
+			mime: 'image/x-adobe-dng'
+		};
+	}
+
+	if (
+		check([0x49, 0x49, 0x2A, 0x00]) &&
+		check([0x1C, 0x00, 0xFE, 0x00], {offset: 8})
+	) {
+		return {
+			ext: 'nef',
+			mime: 'image/x-nikon-nef'
+		};
+	}
+
+	if (check([0x49, 0x49, 0x55, 0x00, 0x18, 0x00, 0x00, 0x00, 0x88, 0xE7, 0x74, 0xD8])) {
+		return {
+			ext: 'rw2',
+			mime: 'image/x-panasonic-rw2'
+		};
+	}
+
+	// `raf` is here just to keep all the raw image detectors together.
+	if (checkString('FUJIFILMCCD-RAW')) {
+		return {
+			ext: 'raf',
+			mime: 'image/x-fujifilm-raf'
+		};
+	}
+
+	if (
+		check([0x49, 0x49, 0x2A, 0x0]) ||
+		check([0x4D, 0x4D, 0x0, 0x2A])
+	) {
+		return {
+			ext: 'tif',
+			mime: 'image/tiff'
+		};
+	}
+
+	if (check([0x42, 0x4D])) {
+		return {
+			ext: 'bmp',
+			mime: 'image/bmp'
+		};
+	}
+
+	if (check([0x49, 0x49, 0xBC])) {
+		return {
+			ext: 'jxr',
+			mime: 'image/vnd.ms-photo'
+		};
+	}
+
+	if (check([0x38, 0x42, 0x50, 0x53])) {
+		return {
+			ext: 'psd',
+			mime: 'image/vnd.adobe.photoshop'
+		};
+	}
+
+	// Zip-based file formats
+	// Need to be before the `zip` check
+	const zipHeader = [0x50, 0x4B, 0x3, 0x4];
+	if (check(zipHeader)) {
+		if (
+			check([0x6D, 0x69, 0x6D, 0x65, 0x74, 0x79, 0x70, 0x65, 0x61, 0x70, 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x65, 0x70, 0x75, 0x62, 0x2B, 0x7A, 0x69, 0x70], {offset: 30})
+		) {
+			return {
+				ext: 'epub',
+				mime: 'application/epub+zip'
+			};
+		}
+
+		// Assumes signed `.xpi` from addons.mozilla.org
+		if (check(xpiZipFilename, {offset: 30})) {
+			return {
+				ext: 'xpi',
+				mime: 'application/x-xpinstall'
+			};
+		}
+
+		if (checkString('mimetypeapplication/vnd.oasis.opendocument.text', {offset: 30})) {
+			return {
+				ext: 'odt',
+				mime: 'application/vnd.oasis.opendocument.text'
+			};
+		}
+
+		if (checkString('mimetypeapplication/vnd.oasis.opendocument.spreadsheet', {offset: 30})) {
+			return {
+				ext: 'ods',
+				mime: 'application/vnd.oasis.opendocument.spreadsheet'
+			};
+		}
+
+		if (checkString('mimetypeapplication/vnd.oasis.opendocument.presentation', {offset: 30})) {
+			return {
+				ext: 'odp',
+				mime: 'application/vnd.oasis.opendocument.presentation'
+			};
+		}
+
+		// The docx, xlsx and pptx file types extend the Office Open XML file format:
+		// https://en.wikipedia.org/wiki/Office_Open_XML_file_formats
+		// We look for:
+		// - one entry named '[Content_Types].xml' or '_rels/.rels',
+		// - one entry indicating specific type of file.
+		// MS Office, OpenOffice and LibreOffice may put the parts in different order, so the check should not rely on it.
+		let zipHeaderIndex = 0; // The first zip header was already found at index 0
+		let oxmlFound = false;
+		let type;
+
+		do {
+			const offset = zipHeaderIndex + 30;
+
+			if (!oxmlFound) {
+				oxmlFound = (check(oxmlContentTypes, {offset}) || check(oxmlRels, {offset}));
+			}
+
+			if (!type) {
+				if (checkString('word/', {offset})) {
+					type = {
+						ext: 'docx',
+						mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+					};
+				} else if (checkString('ppt/', {offset})) {
+					type = {
+						ext: 'pptx',
+						mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+					};
+				} else if (checkString('xl/', {offset})) {
+					type = {
+						ext: 'xlsx',
+						mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+					};
+				}
+			}
+
+			if (oxmlFound && type) {
+				return type;
+			}
+
+			zipHeaderIndex = multiByteIndexOf(buffer, zipHeader, offset);
+		} while (zipHeaderIndex >= 0);
+
+		// No more zip parts available in the buffer, but maybe we are almost certain about the type?
+		if (type) {
+			return type;
+		}
+	}
+
+	if (
+		check([0x50, 0x4B]) &&
+		(buffer[2] === 0x3 || buffer[2] === 0x5 || buffer[2] === 0x7) &&
+		(buffer[3] === 0x4 || buffer[3] === 0x6 || buffer[3] === 0x8)
+	) {
+		return {
+			ext: 'zip',
+			mime: 'application/zip'
+		};
+	}
+
+	if (
+		check([0x30, 0x30, 0x30, 0x30, 0x30, 0x30], {offset: 148, mask: [0xF8, 0xF8, 0xF8, 0xF8, 0xF8, 0xF8]}) && // Valid tar checksum
+		tarHeaderChecksumMatches(buffer)
+	) {
+		return {
+			ext: 'tar',
+			mime: 'application/x-tar'
+		};
+	}
+
+	if (
+		check([0x52, 0x61, 0x72, 0x21, 0x1A, 0x7]) &&
+		(buffer[6] === 0x0 || buffer[6] === 0x1)
+	) {
+		return {
+			ext: 'rar',
+			mime: 'application/x-rar-compressed'
+		};
+	}
+
+	if (check([0x1F, 0x8B, 0x8])) {
+		return {
+			ext: 'gz',
+			mime: 'application/gzip'
+		};
+	}
+
+	if (check([0x42, 0x5A, 0x68])) {
+		return {
+			ext: 'bz2',
+			mime: 'application/x-bzip2'
+		};
+	}
+
+	if (check([0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C])) {
+		return {
+			ext: '7z',
+			mime: 'application/x-7z-compressed'
+		};
+	}
+
+	if (check([0x78, 0x01])) {
+		return {
+			ext: 'dmg',
+			mime: 'application/x-apple-diskimage'
+		};
+	}
+
+	// `mov` format variants
+	if (
+		check([0x66, 0x72, 0x65, 0x65], {offset: 4}) || // `free`
+		check([0x6D, 0x64, 0x61, 0x74], {offset: 4}) || // `mdat` MJPEG
+		check([0x6D, 0x6F, 0x6F, 0x76], {offset: 4}) || // `moov`
+		check([0x77, 0x69, 0x64, 0x65], {offset: 4}) // `wide`
+	) {
+		return {
+			ext: 'mov',
+			mime: 'video/quicktime'
+		};
+	}
+
+	// File Type Box (https://en.wikipedia.org/wiki/ISO_base_media_file_format)
+	// It's not required to be first, but it's recommended to be. Almost all ISO base media files start with `ftyp` box.
+	// `ftyp` box must contain a brand major identifier, which must consist of ISO 8859-1 printable characters.
+	// Here we check for 8859-1 printable characters (for simplicity, it's a mask which also catches one non-printable character).
+	if (
+		check([0x66, 0x74, 0x79, 0x70], {offset: 4}) && // `ftyp`
+		(buffer[8] & 0x60) !== 0x00 && (buffer[9] & 0x60) !== 0x00 && (buffer[10] & 0x60) !== 0x00 && (buffer[11] & 0x60) !== 0x00 // Brand major
+	) {
+		// They all can have MIME `video/mp4` except `application/mp4` special-case which is hard to detect.
+		// For some cases, we're specific, everything else falls to `video/mp4` with `mp4` extension.
+		const brandMajor = uint8ArrayUtf8ByteString(buffer, 8, 12);
+		switch (brandMajor) {
+			case 'mif1':
+				return {ext: 'heic', mime: 'image/heif'};
+			case 'msf1':
+				return {ext: 'heic', mime: 'image/heif-sequence'};
+			case 'heic': case 'heix':
+				return {ext: 'heic', mime: 'image/heic'};
+			case 'hevc': case 'hevx':
+				return {ext: 'heic', mime: 'image/heic-sequence'};
+			case 'qt  ':
+				return {ext: 'mov', mime: 'video/quicktime'};
+			case 'M4V ': case 'M4VH': case 'M4VP':
+				return {ext: 'm4v', mime: 'video/x-m4v'};
+			case 'M4P ':
+				return {ext: 'm4p', mime: 'video/mp4'};
+			case 'M4B ':
+				return {ext: 'm4b', mime: 'audio/mp4'};
+			case 'M4A ':
+				return {ext: 'm4a', mime: 'audio/x-m4a'};
+			case 'F4V ':
+				return {ext: 'f4v', mime: 'video/mp4'};
+			case 'F4P ':
+				return {ext: 'f4p', mime: 'video/mp4'};
+			case 'F4A ':
+				return {ext: 'f4a', mime: 'audio/mp4'};
+			case 'F4B ':
+				return {ext: 'f4b', mime: 'audio/mp4'};
+			default:
+				if (brandMajor.startsWith('3g')) {
+					if (brandMajor.startsWith('3g2')) {
+						return {ext: '3g2', mime: 'video/3gpp2'};
+					}
+
+					return {ext: '3gp', mime: 'video/3gpp'};
+				}
+
+				return {ext: 'mp4', mime: 'video/mp4'};
+		}
+	}
+
+	if (check([0x4D, 0x54, 0x68, 0x64])) {
+		return {
+			ext: 'mid',
+			mime: 'audio/midi'
+		};
+	}
+
+	// https://github.com/threatstack/libmagic/blob/master/magic/Magdir/matroska
+	if (check([0x1A, 0x45, 0xDF, 0xA3])) {
+		const sliced = buffer.subarray(4, 4 + 4096);
+		const idPos = sliced.findIndex((el, i, arr) => arr[i] === 0x42 && arr[i + 1] === 0x82);
+
+		if (idPos !== -1) {
+			const docTypePos = idPos + 3;
+			const findDocType = type => [...type].every((c, i) => sliced[docTypePos + i] === c.charCodeAt(0));
+
+			if (findDocType('matroska')) {
+				return {
+					ext: 'mkv',
+					mime: 'video/x-matroska'
+				};
+			}
+
+			if (findDocType('webm')) {
+				return {
+					ext: 'webm',
+					mime: 'video/webm'
+				};
+			}
+		}
+	}
+
+	// RIFF file format which might be AVI, WAV, QCP, etc
+	if (check([0x52, 0x49, 0x46, 0x46])) {
+		if (check([0x41, 0x56, 0x49], {offset: 8})) {
+			return {
+				ext: 'avi',
+				mime: 'video/vnd.avi'
+			};
+		}
+
+		if (check([0x57, 0x41, 0x56, 0x45], {offset: 8})) {
+			return {
+				ext: 'wav',
+				mime: 'audio/vnd.wave'
+			};
+		}
+
+		// QLCM, QCP file
+		if (check([0x51, 0x4C, 0x43, 0x4D], {offset: 8})) {
+			return {
+				ext: 'qcp',
+				mime: 'audio/qcelp'
+			};
+		}
+	}
+
+	// ASF_Header_Object first 80 bytes
+	if (check([0x30, 0x26, 0xB2, 0x75, 0x8E, 0x66, 0xCF, 0x11, 0xA6, 0xD9])) {
+		// Search for header should be in first 1KB of file.
+
+		let offset = 30;
+		do {
+			const objectSize = readUInt64LE(buffer, offset + 16);
+			if (check([0x91, 0x07, 0xDC, 0xB7, 0xB7, 0xA9, 0xCF, 0x11, 0x8E, 0xE6, 0x00, 0xC0, 0x0C, 0x20, 0x53, 0x65], {offset})) {
+				// Sync on Stream-Properties-Object (B7DC0791-A9B7-11CF-8EE6-00C00C205365)
+				if (check([0x40, 0x9E, 0x69, 0xF8, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B], {offset: offset + 24})) {
+					// Found audio:
+					return {
+						ext: 'wma',
+						mime: 'audio/x-ms-wma'
+					};
+				}
+
+				if (check([0xC0, 0xEF, 0x19, 0xBC, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B], {offset: offset + 24})) {
+					// Found video:
+					return {
+						ext: 'wmv',
+						mime: 'video/x-ms-asf'
+					};
+				}
+
+				break;
+			}
+
+			offset += objectSize;
+		} while (offset + 24 <= buffer.length);
+
+		// Default to ASF generic extension
+		return {
+			ext: 'asf',
+			mime: 'application/vnd.ms-asf'
+		};
+	}
+
+	if (
+		check([0x0, 0x0, 0x1, 0xBA]) ||
+		check([0x0, 0x0, 0x1, 0xB3])
+	) {
+		return {
+			ext: 'mpg',
+			mime: 'video/mpeg'
+		};
+	}
+
+	// Check for MPEG header at different starting offsets
+	for (let start = 0; start < 2 && start < (buffer.length - 16); start++) {
+		if (
+			check([0x49, 0x44, 0x33], {offset: start}) || // ID3 header
+			check([0xFF, 0xE2], {offset: start, mask: [0xFF, 0xE6]}) // MPEG 1 or 2 Layer 3 header
+		) {
+			return {
+				ext: 'mp3',
+				mime: 'audio/mpeg'
+			};
+		}
+
+		if (
+			check([0xFF, 0xE4], {offset: start, mask: [0xFF, 0xE6]}) // MPEG 1 or 2 Layer 2 header
+		) {
+			return {
+				ext: 'mp2',
+				mime: 'audio/mpeg'
+			};
+		}
+
+		if (
+			check([0xFF, 0xF8], {offset: start, mask: [0xFF, 0xFC]}) // MPEG 2 layer 0 using ADTS
+		) {
+			return {
+				ext: 'mp2',
+				mime: 'audio/mpeg'
+			};
+		}
+
+		if (
+			check([0xFF, 0xF0], {offset: start, mask: [0xFF, 0xFC]}) // MPEG 4 layer 0 using ADTS
+		) {
+			return {
+				ext: 'mp4',
+				mime: 'audio/mpeg'
+			};
+		}
+	}
+
+	// Needs to be before `ogg` check
+	if (check([0x4F, 0x70, 0x75, 0x73, 0x48, 0x65, 0x61, 0x64], {offset: 28})) {
+		return {
+			ext: 'opus',
+			mime: 'audio/opus'
+		};
+	}
+
+	// If 'OggS' in first  bytes, then OGG container
+	if (check([0x4F, 0x67, 0x67, 0x53])) {
+		// This is a OGG container
+
+		// If ' theora' in header.
+		if (check([0x80, 0x74, 0x68, 0x65, 0x6F, 0x72, 0x61], {offset: 28})) {
+			return {
+				ext: 'ogv',
+				mime: 'video/ogg'
+			};
+		}
+
+		// If '\x01video' in header.
+		if (check([0x01, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x00], {offset: 28})) {
+			return {
+				ext: 'ogm',
+				mime: 'video/ogg'
+			};
+		}
+
+		// If ' FLAC' in header  https://xiph.org/flac/faq.html
+		if (check([0x7F, 0x46, 0x4C, 0x41, 0x43], {offset: 28})) {
+			return {
+				ext: 'oga',
+				mime: 'audio/ogg'
+			};
+		}
+
+		// 'Speex  ' in header https://en.wikipedia.org/wiki/Speex
+		if (check([0x53, 0x70, 0x65, 0x65, 0x78, 0x20, 0x20], {offset: 28})) {
+			return {
+				ext: 'spx',
+				mime: 'audio/ogg'
+			};
+		}
+
+		// If '\x01vorbis' in header
+		if (check([0x01, 0x76, 0x6F, 0x72, 0x62, 0x69, 0x73], {offset: 28})) {
+			return {
+				ext: 'ogg',
+				mime: 'audio/ogg'
+			};
+		}
+
+		// Default OGG container https://www.iana.org/assignments/media-types/application/ogg
+		return {
+			ext: 'ogx',
+			mime: 'application/ogg'
+		};
+	}
+
+	if (check([0x66, 0x4C, 0x61, 0x43])) {
+		return {
+			ext: 'flac',
+			mime: 'audio/x-flac'
+		};
+	}
+
+	if (check([0x4D, 0x41, 0x43, 0x20])) { // 'MAC '
+		return {
+			ext: 'ape',
+			mime: 'audio/ape'
+		};
+	}
+
+	if (check([0x77, 0x76, 0x70, 0x6B])) { // 'wvpk'
+		return {
+			ext: 'wv',
+			mime: 'audio/wavpack'
+		};
+	}
+
+	if (check([0x23, 0x21, 0x41, 0x4D, 0x52, 0x0A])) {
+		return {
+			ext: 'amr',
+			mime: 'audio/amr'
+		};
+	}
+
+	if (check([0x25, 0x50, 0x44, 0x46])) {
+		return {
+			ext: 'pdf',
+			mime: 'application/pdf'
+		};
+	}
+
+	if (check([0x4D, 0x5A])) {
+		return {
+			ext: 'exe',
+			mime: 'application/x-msdownload'
+		};
+	}
+
+	if (
+		(buffer[0] === 0x43 || buffer[0] === 0x46) &&
+		check([0x57, 0x53], {offset: 1})
+	) {
+		return {
+			ext: 'swf',
+			mime: 'application/x-shockwave-flash'
+		};
+	}
+
+	if (check([0x7B, 0x5C, 0x72, 0x74, 0x66])) {
+		return {
+			ext: 'rtf',
+			mime: 'application/rtf'
+		};
+	}
+
+	if (check([0x00, 0x61, 0x73, 0x6D])) {
+		return {
+			ext: 'wasm',
+			mime: 'application/wasm'
+		};
+	}
+
+	if (
+		check([0x77, 0x4F, 0x46, 0x46]) &&
+		(
+			check([0x00, 0x01, 0x00, 0x00], {offset: 4}) ||
+			check([0x4F, 0x54, 0x54, 0x4F], {offset: 4})
+		)
+	) {
+		return {
+			ext: 'woff',
+			mime: 'font/woff'
+		};
+	}
+
+	if (
+		check([0x77, 0x4F, 0x46, 0x32]) &&
+		(
+			check([0x00, 0x01, 0x00, 0x00], {offset: 4}) ||
+			check([0x4F, 0x54, 0x54, 0x4F], {offset: 4})
+		)
+	) {
+		return {
+			ext: 'woff2',
+			mime: 'font/woff2'
+		};
+	}
+
+	if (
+		check([0x4C, 0x50], {offset: 34}) &&
+		(
+			check([0x00, 0x00, 0x01], {offset: 8}) ||
+			check([0x01, 0x00, 0x02], {offset: 8}) ||
+			check([0x02, 0x00, 0x02], {offset: 8})
+		)
+	) {
+		return {
+			ext: 'eot',
+			mime: 'application/vnd.ms-fontobject'
+		};
+	}
+
+	if (check([0x00, 0x01, 0x00, 0x00, 0x00])) {
+		return {
+			ext: 'ttf',
+			mime: 'font/ttf'
+		};
+	}
+
+	if (check([0x4F, 0x54, 0x54, 0x4F, 0x00])) {
+		return {
+			ext: 'otf',
+			mime: 'font/otf'
+		};
+	}
+
+	if (check([0x00, 0x00, 0x01, 0x00])) {
+		return {
+			ext: 'ico',
+			mime: 'image/x-icon'
+		};
+	}
+
+	if (check([0x00, 0x00, 0x02, 0x00])) {
+		return {
+			ext: 'cur',
+			mime: 'image/x-icon'
+		};
+	}
+
+	if (check([0x46, 0x4C, 0x56, 0x01])) {
+		return {
+			ext: 'flv',
+			mime: 'video/x-flv'
+		};
+	}
+
+	if (check([0x25, 0x21])) {
+		return {
+			ext: 'ps',
+			mime: 'application/postscript'
+		};
+	}
+
+	if (check([0xFD, 0x37, 0x7A, 0x58, 0x5A, 0x00])) {
+		return {
+			ext: 'xz',
+			mime: 'application/x-xz'
+		};
+	}
+
+	if (check([0x53, 0x51, 0x4C, 0x69])) {
+		return {
+			ext: 'sqlite',
+			mime: 'application/x-sqlite3'
+		};
+	}
+
+	if (check([0x4E, 0x45, 0x53, 0x1A])) {
+		return {
+			ext: 'nes',
+			mime: 'application/x-nintendo-nes-rom'
+		};
+	}
+
+	if (check([0x43, 0x72, 0x32, 0x34])) {
+		return {
+			ext: 'crx',
+			mime: 'application/x-google-chrome-extension'
+		};
+	}
+
+	if (
+		check([0x4D, 0x53, 0x43, 0x46]) ||
+		check([0x49, 0x53, 0x63, 0x28])
+	) {
+		return {
+			ext: 'cab',
+			mime: 'application/vnd.ms-cab-compressed'
+		};
+	}
+
+	// Needs to be before `ar` check
+	if (check([0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A, 0x64, 0x65, 0x62, 0x69, 0x61, 0x6E, 0x2D, 0x62, 0x69, 0x6E, 0x61, 0x72, 0x79])) {
+		return {
+			ext: 'deb',
+			mime: 'application/x-deb'
+		};
+	}
+
+	if (check([0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E])) {
+		return {
+			ext: 'ar',
+			mime: 'application/x-unix-archive'
+		};
+	}
+
+	if (check([0xED, 0xAB, 0xEE, 0xDB])) {
+		return {
+			ext: 'rpm',
+			mime: 'application/x-rpm'
+		};
+	}
+
+	if (
+		check([0x1F, 0xA0]) ||
+		check([0x1F, 0x9D])
+	) {
+		return {
+			ext: 'Z',
+			mime: 'application/x-compress'
+		};
+	}
+
+	if (check([0x4C, 0x5A, 0x49, 0x50])) {
+		return {
+			ext: 'lz',
+			mime: 'application/x-lzip'
+		};
+	}
+
+	if (check([0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3E])) {
+		return {
+			ext: 'msi',
+			mime: 'application/x-msi'
+		};
+	}
+
+	if (check([0x06, 0x0E, 0x2B, 0x34, 0x02, 0x05, 0x01, 0x01, 0x0D, 0x01, 0x02, 0x01, 0x01, 0x02])) {
+		return {
+			ext: 'mxf',
+			mime: 'application/mxf'
+		};
+	}
+
+	if (check([0x47], {offset: 4}) && (check([0x47], {offset: 192}) || check([0x47], {offset: 196}))) {
+		return {
+			ext: 'mts',
+			mime: 'video/mp2t'
+		};
+	}
+
+	if (check([0x42, 0x4C, 0x45, 0x4E, 0x44, 0x45, 0x52])) {
+		return {
+			ext: 'blend',
+			mime: 'application/x-blender'
+		};
+	}
+
+	if (check([0x42, 0x50, 0x47, 0xFB])) {
+		return {
+			ext: 'bpg',
+			mime: 'image/bpg'
+		};
+	}
+
+	if (check([0x00, 0x00, 0x00, 0x0C, 0x6A, 0x50, 0x20, 0x20, 0x0D, 0x0A, 0x87, 0x0A])) {
+		// JPEG-2000 family
+
+		if (check([0x6A, 0x70, 0x32, 0x20], {offset: 20})) {
+			return {
+				ext: 'jp2',
+				mime: 'image/jp2'
+			};
+		}
+
+		if (check([0x6A, 0x70, 0x78, 0x20], {offset: 20})) {
+			return {
+				ext: 'jpx',
+				mime: 'image/jpx'
+			};
+		}
+
+		if (check([0x6A, 0x70, 0x6D, 0x20], {offset: 20})) {
+			return {
+				ext: 'jpm',
+				mime: 'image/jpm'
+			};
+		}
+
+		if (check([0x6D, 0x6A, 0x70, 0x32], {offset: 20})) {
+			return {
+				ext: 'mj2',
+				mime: 'image/mj2'
+			};
+		}
+	}
+
+	if (check([0x46, 0x4F, 0x52, 0x4D])) {
+		return {
+			ext: 'aif',
+			mime: 'audio/aiff'
+		};
+	}
+
+	if (checkString('<?xml ')) {
+		return {
+			ext: 'xml',
+			mime: 'application/xml'
+		};
+	}
+
+	if (check([0x42, 0x4F, 0x4F, 0x4B, 0x4D, 0x4F, 0x42, 0x49], {offset: 60})) {
+		return {
+			ext: 'mobi',
+			mime: 'application/x-mobipocket-ebook'
+		};
+	}
+
+	if (check([0xAB, 0x4B, 0x54, 0x58, 0x20, 0x31, 0x31, 0xBB, 0x0D, 0x0A, 0x1A, 0x0A])) {
+		return {
+			ext: 'ktx',
+			mime: 'image/ktx'
+		};
+	}
+
+	if (check([0x44, 0x49, 0x43, 0x4D], {offset: 128})) {
+		return {
+			ext: 'dcm',
+			mime: 'application/dicom'
+		};
+	}
+
+	// Musepack, SV7
+	if (check([0x4D, 0x50, 0x2B])) {
+		return {
+			ext: 'mpc',
+			mime: 'audio/x-musepack'
+		};
+	}
+
+	// Musepack, SV8
+	if (check([0x4D, 0x50, 0x43, 0x4B])) {
+		return {
+			ext: 'mpc',
+			mime: 'audio/x-musepack'
+		};
+	}
+
+	if (check([0x42, 0x45, 0x47, 0x49, 0x4E, 0x3A])) {
+		return {
+			ext: 'ics',
+			mime: 'text/calendar'
+		};
+	}
+
+	if (check([0x67, 0x6C, 0x54, 0x46, 0x02, 0x00, 0x00, 0x00])) {
+		return {
+			ext: 'glb',
+			mime: 'model/gltf-binary'
+		};
+	}
+
+	if (check([0xD4, 0xC3, 0xB2, 0xA1]) || check([0xA1, 0xB2, 0xC3, 0xD4])) {
+		return {
+			ext: 'pcap',
+			mime: 'application/vnd.tcpdump.pcap'
+		};
+	}
+
+	// Sony DSD Stream File (DSF)
+	if (check([0x44, 0x53, 0x44, 0x20])) {
+		return {
+			ext: 'dsf',
+			mime: 'audio/x-dsf' // Non-standard
+		};
+	}
+
+	if (check([0x4C, 0x00, 0x00, 0x00, 0x01, 0x14, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46])) {
+		return {
+			ext: 'lnk',
+			mime: 'application/x.ms.shortcut' // Invented by us
+		};
+	}
+
+	if (check([0x62, 0x6F, 0x6F, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x61, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00])) {
+		return {
+			ext: 'alias',
+			mime: 'application/x.apple.alias' // Invented by us
+		};
+	}
+
+	if (checkString('Creative Voice File')) {
+		return {
+			ext: 'voc',
+			mime: 'audio/x-voc'
+		};
+	}
+
+	if (check([0x0B, 0x77])) {
+		return {
+			ext: 'ac3',
+			mime: 'audio/vnd.dolby.dd-raw'
+		};
+	}
+
+	if ((check([0x7E, 0x10, 0x04]) || check([0x7E, 0x18, 0x04])) && check([0x30, 0x4D, 0x49, 0x45], {offset: 4})) {
+		return {
+			ext: 'mie',
+			mime: 'application/x-mie'
+		};
+	}
+};
+
+module.exports = fileType;
+
+Object.defineProperty(fileType, 'minimumBytes', {value: 4100});
+
+fileType.stream = readableStream => new Promise((resolve, reject) => {
+	// Using `eval` to work around issues when bundling with Webpack
+	const stream = eval('require')('stream'); // eslint-disable-line no-eval
+
+	readableStream.on('error', reject);
+	readableStream.once('readable', () => {
+		const pass = new stream.PassThrough();
+		const chunk = readableStream.read(module.exports.minimumBytes) || readableStream.read();
+		try {
+			pass.fileType = fileType(chunk);
+		} catch (error) {
+			reject(error);
+		}
+
+		readableStream.unshift(chunk);
+
+		if (stream.pipeline) {
+			resolve(stream.pipeline(readableStream, pass, () => {}));
+		} else {
+			resolve(readableStream.pipe(pass));
+		}
+	});
+});
+
+Object.defineProperty(fileType, 'extensions', {
+	get() {
+		return new Set(supported.extensions);
+	}
+});
+
+Object.defineProperty(fileType, 'mimeTypes', {
+	get() {
+		return new Set(supported.mimeTypes);
+	}
+});
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
+
+/***/ }),
+
+/***/ "./node_modules/file-type/supported.js":
+/*!*********************************************!*\
+  !*** ./node_modules/file-type/supported.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+	extensions: [
+		'jpg',
+		'png',
+		'apng',
+		'gif',
+		'webp',
+		'flif',
+		'cr2',
+		'orf',
+		'arw',
+		'dng',
+		'nef',
+		'rw2',
+		'raf',
+		'tif',
+		'bmp',
+		'jxr',
+		'psd',
+		'zip',
+		'tar',
+		'rar',
+		'gz',
+		'bz2',
+		'7z',
+		'dmg',
+		'mp4',
+		'mid',
+		'mkv',
+		'webm',
+		'mov',
+		'avi',
+		'mpg',
+		'mp2',
+		'mp3',
+		'm4a',
+		'oga',
+		'ogg',
+		'ogv',
+		'opus',
+		'flac',
+		'wav',
+		'spx',
+		'amr',
+		'pdf',
+		'epub',
+		'exe',
+		'swf',
+		'rtf',
+		'wasm',
+		'woff',
+		'woff2',
+		'eot',
+		'ttf',
+		'otf',
+		'ico',
+		'flv',
+		'ps',
+		'xz',
+		'sqlite',
+		'nes',
+		'crx',
+		'xpi',
+		'cab',
+		'deb',
+		'ar',
+		'rpm',
+		'Z',
+		'lz',
+		'msi',
+		'mxf',
+		'mts',
+		'blend',
+		'bpg',
+		'docx',
+		'pptx',
+		'xlsx',
+		'3gp',
+		'3g2',
+		'jp2',
+		'jpm',
+		'jpx',
+		'mj2',
+		'aif',
+		'qcp',
+		'odt',
+		'ods',
+		'odp',
+		'xml',
+		'mobi',
+		'heic',
+		'cur',
+		'ktx',
+		'ape',
+		'wv',
+		'wmv',
+		'wma',
+		'dcm',
+		'ics',
+		'glb',
+		'pcap',
+		'dsf',
+		'lnk',
+		'alias',
+		'voc',
+		'ac3',
+		'm4v',
+		'm4p',
+		'm4b',
+		'f4v',
+		'f4p',
+		'f4b',
+		'f4a',
+		'mie',
+		'asf',
+		'ogm',
+		'ogx',
+		'mpc'
+	],
+	mimeTypes: [
+		'image/jpeg',
+		'image/png',
+		'image/gif',
+		'image/webp',
+		'image/flif',
+		'image/x-canon-cr2',
+		'image/tiff',
+		'image/bmp',
+		'image/vnd.ms-photo',
+		'image/vnd.adobe.photoshop',
+		'application/epub+zip',
+		'application/x-xpinstall',
+		'application/vnd.oasis.opendocument.text',
+		'application/vnd.oasis.opendocument.spreadsheet',
+		'application/vnd.oasis.opendocument.presentation',
+		'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+		'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+		'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+		'application/zip',
+		'application/x-tar',
+		'application/x-rar-compressed',
+		'application/gzip',
+		'application/x-bzip2',
+		'application/x-7z-compressed',
+		'application/x-apple-diskimage',
+		'video/mp4',
+		'audio/midi',
+		'video/x-matroska',
+		'video/webm',
+		'video/quicktime',
+		'video/vnd.avi',
+		'audio/vnd.wave',
+		'audio/qcelp',
+		'audio/x-ms-wma',
+		'video/x-ms-asf',
+		'application/vnd.ms-asf',
+		'video/mpeg',
+		'video/3gpp',
+		'audio/mpeg',
+		'audio/mp4', // RFC 4337
+		'audio/opus',
+		'video/ogg',
+		'audio/ogg',
+		'application/ogg',
+		'audio/x-flac',
+		'audio/ape',
+		'audio/wavpack',
+		'audio/amr',
+		'application/pdf',
+		'application/x-msdownload',
+		'application/x-shockwave-flash',
+		'application/rtf',
+		'application/wasm',
+		'font/woff',
+		'font/woff2',
+		'application/vnd.ms-fontobject',
+		'font/ttf',
+		'font/otf',
+		'image/x-icon',
+		'video/x-flv',
+		'application/postscript',
+		'application/x-xz',
+		'application/x-sqlite3',
+		'application/x-nintendo-nes-rom',
+		'application/x-google-chrome-extension',
+		'application/vnd.ms-cab-compressed',
+		'application/x-deb',
+		'application/x-unix-archive',
+		'application/x-rpm',
+		'application/x-compress',
+		'application/x-lzip',
+		'application/x-msi',
+		'application/x-mie',
+		'application/mxf',
+		'video/mp2t',
+		'application/x-blender',
+		'image/bpg',
+		'image/jp2',
+		'image/jpx',
+		'image/jpm',
+		'image/mj2',
+		'audio/aiff',
+		'application/xml',
+		'application/x-mobipocket-ebook',
+		'image/heif',
+		'image/heif-sequence',
+		'image/heic',
+		'image/heic-sequence',
+		'image/ktx',
+		'application/dicom',
+		'audio/x-musepack',
+		'text/calendar',
+		'model/gltf-binary',
+		'application/vnd.tcpdump.pcap',
+		'audio/x-dsf', // Non-standard
+		'application/x.ms.shortcut', // Invented by us
+		'application/x.apple.alias', // Invented by us
+		'audio/x-voc',
+		'audio/vnd.dolby.dd-raw',
+		'audio/x-m4a',
+		'image/apng',
+		'image/x-olympus-orf',
+		'image/x-sony-arw',
+		'image/x-adobe-dng',
+		'image/x-nikon-nef',
+		'image/x-panasonic-rw2',
+		'image/x-fujifilm-raf',
+		'video/x-m4v',
+		'video/3gpp2'
+	]
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/file-type/util.js":
+/*!****************************************!*\
+  !*** ./node_modules/file-type/util.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(Buffer) {
+
+exports.stringToBytes = string => [...string].map(character => character.charCodeAt(0));
+
+const uint8ArrayUtf8ByteString = (array, start, end) => {
+	return String.fromCharCode(...array.slice(start, end));
+};
+
+exports.readUInt64LE = (buffer, offset = 0) => {
+	let n = buffer[offset];
+	let mul = 1;
+	let i = 0;
+
+	while (++i < 8) {
+		mul *= 0x100;
+		n += buffer[offset + i] * mul;
+	}
+
+	return n;
+};
+
+exports.tarHeaderChecksumMatches = buffer => { // Does not check if checksum field characters are valid
+	if (buffer.length < 512) { // `tar` header size, cannot compute checksum without it
+		return false;
+	}
+
+	const MASK_8TH_BIT = 0x80;
+
+	let sum = 256; // Intitalize sum, with 256 as sum of 8 spaces in checksum field
+	let signedBitSum = 0; // Initialize signed bit sum
+
+	for (let i = 0; i < 148; i++) {
+		const byte = buffer[i];
+		sum += byte;
+		signedBitSum += byte & MASK_8TH_BIT; // Add signed bit to signed bit sum
+	}
+
+	// Skip checksum field
+
+	for (let i = 156; i < 512; i++) {
+		const byte = buffer[i];
+		sum += byte;
+		signedBitSum += byte & MASK_8TH_BIT; // Add signed bit to signed bit sum
+	}
+
+	const readSum = parseInt(uint8ArrayUtf8ByteString(buffer, 148, 154), 8); // Read sum in header
+
+	// Some implementations compute checksum incorrectly using signed bytes
+	return (
+		// Checksum in header equals the sum we calculated
+		readSum === sum ||
+
+		// Checksum in header equals sum we calculated plus signed-to-unsigned delta
+		readSum === (sum - (signedBitSum << 1))
+	);
+};
+
+exports.multiByteIndexOf = (buffer, bytesToSearch, startAt = 0) => {
+	// `Buffer#indexOf()` can search for multiple bytes
+	if (Buffer && Buffer.isBuffer(buffer)) {
+		return buffer.indexOf(Buffer.from(bytesToSearch), startAt);
+	}
+
+	const nextBytesMatch = (buffer, bytes, startIndex) => {
+		for (let i = 1; i < bytes.length; i++) {
+			if (bytes[i] !== buffer[startIndex + i]) {
+				return false;
+			}
+		}
+
+		return true;
+	};
+
+	// `Uint8Array#indexOf()` can search for only a single byte
+	let index = buffer.indexOf(bytesToSearch[0], startAt);
+	while (index >= 0) {
+		if (nextBytesMatch(buffer, bytesToSearch, index)) {
+			return index;
+		}
+
+		index = buffer.indexOf(bytesToSearch[0], index + 1);
+	}
+
+	return -1;
+};
+
+exports.uint8ArrayUtf8ByteString = uint8ArrayUtf8ByteString;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
 /***/ }),
 
@@ -41708,703 +43682,165 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/music-metadata-browser/lib/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/music-metadata-browser/lib/index.js ***!
-  \**********************************************************/
+/***/ "./node_modules/media-typer/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/media-typer/index.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/*!
+ * media-typer
+ * Copyright(c) 2014-2017 Douglas Christopher Wilson
+ * MIT Licensed
+ */
 
-Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata-browser/node_modules/debug/src/browser.js");
-const mm = __webpack_require__(/*! music-metadata/lib/core */ "./node_modules/music-metadata/lib/core.js");
-const readable_web_to_node_stream_1 = __webpack_require__(/*! readable-web-to-node-stream */ "./node_modules/readable-web-to-node-stream/dist/index.js");
-const toBuffer = __webpack_require__(/*! typedarray-to-buffer */ "./node_modules/typedarray-to-buffer/index.js");
-const debug = initDebug('music-metadata-browser:main');
+
+
 /**
- * Parse audio Stream
- * @param stream
- * @param {string} contentType MIME-Type
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
+ * RegExp to match type in RFC 6838
+ *
+ * type-name = restricted-name
+ * subtype-name = restricted-name
+ * restricted-name = restricted-name-first *126restricted-name-chars
+ * restricted-name-first  = ALPHA / DIGIT
+ * restricted-name-chars  = ALPHA / DIGIT / "!" / "#" /
+ *                          "$" / "&" / "-" / "^" / "_"
+ * restricted-name-chars =/ "." ; Characters before first dot always
+ *                              ; specify a facet name
+ * restricted-name-chars =/ "+" ; Characters after last plus always
+ *                              ; specify a structured syntax suffix
+ * ALPHA =  %x41-5A / %x61-7A   ; A-Z / a-z
+ * DIGIT =  %x30-39             ; 0-9
  */
-exports.parseNodeStream = mm.parseStream;
+var SUBTYPE_NAME_REGEXP = /^[A-Za-z0-9][A-Za-z0-9!#$&^_.-]{0,126}$/
+var TYPE_NAME_REGEXP = /^[A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126}$/
+var TYPE_REGEXP = /^ *([A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126})\/([A-Za-z0-9][A-Za-z0-9!#$&^_.+-]{0,126}) *$/
+
 /**
- * Parse Web API ReadableStream: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
- * @param {ReadableStream} stream ReadableStream
- * @param {string} contentType MIME-Type
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
+ * Module exports.
  */
-async function parseReadableStream(stream, contentType, options) {
-    const ns = new readable_web_to_node_stream_1.ReadableWeToNodeStream(stream);
-    const res = await exports.parseNodeStream(ns, contentType, options);
-    debug(`Completed parsing from stream bytesRead=${ns.bytesRead} / fileSize=${options && options.fileSize ? options.fileSize : '?'}`);
-    await ns.close();
-    return res;
-}
-exports.parseReadableStream = parseReadableStream;
+
+exports.format = format
+exports.parse = parse
+exports.test = test
+
 /**
- * Parse audio from Node Buffer
- * @param {Stream.Readable} stream Audio input stream
- * @param {string} mimeType <string> Content specification MIME-type, e.g.: 'audio/mpeg'
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
- * Ref: https://github.com/Borewit/strtok3/blob/e6938c81ff685074d5eb3064a11c0b03ca934c1d/src/index.ts#L15
+ * Format object to media type.
+ *
+ * @param {object} obj
+ * @return {string}
+ * @public
  */
-exports.parseBuffer = mm.parseBuffer;
-/**
- * Parse Web API File
- * @param {Blob} blob
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
- */
-function parseBlob(blob, options) {
-    return convertBlobToBuffer(blob).then(buf => {
-        return mm.parseBuffer(buf, blob.type, options);
-    });
-}
-exports.parseBlob = parseBlob;
-/**
- * Parse fetched file, using the Web Fetch API
- * @param {string} audioTrackUrl URL to download the audio track from
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
- */
-async function fetchFromUrl(audioTrackUrl, options) {
-    const response = await fetch(audioTrackUrl);
-    const contentType = response.headers.get('Content-Type');
-    const headers = [];
-    response.headers.forEach(header => {
-        headers.push(header);
-    });
-    if (response.ok) {
-        if (response.body) {
-            const res = await this.parseReadableStream(response.body, contentType, options);
-            debug('Closing HTTP-readable-stream...');
-            if (!response.body.locked) { // Prevent error in Firefox
-                await response.body.cancel();
-            }
-            debug('HTTP-readable-stream closed.');
-            return res;
-        }
-        else {
-            // Fall back on Blob
-            return this.parseBlob(await response.blob(), options);
-        }
+
+function format (obj) {
+  if (!obj || typeof obj !== 'object') {
+    throw new TypeError('argument obj is required')
+  }
+
+  var subtype = obj.subtype
+  var suffix = obj.suffix
+  var type = obj.type
+
+  if (!type || !TYPE_NAME_REGEXP.test(type)) {
+    throw new TypeError('invalid type')
+  }
+
+  if (!subtype || !SUBTYPE_NAME_REGEXP.test(subtype)) {
+    throw new TypeError('invalid subtype')
+  }
+
+  // format as type/subtype
+  var string = type + '/' + subtype
+
+  // append +suffix
+  if (suffix) {
+    if (!TYPE_NAME_REGEXP.test(suffix)) {
+      throw new TypeError('invalid suffix')
     }
-    else {
-        throw new Error(`HTTP error status=${response.status}: ${response.statusText}`);
-    }
+
+    string += '+' + suffix
+  }
+
+  return string
 }
-exports.fetchFromUrl = fetchFromUrl;
+
 /**
- * Parse audio from ITokenizer source
- * @param {strtok3.ITokenizer} Audio source implementing the tokenizer interface
- * @param {string} mimeType <string> Content specification MIME-type, e.g.: 'audio/mpeg'
- * @param {IOptions} options Parsing options
- * @returns {Promise<IAudioMetadata>}
+ * Test media type.
+ *
+ * @param {string} string
+ * @return {object}
+ * @public
  */
-exports.parseFromTokenizer = mm.parseFromTokenizer;
-/**
- * Convert Web API File to Node Buffer
- * @param {Blob} blob Web API Blob
- * @returns {Promise<Buffer>}
- */
-function convertBlobToBuffer(blob) {
-    return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        fileReader.onloadend = event => {
-            let data = event.target.result;
-            if (data instanceof ArrayBuffer) {
-                data = toBuffer(new Uint8Array(event.target.result));
-            }
-            resolve(data);
-        };
-        fileReader.onerror = error => {
-            reject(new Error(error.type));
-        };
-        fileReader.onabort = error => {
-            reject(new Error(error.type));
-        };
-        fileReader.readAsArrayBuffer(blob);
-    });
+
+function test (string) {
+  if (!string) {
+    throw new TypeError('argument string is required')
+  }
+
+  if (typeof string !== 'string') {
+    throw new TypeError('argument string is required to be a string')
+  }
+
+  return TYPE_REGEXP.test(string.toLowerCase())
 }
+
 /**
- * Create a dictionary ordered by their tag id (key)
- * @param {ITag[]} nativeTags list of tags
- * @returns {INativeTagDict} Tags indexed by id
+ * Parse media type to object.
+ *
+ * @param {string} string
+ * @return {object}
+ * @public
  */
-exports.orderTags = mm.orderTags;
+
+function parse (string) {
+  if (!string) {
+    throw new TypeError('argument string is required')
+  }
+
+  if (typeof string !== 'string') {
+    throw new TypeError('argument string is required to be a string')
+  }
+
+  var match = TYPE_REGEXP.exec(string.toLowerCase())
+
+  if (!match) {
+    throw new TypeError('invalid media type')
+  }
+
+  var type = match[1]
+  var subtype = match[2]
+  var suffix
+
+  // suffix after last +
+  var index = subtype.lastIndexOf('+')
+  if (index !== -1) {
+    suffix = subtype.substr(index + 1)
+    subtype = subtype.substr(0, index)
+  }
+
+  return new MediaType(type, subtype, suffix)
+}
+
 /**
- * Convert rating to 1-5 star rating
- * @param {number} rating Normalized rating [0..1] (common.rating[n].rating)
- * @returns {number} Number of stars: 1, 2, 3, 4 or 5 stars
+ * Class for MediaType object.
+ * @public
  */
-exports.ratingToStars = mm.ratingToStars;
+
+function MediaType (type, subtype, suffix) {
+  this.type = type
+  this.subtype = subtype
+  this.suffix = suffix
+}
 
 
 /***/ }),
 
-/***/ "./node_modules/music-metadata-browser/node_modules/debug/src/browser.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/music-metadata-browser/node_modules/debug/src/browser.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-function log(...args) {
-	// This hackery is required for IE8/9, where
-	// the `console.log` function doesn't have 'apply'
-	return typeof console === 'object' &&
-		console.log &&
-		console.log(...args);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = __webpack_require__(/*! ./common */ "./node_modules/music-metadata-browser/node_modules/debug/src/common.js")(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata-browser/node_modules/debug/src/common.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/music-metadata-browser/node_modules/debug/src/common.js ***!
-  \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = __webpack_require__(/*! ms */ "./node_modules/music-metadata-browser/node_modules/ms/index.js");
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* Active `debug` instances.
-	*/
-	createDebug.instances = [];
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return match;
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.enabled = createDebug.enabled(namespace);
-		debug.useColors = createDebug.useColors();
-		debug.color = selectColor(namespace);
-		debug.destroy = destroy;
-		debug.extend = extend;
-		// Debug.formatArgs = formatArgs;
-		// debug.rawLog = rawLog;
-
-		// env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		createDebug.instances.push(debug);
-
-		return debug;
-	}
-
-	function destroy() {
-		const index = createDebug.instances.indexOf(this);
-		if (index !== -1) {
-			createDebug.instances.splice(index, 1);
-			return true;
-		}
-		return false;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-
-		for (i = 0; i < createDebug.instances.length; i++) {
-			const instance = createDebug.instances[i];
-			instance.enabled = createDebug.enabled(instance.namespace);
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata-browser/node_modules/ms/index.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/music-metadata-browser/node_modules/ms/index.js ***!
-  \**********************************************************************/
+/***/ "./node_modules/ms/index.js":
+/*!**********************************!*\
+  !*** ./node_modules/ms/index.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -42574,6 +44010,146 @@ function plural(ms, msAbs, n, name) {
 
 /***/ }),
 
+/***/ "./node_modules/music-metadata-browser/lib/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/music-metadata-browser/lib/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
+const mm = __webpack_require__(/*! music-metadata/lib/core */ "./node_modules/music-metadata/lib/core.js");
+const readable_web_to_node_stream_1 = __webpack_require__(/*! readable-web-to-node-stream */ "./node_modules/readable-web-to-node-stream/dist/index.js");
+const toBuffer = __webpack_require__(/*! typedarray-to-buffer */ "./node_modules/typedarray-to-buffer/index.js");
+const debug = initDebug('music-metadata-browser:main');
+/**
+ * Parse audio Stream
+ * @param stream
+ * @param {string} contentType MIME-Type
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ */
+exports.parseNodeStream = mm.parseStream;
+/**
+ * Parse Web API ReadableStream: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
+ * @param {ReadableStream} stream ReadableStream
+ * @param {string} contentType MIME-Type
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ */
+async function parseReadableStream(stream, contentType, options) {
+    const ns = new readable_web_to_node_stream_1.ReadableWeToNodeStream(stream);
+    const res = await exports.parseNodeStream(ns, contentType, options);
+    debug(`Completed parsing from stream bytesRead=${ns.bytesRead} / fileSize=${options && options.fileSize ? options.fileSize : '?'}`);
+    await ns.close();
+    return res;
+}
+exports.parseReadableStream = parseReadableStream;
+/**
+ * Parse audio from Node Buffer
+ * @param {Stream.Readable} stream Audio input stream
+ * @param {string} mimeType <string> Content specification MIME-type, e.g.: 'audio/mpeg'
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ * Ref: https://github.com/Borewit/strtok3/blob/e6938c81ff685074d5eb3064a11c0b03ca934c1d/src/index.ts#L15
+ */
+exports.parseBuffer = mm.parseBuffer;
+/**
+ * Parse Web API File
+ * @param {Blob} blob
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ */
+function parseBlob(blob, options) {
+    return convertBlobToBuffer(blob).then(buf => {
+        return mm.parseBuffer(buf, blob.type, options);
+    });
+}
+exports.parseBlob = parseBlob;
+/**
+ * Parse fetched file, using the Web Fetch API
+ * @param {string} audioTrackUrl URL to download the audio track from
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ */
+async function fetchFromUrl(audioTrackUrl, options) {
+    const response = await fetch(audioTrackUrl);
+    const contentType = response.headers.get('Content-Type');
+    const headers = [];
+    response.headers.forEach(header => {
+        headers.push(header);
+    });
+    if (response.ok) {
+        if (response.body) {
+            const res = await this.parseReadableStream(response.body, contentType, options);
+            debug('Closing HTTP-readable-stream...');
+            if (!response.body.locked) { // Prevent error in Firefox
+                await response.body.cancel();
+            }
+            debug('HTTP-readable-stream closed.');
+            return res;
+        }
+        else {
+            // Fall back on Blob
+            return this.parseBlob(await response.blob(), options);
+        }
+    }
+    else {
+        throw new Error(`HTTP error status=${response.status}: ${response.statusText}`);
+    }
+}
+exports.fetchFromUrl = fetchFromUrl;
+/**
+ * Parse audio from ITokenizer source
+ * @param {strtok3.ITokenizer} Audio source implementing the tokenizer interface
+ * @param {string} mimeType <string> Content specification MIME-type, e.g.: 'audio/mpeg'
+ * @param {IOptions} options Parsing options
+ * @returns {Promise<IAudioMetadata>}
+ */
+exports.parseFromTokenizer = mm.parseFromTokenizer;
+/**
+ * Convert Web API File to Node Buffer
+ * @param {Blob} blob Web API Blob
+ * @returns {Promise<Buffer>}
+ */
+function convertBlobToBuffer(blob) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.onloadend = event => {
+            let data = event.target.result;
+            if (data instanceof ArrayBuffer) {
+                data = toBuffer(new Uint8Array(event.target.result));
+            }
+            resolve(data);
+        };
+        fileReader.onerror = error => {
+            reject(new Error(error.type));
+        };
+        fileReader.onabort = error => {
+            reject(new Error(error.type));
+        };
+        fileReader.readAsArrayBuffer(blob);
+    });
+}
+/**
+ * Create a dictionary ordered by their tag id (key)
+ * @param {ITag[]} nativeTags list of tags
+ * @returns {INativeTagDict} Tags indexed by id
+ */
+exports.orderTags = mm.orderTags;
+/**
+ * Convert rating to 1-5 star rating
+ * @param {number} rating Normalized rating [0..1] (common.rating[n].rating)
+ * @returns {number} Number of stars: 1, 2, 3, 4 or 5 stars
+ */
+exports.ratingToStars = mm.ratingToStars;
+
+
+/***/ }),
+
 /***/ "./node_modules/music-metadata/lib/ParserFactory.js":
 /*!**********************************************************!*\
   !*** ./node_modules/music-metadata/lib/ParserFactory.js ***!
@@ -42584,10 +44160,10 @@ function plural(ms, msAbs, n, name) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const fileType = __webpack_require__(/*! file-type */ "./node_modules/music-metadata/node_modules/file-type/index.js");
+const fileType = __webpack_require__(/*! file-type */ "./node_modules/file-type/index.js");
 const ContentType = __webpack_require__(/*! content-type */ "./node_modules/content-type/index.js");
-const MimeType = __webpack_require__(/*! media-typer */ "./node_modules/music-metadata/node_modules/media-typer/index.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const MimeType = __webpack_require__(/*! media-typer */ "./node_modules/media-typer/index.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const MetadataCollector_1 = __webpack_require__(/*! ./common/MetadataCollector */ "./node_modules/music-metadata/lib/common/MetadataCollector.js");
 const AiffParser_1 = __webpack_require__(/*! ./aiff/AiffParser */ "./node_modules/music-metadata/lib/aiff/AiffParser.js");
 const APEv2Parser_1 = __webpack_require__(/*! ./apev2/APEv2Parser */ "./node_modules/music-metadata/lib/apev2/APEv2Parser.js");
@@ -42825,7 +44401,7 @@ exports.ParserFactory = ParserFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const type_1 = __webpack_require__(/*! strtok3/lib/type */ "./node_modules/strtok3/lib/type.js");
 const strtok3 = __webpack_require__(/*! strtok3/lib/core */ "./node_modules/strtok3/lib/core.js");
 const ID3v2Parser_1 = __webpack_require__(/*! ../id3v2/ID3v2Parser */ "./node_modules/music-metadata/lib/id3v2/ID3v2Parser.js");
@@ -42973,8 +44549,8 @@ exports.Common = Common;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
-const FileType = __webpack_require__(/*! file-type */ "./node_modules/music-metadata/node_modules/file-type/index.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
+const FileType = __webpack_require__(/*! file-type */ "./node_modules/file-type/index.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const Util_1 = __webpack_require__(/*! ../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
@@ -43720,7 +45296,7 @@ exports.WmPictureToken = WmPictureToken;
 Object.defineProperty(exports, "__esModule", { value: true });
 const GUID_1 = __webpack_require__(/*! ./GUID */ "./node_modules/music-metadata/lib/asf/GUID.js");
 const AsfObject = __webpack_require__(/*! ./AsfObject */ "./node_modules/music-metadata/lib/asf/AsfObject.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const debug = _debug('music-metadata:parser:ASF');
 const headerType = 'asf';
@@ -44534,7 +46110,7 @@ exports.isUnique = isUnique;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const GenericTagTypes_1 = __webpack_require__(/*! ./GenericTagTypes */ "./node_modules/music-metadata/lib/common/GenericTagTypes.js");
 const CombinedTagMapper_1 = __webpack_require__(/*! ./CombinedTagMapper */ "./node_modules/music-metadata/lib/common/CombinedTagMapper.js");
 const GenericTagMapper_1 = __webpack_require__(/*! ./GenericTagMapper */ "./node_modules/music-metadata/lib/common/GenericTagMapper.js");
@@ -45156,7 +46732,7 @@ exports.scanAppendingHeaders = scanAppendingHeaders;
 Object.defineProperty(exports, "__esModule", { value: true });
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const FourCC_1 = __webpack_require__(/*! ../common/FourCC */ "./node_modules/music-metadata/lib/common/FourCC.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const ID3Stream_1 = __webpack_require__(/*! ../id3v2/ID3Stream */ "./node_modules/music-metadata/lib/id3v2/ID3Stream.js");
@@ -45408,7 +46984,7 @@ exports.FormatChunk = {
 Object.defineProperty(exports, "__esModule", { value: true });
 const AbstractID3Parser_1 = __webpack_require__(/*! ../id3v2/AbstractID3Parser */ "./node_modules/music-metadata/lib/id3v2/AbstractID3Parser.js");
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const DsfChunk_1 = __webpack_require__(/*! ./DsfChunk */ "./node_modules/music-metadata/lib/dsf/DsfChunk.js");
 const ID3v2Parser_1 = __webpack_require__(/*! ../id3v2/ID3v2Parser */ "./node_modules/music-metadata/lib/id3v2/ID3v2Parser.js");
 const debug = _debug('music-metadata:parser:DSF');
@@ -45478,7 +47054,7 @@ const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types
 const Vorbis_1 = __webpack_require__(/*! ../ogg/vorbis/Vorbis */ "./node_modules/music-metadata/lib/ogg/vorbis/Vorbis.js");
 const AbstractID3Parser_1 = __webpack_require__(/*! ../id3v2/AbstractID3Parser */ "./node_modules/music-metadata/lib/id3v2/AbstractID3Parser.js");
 const FourCC_1 = __webpack_require__(/*! ../common/FourCC */ "./node_modules/music-metadata/lib/common/FourCC.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const VorbisParser_1 = __webpack_require__(/*! ../ogg/vorbis/VorbisParser */ "./node_modules/music-metadata/lib/ogg/vorbis/VorbisParser.js");
 const VorbisDecoder_1 = __webpack_require__(/*! ../ogg/vorbis/VorbisDecoder */ "./node_modules/music-metadata/lib/ogg/vorbis/VorbisDecoder.js");
 const debug = _debug('music-metadata:parser:FLAC');
@@ -45657,7 +47233,7 @@ Metadata.BlockStreamInfo = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Util_1 = __webpack_require__(/*! ../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
@@ -45838,7 +47414,7 @@ const type_1 = __webpack_require__(/*! strtok3/lib/type */ "./node_modules/strto
 const ID3v2Token_1 = __webpack_require__(/*! ./ID3v2Token */ "./node_modules/music-metadata/lib/id3v2/ID3v2Token.js");
 const ID3v2Parser_1 = __webpack_require__(/*! ./ID3v2Parser */ "./node_modules/music-metadata/lib/id3v2/ID3v2Parser.js");
 const ID3v1Parser_1 = __webpack_require__(/*! ../id3v1/ID3v1Parser */ "./node_modules/music-metadata/lib/id3v1/ID3v1Parser.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const debug = _debug('music-metadata:parser:ID3');
 /**
@@ -45901,7 +47477,7 @@ exports.AbstractID3Parser = AbstractID3Parser;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const Util_1 = __webpack_require__(/*! ../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
 const ID3v2Token_1 = __webpack_require__(/*! ./ID3v2Token */ "./node_modules/music-metadata/lib/id3v2/ID3v2Token.js");
@@ -46804,7 +48380,7 @@ exports.getLyricsHeaderLength = getLyricsHeaderLength;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const type_1 = __webpack_require__(/*! strtok3/lib/type */ "./node_modules/strtok3/lib/type.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const AtomToken = __webpack_require__(/*! ./AtomToken */ "./node_modules/music-metadata/lib/mp4/AtomToken.js");
 const debug = initDebug("music-metadata:parser:MP4:Atom");
@@ -46892,7 +48468,7 @@ exports.Atom = Atom;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const FourCC_1 = __webpack_require__(/*! ../common/FourCC */ "./node_modules/music-metadata/lib/common/FourCC.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const debug = initDebug('music-metadata:parser:MP4:atom');
 exports.Header = {
     len: 8,
@@ -47173,7 +48749,7 @@ exports.SoundSampleDescriptionV0 = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const Atom_1 = __webpack_require__(/*! ./Atom */ "./node_modules/music-metadata/lib/mp4/Atom.js");
@@ -47625,7 +49201,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const type_1 = __webpack_require__(/*! strtok3/lib/type */ "./node_modules/strtok3/lib/type.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Util_1 = __webpack_require__(/*! ../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
 const AbstractID3Parser_1 = __webpack_require__(/*! ../id3v2/AbstractID3Parser */ "./node_modules/music-metadata/lib/id3v2/AbstractID3Parser.js");
 const XingTag_1 = __webpack_require__(/*! ./XingTag */ "./node_modules/music-metadata/lib/mpeg/XingTag.js");
@@ -48197,7 +49773,7 @@ exports.XingInfoTag = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const MpcSv8Parser_1 = __webpack_require__(/*! ./sv8/MpcSv8Parser */ "./node_modules/music-metadata/lib/musepack/sv8/MpcSv8Parser.js");
 const MpcSv7Parser_1 = __webpack_require__(/*! ./sv7/MpcSv7Parser */ "./node_modules/music-metadata/lib/musepack/sv7/MpcSv7Parser.js");
@@ -48306,7 +49882,7 @@ exports.BitReader = BitReader;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const BasicParser_1 = __webpack_require__(/*! ../../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const SV7 = __webpack_require__(/*! ./StreamVersion7 */ "./node_modules/music-metadata/lib/musepack/sv7/StreamVersion7.js");
@@ -48415,7 +49991,7 @@ exports.Header = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const BasicParser_1 = __webpack_require__(/*! ../../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const SV8 = __webpack_require__(/*! ./StreamVersion8 */ "./node_modules/music-metadata/lib/musepack/sv8/StreamVersion8.js");
@@ -48483,7 +50059,7 @@ exports.MpcSv8Parser = MpcSv8Parser;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
 const Util_1 = __webpack_require__(/*! ../../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const debug = initDebug('music-metadata:parser:musepack:sv8');
 const PacketKey = new Token.StringType(2, 'binary');
 /**
@@ -48573,7 +50149,7 @@ exports.StreamReader = StreamReader;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const assert = __webpack_require__(/*! assert */ "./node_modules/assert/assert.js");
 const Util_1 = __webpack_require__(/*! ../common/Util */ "./node_modules/music-metadata/lib/common/Util.js");
 const FourCC_1 = __webpack_require__(/*! ../common/FourCC */ "./node_modules/music-metadata/lib/common/FourCC.js");
@@ -48847,7 +50423,7 @@ exports.Header = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Speex = __webpack_require__(/*! ./Speex */ "./node_modules/music-metadata/lib/ogg/speex/Speex.js");
 const VorbisParser_1 = __webpack_require__(/*! ../vorbis/VorbisParser */ "./node_modules/music-metadata/lib/ogg/vorbis/VorbisParser.js");
 const debug = initDebug('music-metadata:parser:ogg:speex');
@@ -48927,7 +50503,7 @@ exports.IdentificationHeader = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const Theora_1 = __webpack_require__(/*! ./Theora */ "./node_modules/music-metadata/lib/ogg/theora/Theora.js");
 const debug = initDebug('music-metadata:parser:ogg:theora');
 /**
@@ -49112,7 +50688,7 @@ exports.VorbisDecoder = VorbisDecoder;
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const VorbisDecoder_1 = __webpack_require__(/*! ./VorbisDecoder */ "./node_modules/music-metadata/lib/ogg/vorbis/VorbisDecoder.js");
 const Vorbis_1 = __webpack_require__(/*! ./Vorbis */ "./node_modules/music-metadata/lib/ogg/vorbis/Vorbis.js");
 const debug = _debug('music-metadata:parser:ogg:vorbis1');
@@ -49487,7 +51063,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const type_1 = __webpack_require__(/*! strtok3/lib/type */ "./node_modules/strtok3/lib/type.js");
 const strtok3 = __webpack_require__(/*! strtok3/lib/core */ "./node_modules/strtok3/lib/core.js");
 const Token = __webpack_require__(/*! token-types */ "./node_modules/token-types/lib/index.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const riff = __webpack_require__(/*! ./RiffChunk */ "./node_modules/music-metadata/lib/riff/RiffChunk.js");
 const WaveChunk = __webpack_require__(/*! ./../wav/WaveChunk */ "./node_modules/music-metadata/lib/wav/WaveChunk.js");
 const ID3v2Parser_1 = __webpack_require__(/*! ../id3v2/ID3v2Parser */ "./node_modules/music-metadata/lib/id3v2/ID3v2Parser.js");
@@ -49708,7 +51284,7 @@ const APEv2Parser_1 = __webpack_require__(/*! ../apev2/APEv2Parser */ "./node_mo
 const FourCC_1 = __webpack_require__(/*! ../common/FourCC */ "./node_modules/music-metadata/lib/common/FourCC.js");
 const BasicParser_1 = __webpack_require__(/*! ../common/BasicParser */ "./node_modules/music-metadata/lib/common/BasicParser.js");
 const WavPackToken_1 = __webpack_require__(/*! ./WavPackToken */ "./node_modules/music-metadata/lib/wavpack/WavPackToken.js");
-const initDebug = __webpack_require__(/*! debug */ "./node_modules/music-metadata/node_modules/debug/src/browser.js");
+const initDebug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const debug = initDebug('music-metadata:parser:WavPack');
 /**
  * WavPack Parser
@@ -49894,2308 +51470,6 @@ WavPack.MetadataIdToken = {
 
 /***/ }),
 
-/***/ "./node_modules/music-metadata/node_modules/debug/src/browser.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/debug/src/browser.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-function log(...args) {
-	// This hackery is required for IE8/9, where
-	// the `console.log` function doesn't have 'apply'
-	return typeof console === 'object' &&
-		console.log &&
-		console.log(...args);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = __webpack_require__(/*! ./common */ "./node_modules/music-metadata/node_modules/debug/src/common.js")(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/debug/src/common.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/debug/src/common.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = __webpack_require__(/*! ms */ "./node_modules/music-metadata/node_modules/ms/index.js");
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* Active `debug` instances.
-	*/
-	createDebug.instances = [];
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return match;
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.enabled = createDebug.enabled(namespace);
-		debug.useColors = createDebug.useColors();
-		debug.color = selectColor(namespace);
-		debug.destroy = destroy;
-		debug.extend = extend;
-		// Debug.formatArgs = formatArgs;
-		// debug.rawLog = rawLog;
-
-		// env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		createDebug.instances.push(debug);
-
-		return debug;
-	}
-
-	function destroy() {
-		const index = createDebug.instances.indexOf(this);
-		if (index !== -1) {
-			createDebug.instances.splice(index, 1);
-			return true;
-		}
-		return false;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-
-		for (i = 0; i < createDebug.instances.length; i++) {
-			const instance = createDebug.instances[i];
-			instance.enabled = createDebug.enabled(instance.namespace);
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/file-type/index.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/file-type/index.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Buffer) {
-const {
-	multiByteIndexOf,
-	stringToBytes,
-	readUInt64LE,
-	tarHeaderChecksumMatches,
-	uint8ArrayUtf8ByteString
-} = __webpack_require__(/*! ./util */ "./node_modules/music-metadata/node_modules/file-type/util.js");
-const supported = __webpack_require__(/*! ./supported */ "./node_modules/music-metadata/node_modules/file-type/supported.js");
-
-const xpiZipFilename = stringToBytes('META-INF/mozilla.rsa');
-const oxmlContentTypes = stringToBytes('[Content_Types].xml');
-const oxmlRels = stringToBytes('_rels/.rels');
-
-const fileType = input => {
-	if (!(input instanceof Uint8Array || input instanceof ArrayBuffer || Buffer.isBuffer(input))) {
-		throw new TypeError(`Expected the \`input\` argument to be of type \`Uint8Array\` or \`Buffer\` or \`ArrayBuffer\`, got \`${typeof input}\``);
-	}
-
-	const buffer = input instanceof Uint8Array ? input : new Uint8Array(input);
-
-	if (!(buffer && buffer.length > 1)) {
-		return;
-	}
-
-	const check = (header, options) => {
-		options = {
-			offset: 0,
-			...options
-		};
-
-		for (let i = 0; i < header.length; i++) {
-			// If a bitmask is set
-			if (options.mask) {
-				// If header doesn't equal `buf` with bits masked off
-				if (header[i] !== (options.mask[i] & buffer[i + options.offset])) {
-					return false;
-				}
-			} else if (header[i] !== buffer[i + options.offset]) {
-				return false;
-			}
-		}
-
-		return true;
-	};
-
-	const checkString = (header, options) => check(stringToBytes(header), options);
-
-	if (check([0xFF, 0xD8, 0xFF])) {
-		return {
-			ext: 'jpg',
-			mime: 'image/jpeg'
-		};
-	}
-
-	if (check([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])) {
-		// APNG format (https://wiki.mozilla.org/APNG_Specification)
-		// 1. Find the first IDAT (image data) chunk (49 44 41 54)
-		// 2. Check if there is an "acTL" chunk before the IDAT one (61 63 54 4C)
-
-		// Offset calculated as follows:
-		// - 8 bytes: PNG signature
-		// - 4 (length) + 4 (chunk type) + 13 (chunk data) + 4 (CRC): IHDR chunk
-		const startIndex = 33;
-		const firstImageDataChunkIndex = buffer.findIndex((el, i) => i >= startIndex && buffer[i] === 0x49 && buffer[i + 1] === 0x44 && buffer[i + 2] === 0x41 && buffer[i + 3] === 0x54);
-		const sliced = buffer.subarray(startIndex, firstImageDataChunkIndex);
-
-		if (sliced.findIndex((el, i) => sliced[i] === 0x61 && sliced[i + 1] === 0x63 && sliced[i + 2] === 0x54 && sliced[i + 3] === 0x4C) >= 0) {
-			return {
-				ext: 'apng',
-				mime: 'image/apng'
-			};
-		}
-
-		return {
-			ext: 'png',
-			mime: 'image/png'
-		};
-	}
-
-	if (check([0x47, 0x49, 0x46])) {
-		return {
-			ext: 'gif',
-			mime: 'image/gif'
-		};
-	}
-
-	if (check([0x57, 0x45, 0x42, 0x50], {offset: 8})) {
-		return {
-			ext: 'webp',
-			mime: 'image/webp'
-		};
-	}
-
-	if (check([0x46, 0x4C, 0x49, 0x46])) {
-		return {
-			ext: 'flif',
-			mime: 'image/flif'
-		};
-	}
-
-	// `cr2`, `orf`, and `arw` need to be before `tif` check
-	if (
-		(check([0x49, 0x49, 0x2A, 0x0]) || check([0x4D, 0x4D, 0x0, 0x2A])) &&
-		check([0x43, 0x52], {offset: 8})
-	) {
-		return {
-			ext: 'cr2',
-			mime: 'image/x-canon-cr2'
-		};
-	}
-
-	if (check([0x49, 0x49, 0x52, 0x4F, 0x08, 0x00, 0x00, 0x00, 0x18])) {
-		return {
-			ext: 'orf',
-			mime: 'image/x-olympus-orf'
-		};
-	}
-
-	if (
-		check([0x49, 0x49, 0x2A, 0x00]) &&
-		(check([0x10, 0xFB, 0x86, 0x01], {offset: 4}) ||
-		check([0x08, 0x00, 0x00, 0x00, 0x13, 0x00], {offset: 4}) ||
-		check([0x08, 0x00, 0x00, 0x00, 0x12, 0x00], {offset: 4}))
-	) {
-		return {
-			ext: 'arw',
-			mime: 'image/x-sony-arw'
-		};
-	}
-
-	if (
-		check([0x49, 0x49, 0x2A, 0x00, 0x08, 0x00, 0x00, 0x00]) &&
-		(check([0x2D, 0x00, 0xFE, 0x00], {offset: 8}) ||
-		check([0x27, 0x00, 0xFE, 0x00], {offset: 8}))
-	) {
-		return {
-			ext: 'dng',
-			mime: 'image/x-adobe-dng'
-		};
-	}
-
-	if (
-		check([0x49, 0x49, 0x2A, 0x00]) &&
-		check([0x1C, 0x00, 0xFE, 0x00], {offset: 8})
-	) {
-		return {
-			ext: 'nef',
-			mime: 'image/x-nikon-nef'
-		};
-	}
-
-	if (check([0x49, 0x49, 0x55, 0x00, 0x18, 0x00, 0x00, 0x00, 0x88, 0xE7, 0x74, 0xD8])) {
-		return {
-			ext: 'rw2',
-			mime: 'image/x-panasonic-rw2'
-		};
-	}
-
-	// `raf` is here just to keep all the raw image detectors together.
-	if (checkString('FUJIFILMCCD-RAW')) {
-		return {
-			ext: 'raf',
-			mime: 'image/x-fujifilm-raf'
-		};
-	}
-
-	if (
-		check([0x49, 0x49, 0x2A, 0x0]) ||
-		check([0x4D, 0x4D, 0x0, 0x2A])
-	) {
-		return {
-			ext: 'tif',
-			mime: 'image/tiff'
-		};
-	}
-
-	if (check([0x42, 0x4D])) {
-		return {
-			ext: 'bmp',
-			mime: 'image/bmp'
-		};
-	}
-
-	if (check([0x49, 0x49, 0xBC])) {
-		return {
-			ext: 'jxr',
-			mime: 'image/vnd.ms-photo'
-		};
-	}
-
-	if (check([0x38, 0x42, 0x50, 0x53])) {
-		return {
-			ext: 'psd',
-			mime: 'image/vnd.adobe.photoshop'
-		};
-	}
-
-	// Zip-based file formats
-	// Need to be before the `zip` check
-	const zipHeader = [0x50, 0x4B, 0x3, 0x4];
-	if (check(zipHeader)) {
-		if (
-			check([0x6D, 0x69, 0x6D, 0x65, 0x74, 0x79, 0x70, 0x65, 0x61, 0x70, 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x65, 0x70, 0x75, 0x62, 0x2B, 0x7A, 0x69, 0x70], {offset: 30})
-		) {
-			return {
-				ext: 'epub',
-				mime: 'application/epub+zip'
-			};
-		}
-
-		// Assumes signed `.xpi` from addons.mozilla.org
-		if (check(xpiZipFilename, {offset: 30})) {
-			return {
-				ext: 'xpi',
-				mime: 'application/x-xpinstall'
-			};
-		}
-
-		if (checkString('mimetypeapplication/vnd.oasis.opendocument.text', {offset: 30})) {
-			return {
-				ext: 'odt',
-				mime: 'application/vnd.oasis.opendocument.text'
-			};
-		}
-
-		if (checkString('mimetypeapplication/vnd.oasis.opendocument.spreadsheet', {offset: 30})) {
-			return {
-				ext: 'ods',
-				mime: 'application/vnd.oasis.opendocument.spreadsheet'
-			};
-		}
-
-		if (checkString('mimetypeapplication/vnd.oasis.opendocument.presentation', {offset: 30})) {
-			return {
-				ext: 'odp',
-				mime: 'application/vnd.oasis.opendocument.presentation'
-			};
-		}
-
-		// The docx, xlsx and pptx file types extend the Office Open XML file format:
-		// https://en.wikipedia.org/wiki/Office_Open_XML_file_formats
-		// We look for:
-		// - one entry named '[Content_Types].xml' or '_rels/.rels',
-		// - one entry indicating specific type of file.
-		// MS Office, OpenOffice and LibreOffice may put the parts in different order, so the check should not rely on it.
-		let zipHeaderIndex = 0; // The first zip header was already found at index 0
-		let oxmlFound = false;
-		let type;
-
-		do {
-			const offset = zipHeaderIndex + 30;
-
-			if (!oxmlFound) {
-				oxmlFound = (check(oxmlContentTypes, {offset}) || check(oxmlRels, {offset}));
-			}
-
-			if (!type) {
-				if (checkString('word/', {offset})) {
-					type = {
-						ext: 'docx',
-						mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-					};
-				} else if (checkString('ppt/', {offset})) {
-					type = {
-						ext: 'pptx',
-						mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
-					};
-				} else if (checkString('xl/', {offset})) {
-					type = {
-						ext: 'xlsx',
-						mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-					};
-				}
-			}
-
-			if (oxmlFound && type) {
-				return type;
-			}
-
-			zipHeaderIndex = multiByteIndexOf(buffer, zipHeader, offset);
-		} while (zipHeaderIndex >= 0);
-
-		// No more zip parts available in the buffer, but maybe we are almost certain about the type?
-		if (type) {
-			return type;
-		}
-	}
-
-	if (
-		check([0x50, 0x4B]) &&
-		(buffer[2] === 0x3 || buffer[2] === 0x5 || buffer[2] === 0x7) &&
-		(buffer[3] === 0x4 || buffer[3] === 0x6 || buffer[3] === 0x8)
-	) {
-		return {
-			ext: 'zip',
-			mime: 'application/zip'
-		};
-	}
-
-	if (
-		check([0x30, 0x30, 0x30, 0x30, 0x30, 0x30], {offset: 148, mask: [0xF8, 0xF8, 0xF8, 0xF8, 0xF8, 0xF8]}) && // Valid tar checksum
-		tarHeaderChecksumMatches(buffer)
-	) {
-		return {
-			ext: 'tar',
-			mime: 'application/x-tar'
-		};
-	}
-
-	if (
-		check([0x52, 0x61, 0x72, 0x21, 0x1A, 0x7]) &&
-		(buffer[6] === 0x0 || buffer[6] === 0x1)
-	) {
-		return {
-			ext: 'rar',
-			mime: 'application/x-rar-compressed'
-		};
-	}
-
-	if (check([0x1F, 0x8B, 0x8])) {
-		return {
-			ext: 'gz',
-			mime: 'application/gzip'
-		};
-	}
-
-	if (check([0x42, 0x5A, 0x68])) {
-		return {
-			ext: 'bz2',
-			mime: 'application/x-bzip2'
-		};
-	}
-
-	if (check([0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C])) {
-		return {
-			ext: '7z',
-			mime: 'application/x-7z-compressed'
-		};
-	}
-
-	if (check([0x78, 0x01])) {
-		return {
-			ext: 'dmg',
-			mime: 'application/x-apple-diskimage'
-		};
-	}
-
-	// `mov` format variants
-	if (
-		check([0x66, 0x72, 0x65, 0x65], {offset: 4}) || // `free`
-		check([0x6D, 0x64, 0x61, 0x74], {offset: 4}) || // `mdat` MJPEG
-		check([0x6D, 0x6F, 0x6F, 0x76], {offset: 4}) || // `moov`
-		check([0x77, 0x69, 0x64, 0x65], {offset: 4}) // `wide`
-	) {
-		return {
-			ext: 'mov',
-			mime: 'video/quicktime'
-		};
-	}
-
-	// File Type Box (https://en.wikipedia.org/wiki/ISO_base_media_file_format)
-	// It's not required to be first, but it's recommended to be. Almost all ISO base media files start with `ftyp` box.
-	// `ftyp` box must contain a brand major identifier, which must consist of ISO 8859-1 printable characters.
-	// Here we check for 8859-1 printable characters (for simplicity, it's a mask which also catches one non-printable character).
-	if (
-		check([0x66, 0x74, 0x79, 0x70], {offset: 4}) && // `ftyp`
-		(buffer[8] & 0x60) !== 0x00 && (buffer[9] & 0x60) !== 0x00 && (buffer[10] & 0x60) !== 0x00 && (buffer[11] & 0x60) !== 0x00 // Brand major
-	) {
-		// They all can have MIME `video/mp4` except `application/mp4` special-case which is hard to detect.
-		// For some cases, we're specific, everything else falls to `video/mp4` with `mp4` extension.
-		const brandMajor = uint8ArrayUtf8ByteString(buffer, 8, 12);
-		switch (brandMajor) {
-			case 'mif1':
-				return {ext: 'heic', mime: 'image/heif'};
-			case 'msf1':
-				return {ext: 'heic', mime: 'image/heif-sequence'};
-			case 'heic': case 'heix':
-				return {ext: 'heic', mime: 'image/heic'};
-			case 'hevc': case 'hevx':
-				return {ext: 'heic', mime: 'image/heic-sequence'};
-			case 'qt  ':
-				return {ext: 'mov', mime: 'video/quicktime'};
-			case 'M4V ': case 'M4VH': case 'M4VP':
-				return {ext: 'm4v', mime: 'video/x-m4v'};
-			case 'M4P ':
-				return {ext: 'm4p', mime: 'video/mp4'};
-			case 'M4B ':
-				return {ext: 'm4b', mime: 'audio/mp4'};
-			case 'M4A ':
-				return {ext: 'm4a', mime: 'audio/x-m4a'};
-			case 'F4V ':
-				return {ext: 'f4v', mime: 'video/mp4'};
-			case 'F4P ':
-				return {ext: 'f4p', mime: 'video/mp4'};
-			case 'F4A ':
-				return {ext: 'f4a', mime: 'audio/mp4'};
-			case 'F4B ':
-				return {ext: 'f4b', mime: 'audio/mp4'};
-			default:
-				if (brandMajor.startsWith('3g')) {
-					if (brandMajor.startsWith('3g2')) {
-						return {ext: '3g2', mime: 'video/3gpp2'};
-					}
-
-					return {ext: '3gp', mime: 'video/3gpp'};
-				}
-
-				return {ext: 'mp4', mime: 'video/mp4'};
-		}
-	}
-
-	if (check([0x4D, 0x54, 0x68, 0x64])) {
-		return {
-			ext: 'mid',
-			mime: 'audio/midi'
-		};
-	}
-
-	// https://github.com/threatstack/libmagic/blob/master/magic/Magdir/matroska
-	if (check([0x1A, 0x45, 0xDF, 0xA3])) {
-		const sliced = buffer.subarray(4, 4 + 4096);
-		const idPos = sliced.findIndex((el, i, arr) => arr[i] === 0x42 && arr[i + 1] === 0x82);
-
-		if (idPos !== -1) {
-			const docTypePos = idPos + 3;
-			const findDocType = type => [...type].every((c, i) => sliced[docTypePos + i] === c.charCodeAt(0));
-
-			if (findDocType('matroska')) {
-				return {
-					ext: 'mkv',
-					mime: 'video/x-matroska'
-				};
-			}
-
-			if (findDocType('webm')) {
-				return {
-					ext: 'webm',
-					mime: 'video/webm'
-				};
-			}
-		}
-	}
-
-	// RIFF file format which might be AVI, WAV, QCP, etc
-	if (check([0x52, 0x49, 0x46, 0x46])) {
-		if (check([0x41, 0x56, 0x49], {offset: 8})) {
-			return {
-				ext: 'avi',
-				mime: 'video/vnd.avi'
-			};
-		}
-
-		if (check([0x57, 0x41, 0x56, 0x45], {offset: 8})) {
-			return {
-				ext: 'wav',
-				mime: 'audio/vnd.wave'
-			};
-		}
-
-		// QLCM, QCP file
-		if (check([0x51, 0x4C, 0x43, 0x4D], {offset: 8})) {
-			return {
-				ext: 'qcp',
-				mime: 'audio/qcelp'
-			};
-		}
-	}
-
-	// ASF_Header_Object first 80 bytes
-	if (check([0x30, 0x26, 0xB2, 0x75, 0x8E, 0x66, 0xCF, 0x11, 0xA6, 0xD9])) {
-		// Search for header should be in first 1KB of file.
-
-		let offset = 30;
-		do {
-			const objectSize = readUInt64LE(buffer, offset + 16);
-			if (check([0x91, 0x07, 0xDC, 0xB7, 0xB7, 0xA9, 0xCF, 0x11, 0x8E, 0xE6, 0x00, 0xC0, 0x0C, 0x20, 0x53, 0x65], {offset})) {
-				// Sync on Stream-Properties-Object (B7DC0791-A9B7-11CF-8EE6-00C00C205365)
-				if (check([0x40, 0x9E, 0x69, 0xF8, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B], {offset: offset + 24})) {
-					// Found audio:
-					return {
-						ext: 'wma',
-						mime: 'audio/x-ms-wma'
-					};
-				}
-
-				if (check([0xC0, 0xEF, 0x19, 0xBC, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B], {offset: offset + 24})) {
-					// Found video:
-					return {
-						ext: 'wmv',
-						mime: 'video/x-ms-asf'
-					};
-				}
-
-				break;
-			}
-
-			offset += objectSize;
-		} while (offset + 24 <= buffer.length);
-
-		// Default to ASF generic extension
-		return {
-			ext: 'asf',
-			mime: 'application/vnd.ms-asf'
-		};
-	}
-
-	if (
-		check([0x0, 0x0, 0x1, 0xBA]) ||
-		check([0x0, 0x0, 0x1, 0xB3])
-	) {
-		return {
-			ext: 'mpg',
-			mime: 'video/mpeg'
-		};
-	}
-
-	// Check for MPEG header at different starting offsets
-	for (let start = 0; start < 2 && start < (buffer.length - 16); start++) {
-		if (
-			check([0x49, 0x44, 0x33], {offset: start}) || // ID3 header
-			check([0xFF, 0xE2], {offset: start, mask: [0xFF, 0xE6]}) // MPEG 1 or 2 Layer 3 header
-		) {
-			return {
-				ext: 'mp3',
-				mime: 'audio/mpeg'
-			};
-		}
-
-		if (
-			check([0xFF, 0xE4], {offset: start, mask: [0xFF, 0xE6]}) // MPEG 1 or 2 Layer 2 header
-		) {
-			return {
-				ext: 'mp2',
-				mime: 'audio/mpeg'
-			};
-		}
-
-		if (
-			check([0xFF, 0xF8], {offset: start, mask: [0xFF, 0xFC]}) // MPEG 2 layer 0 using ADTS
-		) {
-			return {
-				ext: 'mp2',
-				mime: 'audio/mpeg'
-			};
-		}
-
-		if (
-			check([0xFF, 0xF0], {offset: start, mask: [0xFF, 0xFC]}) // MPEG 4 layer 0 using ADTS
-		) {
-			return {
-				ext: 'mp4',
-				mime: 'audio/mpeg'
-			};
-		}
-	}
-
-	// Needs to be before `ogg` check
-	if (check([0x4F, 0x70, 0x75, 0x73, 0x48, 0x65, 0x61, 0x64], {offset: 28})) {
-		return {
-			ext: 'opus',
-			mime: 'audio/opus'
-		};
-	}
-
-	// If 'OggS' in first  bytes, then OGG container
-	if (check([0x4F, 0x67, 0x67, 0x53])) {
-		// This is a OGG container
-
-		// If ' theora' in header.
-		if (check([0x80, 0x74, 0x68, 0x65, 0x6F, 0x72, 0x61], {offset: 28})) {
-			return {
-				ext: 'ogv',
-				mime: 'video/ogg'
-			};
-		}
-
-		// If '\x01video' in header.
-		if (check([0x01, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x00], {offset: 28})) {
-			return {
-				ext: 'ogm',
-				mime: 'video/ogg'
-			};
-		}
-
-		// If ' FLAC' in header  https://xiph.org/flac/faq.html
-		if (check([0x7F, 0x46, 0x4C, 0x41, 0x43], {offset: 28})) {
-			return {
-				ext: 'oga',
-				mime: 'audio/ogg'
-			};
-		}
-
-		// 'Speex  ' in header https://en.wikipedia.org/wiki/Speex
-		if (check([0x53, 0x70, 0x65, 0x65, 0x78, 0x20, 0x20], {offset: 28})) {
-			return {
-				ext: 'spx',
-				mime: 'audio/ogg'
-			};
-		}
-
-		// If '\x01vorbis' in header
-		if (check([0x01, 0x76, 0x6F, 0x72, 0x62, 0x69, 0x73], {offset: 28})) {
-			return {
-				ext: 'ogg',
-				mime: 'audio/ogg'
-			};
-		}
-
-		// Default OGG container https://www.iana.org/assignments/media-types/application/ogg
-		return {
-			ext: 'ogx',
-			mime: 'application/ogg'
-		};
-	}
-
-	if (check([0x66, 0x4C, 0x61, 0x43])) {
-		return {
-			ext: 'flac',
-			mime: 'audio/x-flac'
-		};
-	}
-
-	if (check([0x4D, 0x41, 0x43, 0x20])) { // 'MAC '
-		return {
-			ext: 'ape',
-			mime: 'audio/ape'
-		};
-	}
-
-	if (check([0x77, 0x76, 0x70, 0x6B])) { // 'wvpk'
-		return {
-			ext: 'wv',
-			mime: 'audio/wavpack'
-		};
-	}
-
-	if (check([0x23, 0x21, 0x41, 0x4D, 0x52, 0x0A])) {
-		return {
-			ext: 'amr',
-			mime: 'audio/amr'
-		};
-	}
-
-	if (check([0x25, 0x50, 0x44, 0x46])) {
-		return {
-			ext: 'pdf',
-			mime: 'application/pdf'
-		};
-	}
-
-	if (check([0x4D, 0x5A])) {
-		return {
-			ext: 'exe',
-			mime: 'application/x-msdownload'
-		};
-	}
-
-	if (
-		(buffer[0] === 0x43 || buffer[0] === 0x46) &&
-		check([0x57, 0x53], {offset: 1})
-	) {
-		return {
-			ext: 'swf',
-			mime: 'application/x-shockwave-flash'
-		};
-	}
-
-	if (check([0x7B, 0x5C, 0x72, 0x74, 0x66])) {
-		return {
-			ext: 'rtf',
-			mime: 'application/rtf'
-		};
-	}
-
-	if (check([0x00, 0x61, 0x73, 0x6D])) {
-		return {
-			ext: 'wasm',
-			mime: 'application/wasm'
-		};
-	}
-
-	if (
-		check([0x77, 0x4F, 0x46, 0x46]) &&
-		(
-			check([0x00, 0x01, 0x00, 0x00], {offset: 4}) ||
-			check([0x4F, 0x54, 0x54, 0x4F], {offset: 4})
-		)
-	) {
-		return {
-			ext: 'woff',
-			mime: 'font/woff'
-		};
-	}
-
-	if (
-		check([0x77, 0x4F, 0x46, 0x32]) &&
-		(
-			check([0x00, 0x01, 0x00, 0x00], {offset: 4}) ||
-			check([0x4F, 0x54, 0x54, 0x4F], {offset: 4})
-		)
-	) {
-		return {
-			ext: 'woff2',
-			mime: 'font/woff2'
-		};
-	}
-
-	if (
-		check([0x4C, 0x50], {offset: 34}) &&
-		(
-			check([0x00, 0x00, 0x01], {offset: 8}) ||
-			check([0x01, 0x00, 0x02], {offset: 8}) ||
-			check([0x02, 0x00, 0x02], {offset: 8})
-		)
-	) {
-		return {
-			ext: 'eot',
-			mime: 'application/vnd.ms-fontobject'
-		};
-	}
-
-	if (check([0x00, 0x01, 0x00, 0x00, 0x00])) {
-		return {
-			ext: 'ttf',
-			mime: 'font/ttf'
-		};
-	}
-
-	if (check([0x4F, 0x54, 0x54, 0x4F, 0x00])) {
-		return {
-			ext: 'otf',
-			mime: 'font/otf'
-		};
-	}
-
-	if (check([0x00, 0x00, 0x01, 0x00])) {
-		return {
-			ext: 'ico',
-			mime: 'image/x-icon'
-		};
-	}
-
-	if (check([0x00, 0x00, 0x02, 0x00])) {
-		return {
-			ext: 'cur',
-			mime: 'image/x-icon'
-		};
-	}
-
-	if (check([0x46, 0x4C, 0x56, 0x01])) {
-		return {
-			ext: 'flv',
-			mime: 'video/x-flv'
-		};
-	}
-
-	if (check([0x25, 0x21])) {
-		return {
-			ext: 'ps',
-			mime: 'application/postscript'
-		};
-	}
-
-	if (check([0xFD, 0x37, 0x7A, 0x58, 0x5A, 0x00])) {
-		return {
-			ext: 'xz',
-			mime: 'application/x-xz'
-		};
-	}
-
-	if (check([0x53, 0x51, 0x4C, 0x69])) {
-		return {
-			ext: 'sqlite',
-			mime: 'application/x-sqlite3'
-		};
-	}
-
-	if (check([0x4E, 0x45, 0x53, 0x1A])) {
-		return {
-			ext: 'nes',
-			mime: 'application/x-nintendo-nes-rom'
-		};
-	}
-
-	if (check([0x43, 0x72, 0x32, 0x34])) {
-		return {
-			ext: 'crx',
-			mime: 'application/x-google-chrome-extension'
-		};
-	}
-
-	if (
-		check([0x4D, 0x53, 0x43, 0x46]) ||
-		check([0x49, 0x53, 0x63, 0x28])
-	) {
-		return {
-			ext: 'cab',
-			mime: 'application/vnd.ms-cab-compressed'
-		};
-	}
-
-	// Needs to be before `ar` check
-	if (check([0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A, 0x64, 0x65, 0x62, 0x69, 0x61, 0x6E, 0x2D, 0x62, 0x69, 0x6E, 0x61, 0x72, 0x79])) {
-		return {
-			ext: 'deb',
-			mime: 'application/x-deb'
-		};
-	}
-
-	if (check([0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E])) {
-		return {
-			ext: 'ar',
-			mime: 'application/x-unix-archive'
-		};
-	}
-
-	if (check([0xED, 0xAB, 0xEE, 0xDB])) {
-		return {
-			ext: 'rpm',
-			mime: 'application/x-rpm'
-		};
-	}
-
-	if (
-		check([0x1F, 0xA0]) ||
-		check([0x1F, 0x9D])
-	) {
-		return {
-			ext: 'Z',
-			mime: 'application/x-compress'
-		};
-	}
-
-	if (check([0x4C, 0x5A, 0x49, 0x50])) {
-		return {
-			ext: 'lz',
-			mime: 'application/x-lzip'
-		};
-	}
-
-	if (check([0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3E])) {
-		return {
-			ext: 'msi',
-			mime: 'application/x-msi'
-		};
-	}
-
-	if (check([0x06, 0x0E, 0x2B, 0x34, 0x02, 0x05, 0x01, 0x01, 0x0D, 0x01, 0x02, 0x01, 0x01, 0x02])) {
-		return {
-			ext: 'mxf',
-			mime: 'application/mxf'
-		};
-	}
-
-	if (check([0x47], {offset: 4}) && (check([0x47], {offset: 192}) || check([0x47], {offset: 196}))) {
-		return {
-			ext: 'mts',
-			mime: 'video/mp2t'
-		};
-	}
-
-	if (check([0x42, 0x4C, 0x45, 0x4E, 0x44, 0x45, 0x52])) {
-		return {
-			ext: 'blend',
-			mime: 'application/x-blender'
-		};
-	}
-
-	if (check([0x42, 0x50, 0x47, 0xFB])) {
-		return {
-			ext: 'bpg',
-			mime: 'image/bpg'
-		};
-	}
-
-	if (check([0x00, 0x00, 0x00, 0x0C, 0x6A, 0x50, 0x20, 0x20, 0x0D, 0x0A, 0x87, 0x0A])) {
-		// JPEG-2000 family
-
-		if (check([0x6A, 0x70, 0x32, 0x20], {offset: 20})) {
-			return {
-				ext: 'jp2',
-				mime: 'image/jp2'
-			};
-		}
-
-		if (check([0x6A, 0x70, 0x78, 0x20], {offset: 20})) {
-			return {
-				ext: 'jpx',
-				mime: 'image/jpx'
-			};
-		}
-
-		if (check([0x6A, 0x70, 0x6D, 0x20], {offset: 20})) {
-			return {
-				ext: 'jpm',
-				mime: 'image/jpm'
-			};
-		}
-
-		if (check([0x6D, 0x6A, 0x70, 0x32], {offset: 20})) {
-			return {
-				ext: 'mj2',
-				mime: 'image/mj2'
-			};
-		}
-	}
-
-	if (check([0x46, 0x4F, 0x52, 0x4D])) {
-		return {
-			ext: 'aif',
-			mime: 'audio/aiff'
-		};
-	}
-
-	if (checkString('<?xml ')) {
-		return {
-			ext: 'xml',
-			mime: 'application/xml'
-		};
-	}
-
-	if (check([0x42, 0x4F, 0x4F, 0x4B, 0x4D, 0x4F, 0x42, 0x49], {offset: 60})) {
-		return {
-			ext: 'mobi',
-			mime: 'application/x-mobipocket-ebook'
-		};
-	}
-
-	if (check([0xAB, 0x4B, 0x54, 0x58, 0x20, 0x31, 0x31, 0xBB, 0x0D, 0x0A, 0x1A, 0x0A])) {
-		return {
-			ext: 'ktx',
-			mime: 'image/ktx'
-		};
-	}
-
-	if (check([0x44, 0x49, 0x43, 0x4D], {offset: 128})) {
-		return {
-			ext: 'dcm',
-			mime: 'application/dicom'
-		};
-	}
-
-	// Musepack, SV7
-	if (check([0x4D, 0x50, 0x2B])) {
-		return {
-			ext: 'mpc',
-			mime: 'audio/x-musepack'
-		};
-	}
-
-	// Musepack, SV8
-	if (check([0x4D, 0x50, 0x43, 0x4B])) {
-		return {
-			ext: 'mpc',
-			mime: 'audio/x-musepack'
-		};
-	}
-
-	if (check([0x42, 0x45, 0x47, 0x49, 0x4E, 0x3A])) {
-		return {
-			ext: 'ics',
-			mime: 'text/calendar'
-		};
-	}
-
-	if (check([0x67, 0x6C, 0x54, 0x46, 0x02, 0x00, 0x00, 0x00])) {
-		return {
-			ext: 'glb',
-			mime: 'model/gltf-binary'
-		};
-	}
-
-	if (check([0xD4, 0xC3, 0xB2, 0xA1]) || check([0xA1, 0xB2, 0xC3, 0xD4])) {
-		return {
-			ext: 'pcap',
-			mime: 'application/vnd.tcpdump.pcap'
-		};
-	}
-
-	// Sony DSD Stream File (DSF)
-	if (check([0x44, 0x53, 0x44, 0x20])) {
-		return {
-			ext: 'dsf',
-			mime: 'audio/x-dsf' // Non-standard
-		};
-	}
-
-	if (check([0x4C, 0x00, 0x00, 0x00, 0x01, 0x14, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46])) {
-		return {
-			ext: 'lnk',
-			mime: 'application/x.ms.shortcut' // Invented by us
-		};
-	}
-
-	if (check([0x62, 0x6F, 0x6F, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x61, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00])) {
-		return {
-			ext: 'alias',
-			mime: 'application/x.apple.alias' // Invented by us
-		};
-	}
-
-	if (checkString('Creative Voice File')) {
-		return {
-			ext: 'voc',
-			mime: 'audio/x-voc'
-		};
-	}
-
-	if (check([0x0B, 0x77])) {
-		return {
-			ext: 'ac3',
-			mime: 'audio/vnd.dolby.dd-raw'
-		};
-	}
-
-	if ((check([0x7E, 0x10, 0x04]) || check([0x7E, 0x18, 0x04])) && check([0x30, 0x4D, 0x49, 0x45], {offset: 4})) {
-		return {
-			ext: 'mie',
-			mime: 'application/x-mie'
-		};
-	}
-};
-
-module.exports = fileType;
-
-Object.defineProperty(fileType, 'minimumBytes', {value: 4100});
-
-fileType.stream = readableStream => new Promise((resolve, reject) => {
-	// Using `eval` to work around issues when bundling with Webpack
-	const stream = eval('require')('stream'); // eslint-disable-line no-eval
-
-	readableStream.on('error', reject);
-	readableStream.once('readable', () => {
-		const pass = new stream.PassThrough();
-		const chunk = readableStream.read(module.exports.minimumBytes) || readableStream.read();
-		try {
-			pass.fileType = fileType(chunk);
-		} catch (error) {
-			reject(error);
-		}
-
-		readableStream.unshift(chunk);
-
-		if (stream.pipeline) {
-			resolve(stream.pipeline(readableStream, pass, () => {}));
-		} else {
-			resolve(readableStream.pipe(pass));
-		}
-	});
-});
-
-Object.defineProperty(fileType, 'extensions', {
-	get() {
-		return new Set(supported.extensions);
-	}
-});
-
-Object.defineProperty(fileType, 'mimeTypes', {
-	get() {
-		return new Set(supported.mimeTypes);
-	}
-});
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/file-type/supported.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/file-type/supported.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {
-	extensions: [
-		'jpg',
-		'png',
-		'apng',
-		'gif',
-		'webp',
-		'flif',
-		'cr2',
-		'orf',
-		'arw',
-		'dng',
-		'nef',
-		'rw2',
-		'raf',
-		'tif',
-		'bmp',
-		'jxr',
-		'psd',
-		'zip',
-		'tar',
-		'rar',
-		'gz',
-		'bz2',
-		'7z',
-		'dmg',
-		'mp4',
-		'mid',
-		'mkv',
-		'webm',
-		'mov',
-		'avi',
-		'mpg',
-		'mp2',
-		'mp3',
-		'm4a',
-		'oga',
-		'ogg',
-		'ogv',
-		'opus',
-		'flac',
-		'wav',
-		'spx',
-		'amr',
-		'pdf',
-		'epub',
-		'exe',
-		'swf',
-		'rtf',
-		'wasm',
-		'woff',
-		'woff2',
-		'eot',
-		'ttf',
-		'otf',
-		'ico',
-		'flv',
-		'ps',
-		'xz',
-		'sqlite',
-		'nes',
-		'crx',
-		'xpi',
-		'cab',
-		'deb',
-		'ar',
-		'rpm',
-		'Z',
-		'lz',
-		'msi',
-		'mxf',
-		'mts',
-		'blend',
-		'bpg',
-		'docx',
-		'pptx',
-		'xlsx',
-		'3gp',
-		'3g2',
-		'jp2',
-		'jpm',
-		'jpx',
-		'mj2',
-		'aif',
-		'qcp',
-		'odt',
-		'ods',
-		'odp',
-		'xml',
-		'mobi',
-		'heic',
-		'cur',
-		'ktx',
-		'ape',
-		'wv',
-		'wmv',
-		'wma',
-		'dcm',
-		'ics',
-		'glb',
-		'pcap',
-		'dsf',
-		'lnk',
-		'alias',
-		'voc',
-		'ac3',
-		'm4v',
-		'm4p',
-		'm4b',
-		'f4v',
-		'f4p',
-		'f4b',
-		'f4a',
-		'mie',
-		'asf',
-		'ogm',
-		'ogx',
-		'mpc'
-	],
-	mimeTypes: [
-		'image/jpeg',
-		'image/png',
-		'image/gif',
-		'image/webp',
-		'image/flif',
-		'image/x-canon-cr2',
-		'image/tiff',
-		'image/bmp',
-		'image/vnd.ms-photo',
-		'image/vnd.adobe.photoshop',
-		'application/epub+zip',
-		'application/x-xpinstall',
-		'application/vnd.oasis.opendocument.text',
-		'application/vnd.oasis.opendocument.spreadsheet',
-		'application/vnd.oasis.opendocument.presentation',
-		'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-		'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-		'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-		'application/zip',
-		'application/x-tar',
-		'application/x-rar-compressed',
-		'application/gzip',
-		'application/x-bzip2',
-		'application/x-7z-compressed',
-		'application/x-apple-diskimage',
-		'video/mp4',
-		'audio/midi',
-		'video/x-matroska',
-		'video/webm',
-		'video/quicktime',
-		'video/vnd.avi',
-		'audio/vnd.wave',
-		'audio/qcelp',
-		'audio/x-ms-wma',
-		'video/x-ms-asf',
-		'application/vnd.ms-asf',
-		'video/mpeg',
-		'video/3gpp',
-		'audio/mpeg',
-		'audio/mp4', // RFC 4337
-		'audio/opus',
-		'video/ogg',
-		'audio/ogg',
-		'application/ogg',
-		'audio/x-flac',
-		'audio/ape',
-		'audio/wavpack',
-		'audio/amr',
-		'application/pdf',
-		'application/x-msdownload',
-		'application/x-shockwave-flash',
-		'application/rtf',
-		'application/wasm',
-		'font/woff',
-		'font/woff2',
-		'application/vnd.ms-fontobject',
-		'font/ttf',
-		'font/otf',
-		'image/x-icon',
-		'video/x-flv',
-		'application/postscript',
-		'application/x-xz',
-		'application/x-sqlite3',
-		'application/x-nintendo-nes-rom',
-		'application/x-google-chrome-extension',
-		'application/vnd.ms-cab-compressed',
-		'application/x-deb',
-		'application/x-unix-archive',
-		'application/x-rpm',
-		'application/x-compress',
-		'application/x-lzip',
-		'application/x-msi',
-		'application/x-mie',
-		'application/mxf',
-		'video/mp2t',
-		'application/x-blender',
-		'image/bpg',
-		'image/jp2',
-		'image/jpx',
-		'image/jpm',
-		'image/mj2',
-		'audio/aiff',
-		'application/xml',
-		'application/x-mobipocket-ebook',
-		'image/heif',
-		'image/heif-sequence',
-		'image/heic',
-		'image/heic-sequence',
-		'image/ktx',
-		'application/dicom',
-		'audio/x-musepack',
-		'text/calendar',
-		'model/gltf-binary',
-		'application/vnd.tcpdump.pcap',
-		'audio/x-dsf', // Non-standard
-		'application/x.ms.shortcut', // Invented by us
-		'application/x.apple.alias', // Invented by us
-		'audio/x-voc',
-		'audio/vnd.dolby.dd-raw',
-		'audio/x-m4a',
-		'image/apng',
-		'image/x-olympus-orf',
-		'image/x-sony-arw',
-		'image/x-adobe-dng',
-		'image/x-nikon-nef',
-		'image/x-panasonic-rw2',
-		'image/x-fujifilm-raf',
-		'video/x-m4v',
-		'video/3gpp2'
-	]
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/file-type/util.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/file-type/util.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Buffer) {
-
-exports.stringToBytes = string => [...string].map(character => character.charCodeAt(0));
-
-const uint8ArrayUtf8ByteString = (array, start, end) => {
-	return String.fromCharCode(...array.slice(start, end));
-};
-
-exports.readUInt64LE = (buffer, offset = 0) => {
-	let n = buffer[offset];
-	let mul = 1;
-	let i = 0;
-
-	while (++i < 8) {
-		mul *= 0x100;
-		n += buffer[offset + i] * mul;
-	}
-
-	return n;
-};
-
-exports.tarHeaderChecksumMatches = buffer => { // Does not check if checksum field characters are valid
-	if (buffer.length < 512) { // `tar` header size, cannot compute checksum without it
-		return false;
-	}
-
-	const MASK_8TH_BIT = 0x80;
-
-	let sum = 256; // Intitalize sum, with 256 as sum of 8 spaces in checksum field
-	let signedBitSum = 0; // Initialize signed bit sum
-
-	for (let i = 0; i < 148; i++) {
-		const byte = buffer[i];
-		sum += byte;
-		signedBitSum += byte & MASK_8TH_BIT; // Add signed bit to signed bit sum
-	}
-
-	// Skip checksum field
-
-	for (let i = 156; i < 512; i++) {
-		const byte = buffer[i];
-		sum += byte;
-		signedBitSum += byte & MASK_8TH_BIT; // Add signed bit to signed bit sum
-	}
-
-	const readSum = parseInt(uint8ArrayUtf8ByteString(buffer, 148, 154), 8); // Read sum in header
-
-	// Some implementations compute checksum incorrectly using signed bytes
-	return (
-		// Checksum in header equals the sum we calculated
-		readSum === sum ||
-
-		// Checksum in header equals sum we calculated plus signed-to-unsigned delta
-		readSum === (sum - (signedBitSum << 1))
-	);
-};
-
-exports.multiByteIndexOf = (buffer, bytesToSearch, startAt = 0) => {
-	// `Buffer#indexOf()` can search for multiple bytes
-	if (Buffer && Buffer.isBuffer(buffer)) {
-		return buffer.indexOf(Buffer.from(bytesToSearch), startAt);
-	}
-
-	const nextBytesMatch = (buffer, bytes, startIndex) => {
-		for (let i = 1; i < bytes.length; i++) {
-			if (bytes[i] !== buffer[startIndex + i]) {
-				return false;
-			}
-		}
-
-		return true;
-	};
-
-	// `Uint8Array#indexOf()` can search for only a single byte
-	let index = buffer.indexOf(bytesToSearch[0], startAt);
-	while (index >= 0) {
-		if (nextBytesMatch(buffer, bytesToSearch, index)) {
-			return index;
-		}
-
-		index = buffer.indexOf(bytesToSearch[0], index + 1);
-	}
-
-	return -1;
-};
-
-exports.uint8ArrayUtf8ByteString = uint8ArrayUtf8ByteString;
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/media-typer/index.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/media-typer/index.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * media-typer
- * Copyright(c) 2014-2017 Douglas Christopher Wilson
- * MIT Licensed
- */
-
-
-
-/**
- * RegExp to match type in RFC 6838
- *
- * type-name = restricted-name
- * subtype-name = restricted-name
- * restricted-name = restricted-name-first *126restricted-name-chars
- * restricted-name-first  = ALPHA / DIGIT
- * restricted-name-chars  = ALPHA / DIGIT / "!" / "#" /
- *                          "$" / "&" / "-" / "^" / "_"
- * restricted-name-chars =/ "." ; Characters before first dot always
- *                              ; specify a facet name
- * restricted-name-chars =/ "+" ; Characters after last plus always
- *                              ; specify a structured syntax suffix
- * ALPHA =  %x41-5A / %x61-7A   ; A-Z / a-z
- * DIGIT =  %x30-39             ; 0-9
- */
-var SUBTYPE_NAME_REGEXP = /^[A-Za-z0-9][A-Za-z0-9!#$&^_.-]{0,126}$/
-var TYPE_NAME_REGEXP = /^[A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126}$/
-var TYPE_REGEXP = /^ *([A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126})\/([A-Za-z0-9][A-Za-z0-9!#$&^_.+-]{0,126}) *$/
-
-/**
- * Module exports.
- */
-
-exports.format = format
-exports.parse = parse
-exports.test = test
-
-/**
- * Format object to media type.
- *
- * @param {object} obj
- * @return {string}
- * @public
- */
-
-function format (obj) {
-  if (!obj || typeof obj !== 'object') {
-    throw new TypeError('argument obj is required')
-  }
-
-  var subtype = obj.subtype
-  var suffix = obj.suffix
-  var type = obj.type
-
-  if (!type || !TYPE_NAME_REGEXP.test(type)) {
-    throw new TypeError('invalid type')
-  }
-
-  if (!subtype || !SUBTYPE_NAME_REGEXP.test(subtype)) {
-    throw new TypeError('invalid subtype')
-  }
-
-  // format as type/subtype
-  var string = type + '/' + subtype
-
-  // append +suffix
-  if (suffix) {
-    if (!TYPE_NAME_REGEXP.test(suffix)) {
-      throw new TypeError('invalid suffix')
-    }
-
-    string += '+' + suffix
-  }
-
-  return string
-}
-
-/**
- * Test media type.
- *
- * @param {string} string
- * @return {object}
- * @public
- */
-
-function test (string) {
-  if (!string) {
-    throw new TypeError('argument string is required')
-  }
-
-  if (typeof string !== 'string') {
-    throw new TypeError('argument string is required to be a string')
-  }
-
-  return TYPE_REGEXP.test(string.toLowerCase())
-}
-
-/**
- * Parse media type to object.
- *
- * @param {string} string
- * @return {object}
- * @public
- */
-
-function parse (string) {
-  if (!string) {
-    throw new TypeError('argument string is required')
-  }
-
-  if (typeof string !== 'string') {
-    throw new TypeError('argument string is required to be a string')
-  }
-
-  var match = TYPE_REGEXP.exec(string.toLowerCase())
-
-  if (!match) {
-    throw new TypeError('invalid media type')
-  }
-
-  var type = match[1]
-  var subtype = match[2]
-  var suffix
-
-  // suffix after last +
-  var index = subtype.lastIndexOf('+')
-  if (index !== -1) {
-    suffix = subtype.substr(index + 1)
-    subtype = subtype.substr(0, index)
-  }
-
-  return new MediaType(type, subtype, suffix)
-}
-
-/**
- * Class for MediaType object.
- * @public
- */
-
-function MediaType (type, subtype, suffix) {
-  this.type = type
-  this.subtype = subtype
-  this.suffix = suffix
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/music-metadata/node_modules/ms/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/music-metadata/node_modules/ms/index.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var w = d * 7;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isFinite(val)) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'weeks':
-    case 'week':
-    case 'w':
-      return n * w;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (msAbs >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (msAbs >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (msAbs >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return plural(ms, msAbs, d, 'day');
-  }
-  if (msAbs >= h) {
-    return plural(ms, msAbs, h, 'hour');
-  }
-  if (msAbs >= m) {
-    return plural(ms, msAbs, m, 'minute');
-  }
-  if (msAbs >= s) {
-    return plural(ms, msAbs, s, 'second');
-  }
-  return ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, msAbs, n, name) {
-  var isPlural = msAbs >= n * 1.5;
-  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -52309,7 +51583,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.15.0
+ * @version 1.16.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -52331,16 +51605,17 @@ __webpack_require__.r(__webpack_exports__);
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
 
-var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
-var timeoutDuration = 0;
-for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
-    timeoutDuration = 1;
-    break;
+var timeoutDuration = function () {
+  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+      return 1;
+    }
   }
-}
+  return 0;
+}();
 
 function microtaskDebounce(fn) {
   var called = false;
@@ -52458,6 +51733,17 @@ function getScrollParent(element) {
   }
 
   return getScrollParent(getParentNode(element));
+}
+
+/**
+ * Returns the reference node of the reference object, or the reference object itself.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Element|Object} reference - the reference element (the popper will be relative to this)
+ * @returns {Element} parent
+ */
+function getReferenceNode(reference) {
+  return reference && reference.referenceNode ? reference.referenceNode : reference;
 }
 
 var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
@@ -52768,8 +52054,8 @@ function getBoundingClientRect(element) {
 
   // subtract scrollbar size from sizes
   var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-  var width = sizes.width || element.clientWidth || result.right - result.left;
-  var height = sizes.height || element.clientHeight || result.bottom - result.top;
+  var width = sizes.width || element.clientWidth || result.width;
+  var height = sizes.height || element.clientHeight || result.height;
 
   var horizScrollbar = element.offsetWidth - width;
   var vertScrollbar = element.offsetHeight - height;
@@ -52921,7 +52207,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
   // NOTE: 1 DOM access here
 
   var boundaries = { top: 0, left: 0 };
-  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
 
   // Handle viewport case
   if (boundariesElement === 'viewport') {
@@ -53049,7 +52335,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
 function getReferenceOffsets(state, popper, reference) {
   var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
   return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
 }
 
@@ -53311,7 +52597,7 @@ function destroy() {
 
   this.disableEventListeners();
 
-  // remove the popper if user explicity asked for the deletion on destroy
+  // remove the popper if user explicitly asked for the deletion on destroy
   // do not use `remove` because IE11 doesn't support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
@@ -59270,8 +58556,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const AbstractTokenizer_1 = __webpack_require__(/*! ./AbstractTokenizer */ "./node_modules/strtok3/lib/AbstractTokenizer.js");
 const type_1 = __webpack_require__(/*! ./type */ "./node_modules/strtok3/lib/type.js");
 const then_read_stream_1 = __webpack_require__(/*! then-read-stream */ "./node_modules/then-read-stream/lib/index.js");
-const _debug = __webpack_require__(/*! debug */ "./node_modules/strtok3/node_modules/debug/src/browser.js");
+const _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
 const debug = _debug('strtok3:ReadStreamTokenizer');
+const maxBufferSize = 1 * 1000 * 1000;
 class ReadStreamTokenizer extends AbstractTokenizer_1.AbstractTokenizer {
     constructor(stream, fileSize) {
         super();
@@ -59358,9 +58645,18 @@ class ReadStreamTokenizer extends AbstractTokenizer_1.AbstractTokenizer {
     }
     async ignore(length) {
         debug(`ignore ${this.position}...${this.position + length - 1}`);
-        // debug(`Ignore ${length} bytes in a stream`);
-        const buf = Buffer.alloc(length);
-        return this.readBuffer(buf); // Stream cannot skip data
+        const bufSize = Math.min(maxBufferSize, length);
+        const buf = Buffer.alloc(bufSize);
+        let totBytesRead = 0;
+        while (totBytesRead < length) {
+            const remaining = length - totBytesRead;
+            const bytesRead = await this.readBuffer(buf, 0, Math.min(bufSize, remaining));
+            if (bytesRead < 0) {
+                return bytesRead;
+            }
+            totBytesRead += bytesRead;
+        }
+        return totBytesRead;
     }
 }
 exports.ReadStreamTokenizer = ReadStreamTokenizer;
@@ -59421,732 +58717,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 exports.endOfFile = "End-Of-File";
 //# sourceMappingURL=type.js.map
-
-/***/ }),
-
-/***/ "./node_modules/strtok3/node_modules/debug/src/browser.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/strtok3/node_modules/debug/src/browser.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-function log(...args) {
-	// This hackery is required for IE8/9, where
-	// the `console.log` function doesn't have 'apply'
-	return typeof console === 'object' &&
-		console.log &&
-		console.log(...args);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = __webpack_require__(/*! ./common */ "./node_modules/strtok3/node_modules/debug/src/common.js")(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/strtok3/node_modules/debug/src/common.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/strtok3/node_modules/debug/src/common.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = __webpack_require__(/*! ms */ "./node_modules/strtok3/node_modules/ms/index.js");
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* Active `debug` instances.
-	*/
-	createDebug.instances = [];
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return match;
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.enabled = createDebug.enabled(namespace);
-		debug.useColors = createDebug.useColors();
-		debug.color = selectColor(namespace);
-		debug.destroy = destroy;
-		debug.extend = extend;
-		// Debug.formatArgs = formatArgs;
-		// debug.rawLog = rawLog;
-
-		// env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		createDebug.instances.push(debug);
-
-		return debug;
-	}
-
-	function destroy() {
-		const index = createDebug.instances.indexOf(this);
-		if (index !== -1) {
-			createDebug.instances.splice(index, 1);
-			return true;
-		}
-		return false;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-
-		for (i = 0; i < createDebug.instances.length; i++) {
-			const instance = createDebug.instances[i];
-			instance.enabled = createDebug.enabled(instance.namespace);
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-
-/***/ }),
-
-/***/ "./node_modules/strtok3/node_modules/ms/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/strtok3/node_modules/ms/index.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var w = d * 7;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isFinite(val)) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'weeks':
-    case 'week':
-    case 'w':
-      return n * w;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (msAbs >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (msAbs >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (msAbs >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return plural(ms, msAbs, d, 'day');
-  }
-  if (msAbs >= h) {
-    return plural(ms, msAbs, h, 'hour');
-  }
-  if (msAbs >= m) {
-    return plural(ms, msAbs, m, 'minute');
-  }
-  if (msAbs >= s) {
-    return plural(ms, msAbs, s, 'second');
-  }
-  return ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, msAbs, n, name) {
-  var isPlural = msAbs >= n * 1.5;
-  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
-}
-
 
 /***/ }),
 
@@ -60922,7 +59492,7 @@ class StreamReader {
             return this.request.deferred.promise.then(n => {
                 this.request = null;
                 return n;
-            }).catch(err => {
+            }, err => {
                 this.request = null;
                 throw err;
             });
@@ -62727,7 +61297,7 @@ var render = function() {
             domProps: { value: _vm.sliderValue },
             on: { change: _vm.changed }
           }),
-          _vm._v("\n        " + _vm._s(this.duration) + "\n     \n      ")
+          _vm._v("\n        " + _vm._s(this.duration) + "\n\n      ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "is-center" }, [
@@ -78727,8 +77297,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /root/first/Music_Player_vl/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /root/first/Music_Player_vl/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/local/SLS/shanmukha.allu/projects/Music_Player_vl/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/local/SLS/shanmukha.allu/projects/Music_Player_vl/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

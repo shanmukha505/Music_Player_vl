@@ -99,6 +99,7 @@ export default {
 			formData.append('song_id',this.song_id);
 			formData.append('user_id',this.user_id);
 			formData.append('song',this.song);
+			formData.append('song_src',this.src);
 			this.view=!this.view;
 			axios.post('/play',
         
