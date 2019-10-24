@@ -2736,8 +2736,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.mins = Math.round(this.sliderValue) / 60;
       }
 
-      this.mins = Math.round(Math.round(this.sliderValue) / 60);
-      var secs = Math.round(this.sliderValue) % 60;
+      var secs = this.audio._duration % 60;
+      var mins = Math.round((this.audio._duration - secs) / 60);
+      secs = Math.round(secs);
       if (secs.toString().length == 1) this.currenttime = this.mins + ':0' + Math.round(this.sliderValue) % 60;else this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
     },
     readFromBlob: function () {
@@ -2879,19 +2880,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     repeat: function repeat() {
       var l = this.$refs.slider;
       l.max = this.audio.duration();
-      var mins = Math.floor(this.audio._duration / 60);
-      var secs = this.audio._duration - mins * 60;
-      mins += 1;
-      if (secs.toString().length == 1) this.duration = mins + ':0' + Math.floor(secs);else this.duration = mins + ':' + Math.floor(secs);
+      var secs = this.audio._duration % 60;
+      var mins = Math.round((this.audio._duration - secs) / 60);
+      secs = Math.round(secs);
+      if (secs.toString().length == 1) this.duration = mins + ':0' + Math.round(secs);else this.duration = mins + ':' + Math.round(secs);
 
       if (l.value != l.max) {
         this.sliderValue = this.audio.seek();
 
         if (Math.round(this.sliderValue) % 60 == 0) {
-          this.mins = Math.round(this.sliderValue) / 60;
+          this.mins = Math.floor(this.sliderValue / 60); //console.log(this.mins+"slider");
         }
 
-        this.mins = Math.round(Math.round(this.sliderValue) / 60);
+        this.mins = Math.floor(this.sliderValue / 60); //console.log(this.mins);
+
         var secs = Math.round(this.sliderValue) % 60;
         if (secs.toString().length == 1) this.currenttime = this.mins + ':0' + Math.round(this.sliderValue) % 60;else this.currenttime = this.mins + ':' + Math.round(this.sliderValue) % 60;
       }

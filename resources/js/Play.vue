@@ -241,9 +241,11 @@ export default {
 
       }
 
-      this.mins=Math.round(Math.round(this.sliderValue)/60);
+       var secs = this.audio._duration %60;
 
-      var secs=Math.round(this.sliderValue)%60;
+      var mins = Math.round((this.audio._duration-secs)/60);
+
+      secs=Math.round(secs);
 
       if(secs.toString().length==1)
 
@@ -437,19 +439,19 @@ export default {
 
       l.max=this.audio.duration();
 
-      var mins = Math.floor(this.audio._duration/60);
+      var secs = this.audio._duration %60;
 
-      var secs = this.audio._duration - mins * 60;
+      var mins = Math.round((this.audio._duration-secs)/60);
 
-      mins+=1;
+      secs=Math.round(secs);
 
       if(secs.toString().length==1)
 
-        this.duration = mins + ':0' + Math.floor(secs);
+        this.duration = mins + ':0' + Math.round(secs);
 
       else
 
-        this.duration = mins + ':' + Math.floor(secs);
+        this.duration = mins + ':' + Math.round(secs);
 
       if(l.value!=l.max)
       {
@@ -459,11 +461,15 @@ export default {
         if(Math.round(this.sliderValue)%60 ==0)
         {
 
-          this.mins=Math.round(this.sliderValue)/60;
+          this.mins=Math.floor(this.sliderValue/60);
+
+          //console.log(this.mins+"slider");
 
         }
 
-        this.mins=Math.round(Math.round(this.sliderValue)/60);
+        this.mins=Math.floor(this.sliderValue/60);
+
+        //console.log(this.mins);
 
         var secs=Math.round(this.sliderValue)%60;
 

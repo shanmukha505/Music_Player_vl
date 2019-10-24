@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\NewUserSongsUpload;
+use App\Jobs\AlertUsersForNewSongs;
+
 use Illuminate\Http\Request;
-use Notification;
+
 use Auth;
 
-use App\Song;
+use App\User;
 
+use App\Song;
 
 use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\Storage;
-
 
 class SongController extends Controller
 {
@@ -23,10 +24,7 @@ class SongController extends Controller
 		return Auth::id();
 	}
 
-
-
     public function store(Request $request) {
-
 
         $this->validate($request, [
 
@@ -45,9 +43,16 @@ class SongController extends Controller
         $place = "". $this->getUserDir();
 
         $id = Auth::id();
+
+        $mail=Auth::user()->email;
+
         $find= $model::where('user_id', $id)->first();
+
         if($find == '')
-        Notification::route('mail','music@mail.com')->notify(new NewUserSongsUpload);
+        {
+            dispatch(new AlertUsersForNewSongs(User::find(Auth::id())));
+
+        }
 
         if (Storage::putFileAs('/public/' . $this->getUserDir() . '/', $file, $request['name'] )) {
 
@@ -64,9 +69,6 @@ class SongController extends Controller
 
                 ]);
         }
-        $id = Auth::id();
-        $find= DB::table('songs')->where('user_id', $id)->first();
-
 
         return response()->json(['success'=>'You have successfully upload file.']);
 
