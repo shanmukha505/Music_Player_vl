@@ -1,36 +1,21 @@
 <template>
-
-	<div class="container">
-
-    <play></play>
-
-  </div>	
-     
+    <div class="container">
+        <play></play>
+    </div>
 </template>
 
-
 <script>
-
-import Play from './Play.vue';
+import Play from "./Play.vue";
 
 export default {
-
-  components: {
-
-    Play
-
-  },
-
-
-}
-
+    components: {
+        Play
+    }
+};
 </script>
 
 <style>
-
-span{
-
-  margin-left: auto;
+span {
+    margin-left: auto;
 }
-
 </style>

@@ -1,11 +1,10 @@
-
 @extends('layouts.app')
 
 @section('content')
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html>
+    <html>
 
     <head>
 
@@ -16,20 +15,19 @@
         <title>Audio Player</title>
 
         <link rel="stylesheet" type="text/css" href="/css/app.css" />
-        
+
     </head>
 
     <body>
-      
-        <div id="app">
-          
-          <router-view></router-view>
 
-      </div>
+        <div id="app">
+
+            <router-view></router-view>
+
+        </div>
 
     </body>
 
-</html>
+    </html>
 
 @endsection
-
